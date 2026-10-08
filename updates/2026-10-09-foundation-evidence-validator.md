@@ -41,3 +41,17 @@ python scripts/verify_foundation_evidence.py artifacts/verification/foundation-c
 ```
 
 No tests are claimed executed in this environment. The cross-component test is committed as source but remains unexecuted pending a usable checkout. No hosted/paid CI dependency, merge, release, scientific validation or deployment authorization is introduced. The next gate remains obtaining real local execution output and reviewing the exact source revision.
+
+
+## Defensive-hardening follow-up
+
+The next validator-hardening pass is committed on `integration/all-github-repositories`:
+
+- Type-checks the report outcome before comparison so malformed JSON values produce validation errors rather than an uncaught exception.
+- Requires the canonical runner and canonical DingoOS repository identity.
+- Rejects absolute, traversal-based, backslash-separated, and duplicate artifact-inventory paths.
+- Adds adversarial regression tests for each case.
+
+Files: `scripts/verify_foundation_evidence.py`, `tests/core/test_foundation_evidence_validator.py`, and `docs/architecture/FOUNDATION-EVIDENCE-REPORT-VALIDATION-CONTRACT.md`.
+
+Status remains **execution NOT VERIFIED**. The changes are pushed and re-fetched from GitHub, but test execution is not available in this workflow. No paid CI requirement, merge, release, scientific validation, or deployment authorization is introduced.

@@ -10,13 +10,13 @@ The previous runner captured repository revision and working-tree state before c
 
 ## Implemented
 
-The runner now records both pre-run and post-run Git revision, working-tree cleanliness and normalized canonical repository origin. The report returns PASS only if the pre/post revision and origin match, both working-tree snapshots are clean, and every required command passes. Otherwise the result is HOLD. The report schema remains v1 and gains additive post-run fields.
+The runner now records pre-run and post-run Git revision, branch, working-tree cleanliness and normalized canonical repository origin. The report returns PASS only if the pre/post revision, branch and origin match, both working-tree snapshots are clean, and every required command passes. An invalid post-run origin is recorded as HOLD rather than silently dropping the report. Custom output paths inside the checkout are restricted to `artifacts/verification` so the evidence command cannot overwrite source/configuration files. Otherwise the result is HOLD. The report schema remains v1 and gains additive post-run fields.
 
 ## Formal invariant
 
-Let r0/r1 be source revisions, o0/o1 normalized origins, and w0/w1 pre/post clean flags.
+Let r0/r1 be source revisions, b0/b1 branches, o0/o1 normalized origins, and w0/w1 pre/post clean flags.
 
-`StableCheckout = (r0 == r1) AND (o0 == o1) AND w0 AND w1`
+`StableCheckout = (r0 == r1) AND (b0 == b1) AND (o0 == o1) AND w0 AND w1`
 
 PASS additionally requires all required gate commands to return zero. The report digest is a checksum, not a cryptographic signature or proof that external CI ran.
 
@@ -26,7 +26,7 @@ PASS additionally requires all required gate commands to return zero. The report
 - `tests/core/test_foundation_ci_runner.py`
 - `docs/architecture/FOUNDATION-RUNNER-PROVENANCE-CONTRACT.md`
 
-Regression tests cover mutation of working-tree state, revision and origin across the gate sequence.
+Regression tests cover mutation of working-tree state, revision, branch and origin across the gate sequence, plus safe output path restrictions.
 
 ## Verification boundary and next action
 

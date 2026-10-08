@@ -73,3 +73,5 @@ The board intentionally does not claim scientific validation, production certifi
 - Flying-vehicle objective block added: an evidence-governed roadable electric VTOL design space now has explicit preliminary objectives and mandatory engineering screening gates. The repository deliberately treats this as a design/simulation target, not an existing or certified aircraft.
 
 - E-HOVER-01 dynamics/control block advanced: deterministic rigid-body 6-DOF Newton-Euler state model plus distributed-propulsion wrench allocation/rank analysis, with fail-closed actuator bounds and explicit validation boundaries. Reference tests and formal contracts added; no airworthiness claim.
+
+- Verification reconciliation: vehicle-reference workflow run 1209 (run ID 37796420848) was rerun once (attempt 2) and again completed with failure before any executable job steps (`steps: null`, `logs_url: null`). This is an infrastructure/runner admission failure, not source-test evidence. The workflow now contains standalone E-HOVER-01 dynamics, allocation, fault-injection and control-supervisor checks. Local/free runner execution remains the path to clear the infrastructure HOLD.

@@ -38,7 +38,10 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - fail-closed execution recovery/reconciliation is now formalized: unresolved PREPARED executions become HOLD, successful lifecycle completion requires a matching DDEP stage commit, and unresolved terminal/commit disagreement cannot replay automatically;
 - DDEPResearchRuntime now exposes the deterministic recovery reconciliation API, with architecture contract documentation and regression coverage;
 - DDEP stage commits are now cryptographically/provenance-bound to the exact ExecutionObject version: execution ID, ExecutionObject digest, DPO/stage identity, provenance event, and durable lifecycle event references; recovery no longer treats step_id alone as sufficient matching evidence;
-- regression coverage now exercises a same-stage/different-execution tamper case and fail-closed recovery.
+- regression coverage now exercises a same-stage/different-execution tamper case and fail-closed recovery;
+- DDEP stage commits now carry an explicit chain binding: D001 has no preceding durable DPO/stage, while every later stage binds to the exact preceding committed DPO hash and preceding stage ledger integrity hash;
+- durable execution bindings now include PREPARED/SUCCEEDED lifecycle event digests, and restore/recovery validates those digests against the actual ledger lifecycle records;
+- multi-stage chain restoration and tampered preceding-DPO-chain regression coverage added.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 

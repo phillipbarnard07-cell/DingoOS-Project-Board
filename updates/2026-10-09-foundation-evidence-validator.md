@@ -55,3 +55,18 @@ The next validator-hardening pass is committed on `integration/all-github-reposi
 Files: `scripts/verify_foundation_evidence.py`, `tests/core/test_foundation_evidence_validator.py`, and `docs/architecture/FOUNDATION-EVIDENCE-REPORT-VALIDATION-CONTRACT.md`.
 
 Status remains **execution NOT VERIFIED**. The changes are pushed and re-fetched from GitHub, but test execution is not available in this workflow. No paid CI requirement, merge, release, scientific validation, or deployment authorization is introduced.
+
+
+## Checkout-backed inventory verification block
+
+Added optional local verification of artifact inventory entries against an actual checkout:
+
+- `scripts/verify_foundation_evidence.py --checkout-root .` hashes each listed file and checks byte length.
+- Missing files, byte-count or SHA-256 mismatches, symlink components, and paths outside the checkout are rejected.
+- Without `--checkout-root`, the CLI labels the inventory as `STRUCTURE_ONLY`; with successful checkout verification it reports `VERIFIED_AGAINST_CHECKOUT`.
+- Added regression cases for matching file bytes, modified file bytes, missing files, and symlink rejection.
+- Formalized the verification boundary and example command in the architecture contract.
+
+Files changed on `integration/all-github-repositories`: `scripts/verify_foundation_evidence.py`, `tests/core/test_foundation_evidence_validator.py`, and `docs/architecture/FOUNDATION-EVIDENCE-REPORT-VALIDATION-CONTRACT.md`.
+
+**Execution remains NOT VERIFIED.** The source and tests are committed but have not been executed here. Inventory verification does not prove completeness, source revision identity, producer authenticity, or actual gate execution. No paid CI, merge, release, scientific validation, or deployment authorization is claimed.

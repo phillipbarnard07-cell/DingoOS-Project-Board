@@ -10,7 +10,7 @@ The runner emits a deterministic SHA-256 digest, but consumers had no independen
 
 ## Implemented
 
-- `scripts/verify_foundation_evidence.py`: offline JSON schema, digest and PASS/HOLD consistency validator.
+- `scripts/verify_foundation_evidence.py`: offline JSON schema, digest and PASS/HOLD consistency validator. It also validates field types and shapes in revisions, tree entries, command records, artifact inventory and claims for both PASS and HOLD reports.
 - `tests/core/test_foundation_evidence_validator.py`: adversarial tests for tampering, false PASS claims, failed gates, dirty trees, changed revision, schema/field errors, and scientific-validation overclaim.
 - `docs/architecture/FOUNDATION-EVIDENCE-REPORT-VALIDATION-CONTRACT.md`: digest equation, PASS predicate, CLI exit semantics, limits and review requirements.
 

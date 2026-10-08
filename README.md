@@ -58,3 +58,6 @@ Implemented means executable code exists. Tested means automated tests cover beh
 **Branch relation:** PR #69 is open, unmerged and non-mergeable; its current head is `c98e225d248e126846078bb1d85d3919af0769c0` (151 commits on the PR). Exact ahead/behind counts are not asserted here because the available GitHub comparison response does not expose them directly.
 
 The board intentionally does not claim scientific validation, production certification, consequential deployment, or overall completion percentage.
+
+- whole-ledger continuity attestation added: complete append-only ledger, contiguous DDEP prefix, checkpoint/DPO/stage links, execution lifecycle binding, and deterministic attestation digest are validated read-only;
+- attestation distinguishes COMPLETE from unresolved HOLD and cannot create authorization or epistemic truth.

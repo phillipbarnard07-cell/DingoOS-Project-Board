@@ -33,13 +33,14 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - the prior post-execution `EXECUTION_OBJECT` persistence model remains available as an explicit compatibility mode (`durable_execution_lifecycle=False`) rather than being discarded;
 - static reassessment found and corrected a lifecycle defect where FAILED/HOLD terminal records did not propagate their failure reason into the terminal `ExecutionObject`; regression tests now cover both terminal states;
 - foundation-runner evidence is now bound to the actual Git branch and clean working-tree state; detached HEAD and dirty-tree provenance fail closed;
-- regression tests cover both provenance boundaries.
+- regression tests cover both provenance boundaries;
+- durable execution lifecycle events now validate their internal event digest and embedded ExecutionObject/state consistency, with tamper-detection regressions.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 
 **Cost boundary:** no paid GitHub service is required or introduced.
 
-**Current DingoOS head:** `90a47cf6753c1806562e6b319ed8614459ca6487`.
+**Current DingoOS head:** `cc4577591747474d81801cd3d19b997b75c2a36f`.
 
 **Branch relation:** PR #69 is open, unmerged and non-mergeable; its current head is `c98e225d248e126846078bb1d85d3919af0769c0` (151 commits on the PR). Exact ahead/behind counts are not asserted here because the available GitHub comparison response does not expose them directly.
 

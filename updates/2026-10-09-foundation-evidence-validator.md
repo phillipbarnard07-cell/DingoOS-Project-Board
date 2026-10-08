@@ -49,7 +49,7 @@ The next validator-hardening pass is committed on `integration/all-github-reposi
 
 - Type-checks the report outcome before comparison so malformed JSON values produce validation errors rather than an uncaught exception.
 - Requires the canonical runner and canonical DingoOS repository identity.
-- Rejects absolute, traversal-based, backslash-separated, and duplicate artifact-inventory paths.
+- Rejects POSIX absolute, Windows drive-qualified, traversal-based, backslash-separated, and duplicate artifact-inventory paths. A Windows drive-path regression case was added during final reassessment.
 - Adds adversarial regression tests for each case.
 
 Files: `scripts/verify_foundation_evidence.py`, `tests/core/test_foundation_evidence_validator.py`, and `docs/architecture/FOUNDATION-EVIDENCE-REPORT-VALIDATION-CONTRACT.md`.

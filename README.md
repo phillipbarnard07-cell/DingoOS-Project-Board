@@ -16,12 +16,14 @@ Implemented means executable code exists. Tested means automated tests cover beh
 
 **Canonical integration:** DingoOS PR #69, branch `integration/all-github-repositories`.
 
-**Current block:** scheduler → DDEP `ExecutionObject` binding.
+**Current block:** scheduler → DDEP `ExecutionObject` binding → separate execution authorization gate.
 
 **Implemented in the private canonical repository:**
 - typed, schema-shaped `ExecutionObject` contract with deterministic digest and fail-closed status rules;
 - scheduler `ComputeDecision` now preserves selected `resource_id`;
 - DDEP can run in strict binding mode and durably record one `EXECUTION_OBJECT` per committed stage;
+- execution authorization is now explicitly separated from scheduler/resource eligibility; strict DDEP execution fails closed without an explicit authorization;
+- the authorization gate reuses the canonical `AuthorityRegistry`/`Authorization` primitives, requires matching resource and `AUTHORIZE` scope, and records the authorization reference/result on the ExecutionObject;
 - restore verifies the durable execution binding against the scheduler decision;
 - regression coverage includes malformed fields, fail-closed status, replay/idempotency and tamper detection.
 
@@ -29,6 +31,6 @@ Implemented means executable code exists. Tested means automated tests cover beh
 
 **Cost boundary:** no paid GitHub service is required or introduced.
 
-**Current DingoOS head:** `2bf7fa3cc58b2a5d1cbae4b032684d0523f38520`.
+**Current DingoOS head:** `4f84d3c2411042eab73263317b0884de836930f3`.
 
 The board intentionally does not claim scientific validation, production certification, consequential deployment, or overall completion percentage.

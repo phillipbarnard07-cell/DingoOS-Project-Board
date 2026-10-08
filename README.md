@@ -67,3 +67,5 @@ The board intentionally does not claim scientific validation, production certifi
 - DDEP chain attestation is now independently verifiable: RuntimeChainAttestation.verify() checks its canonical SHA-256 digest and recovery-state vocabulary, while attest_chain() remains the source-chain evidence gate.
 
 - Runtime attestation persistence completed: verified DDEP chain attestations can be stored as idempotent `RUNTIME_CHAIN_ATTESTATION` operational evidence, with pre-attestation ledger-head binding and portable digest verification. This remains integrity evidence, not scientific truth or a canonical EvidenceObject.
+
+- Objective Design Kernel completed: C-2PO objectives now have explicit metrics, hard feasibility constraints, deterministic candidate identity/evaluation digests, Pareto non-dominance filtering, provenance-preserving exponential expansion, and an explicit candidate-growth cap. Pareto survival remains separate from verification, qualification, authorization, deployment, and truth.

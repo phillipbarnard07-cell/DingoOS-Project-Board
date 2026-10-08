@@ -70,3 +70,18 @@ Added optional local verification of artifact inventory entries against an actua
 Files changed on `integration/all-github-repositories`: `scripts/verify_foundation_evidence.py`, `tests/core/test_foundation_evidence_validator.py`, and `docs/architecture/FOUNDATION-EVIDENCE-REPORT-VALIDATION-CONTRACT.md`.
 
 **Execution remains NOT VERIFIED.** The source and tests are committed but have not been executed here. Inventory verification does not prove completeness, source revision identity, producer authenticity, or actual gate execution. No paid CI, merge, release, scientific validation, or deployment authorization is claimed.
+
+
+## Git revision binding block
+
+Added `--bind-git-revision` to the offline validator. Used with `--checkout-root .`, it requires the current checkout to be clean and non-detached, binds report pre/post revisions to `git rev-parse HEAD`, binds report branches to the current branch, and verifies each inventoried file against the committed Git blob at that revision. Untracked/generated inventory entries are rejected as not present in the declared commit.
+
+Added regression cases for a matching clean commit, revision mismatch plus dirty tree, and inventory entries absent from the commit. Updated the formal contract with the command and explicit limits.
+
+Command:
+
+```bash
+python scripts/verify_foundation_evidence.py artifacts/verification/foundation-ci.json --checkout-root . --bind-git-revision
+```
+
+Files on `integration/all-github-repositories`: validator, validator tests, and validation contract. Execution remains **NOT VERIFIED**; these tests have not been run here. No paid CI, merge, release, scientific validation, or deployment authorization is claimed.

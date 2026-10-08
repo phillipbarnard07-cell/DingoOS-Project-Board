@@ -16,21 +16,25 @@ Implemented means executable code exists. Tested means automated tests cover beh
 
 **Canonical integration:** DingoOS PR #69, branch `integration/all-github-repositories`.
 
-**Current block:** scheduler → DDEP `ExecutionObject` binding → separate execution authorization gate.
+**Current block:** local foundation verification runner hardening, followed by executable repository-wide verification.
 
 **Implemented in the private canonical repository:**
 - typed, schema-shaped `ExecutionObject` contract with deterministic digest and fail-closed status rules;
 - scheduler `ComputeDecision` now preserves selected `resource_id`;
 - DDEP can run in strict binding mode and durably record one `EXECUTION_OBJECT` per committed stage;
-- execution authorization is now explicitly separated from scheduler/resource eligibility; strict DDEP execution fails closed without an explicit authorization;
-- the authorization gate reuses the canonical `AuthorityRegistry`/`Authorization` primitives, requires matching resource and `AUTHORIZE` scope, and records the authorization reference/result on the ExecutionObject;
-- restore verifies the durable execution binding against the scheduler decision without reauthorizing persisted executions; DDEP resume re-enters the same pre-execution authorization gate rather than bypassing it; scheduler DecisionObject output now explicitly distinguishes resource authorization from execution authorization;
-- regression coverage includes malformed fields, fail-closed status, replay/idempotency, tamper detection, strict resume authorization, scheduler/execution authorization separation, malformed-record/type hardening, and non-finite latency rejection; hosted workflows were also reconciled to valid manual-only triggers so they cannot create automatic paid-run pressure.
+- execution authorization is explicitly separated from scheduler/resource eligibility; strict DDEP execution fails closed without explicit authorization;
+- the authorization gate reuses canonical `Authorization` primitives, requires matching resource and `AUTHORIZE` scope, and records the authorization reference/result;
+- restore validates persisted execution authorization without silently reauthorizing replay; resume re-enters the pre-execution authorization gate;
+- malformed execution records, non-finite latency, scheduler/execution authorization confusion, and related fail-closed boundaries have regression coverage;
+- the local foundation runner now excludes runtime `artifacts/` from source inventory and fails closed on repository symlinks, with regression tests for both boundaries;
+- hosted workflows on the integration branch remain manual-only to preserve the project cost boundary.
 
-**Verification state:** **HOLD / NOT VERIFIED**. The current execution environment cannot run the repository-local foundation runner because no usable checkout is available and network resolution for GitHub is unavailable. GitHub Foundation Gates is observable only as a completed failure with no executable steps/logs exposed (`steps: null`, `logs_url: null`); no source-code failure is inferred.
+**Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 
 **Cost boundary:** no paid GitHub service is required or introduced.
 
-**Current DingoOS head:** `1301baa1941b1e755a5a599c279e229d30f6a2a5`.
+**Current DingoOS head:** `b7f7a4dc08e46eb4a55ac0711772bfb8f2973a48`.
+
+**Branch relation:** integration branch is currently 140 commits ahead / 3 behind `main` and remains diverged; PR #69 is open and non-mergeable.
 
 The board intentionally does not claim scientific validation, production certification, consequential deployment, or overall completion percentage.

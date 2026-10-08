@@ -41,7 +41,10 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - regression coverage now exercises a same-stage/different-execution tamper case and fail-closed recovery;
 - DDEP stage commits now carry an explicit chain binding: D001 has no preceding durable DPO/stage, while every later stage binds to the exact preceding committed DPO hash and preceding stage ledger integrity hash;
 - durable execution bindings now include PREPARED/SUCCEEDED lifecycle event digests, and restore/recovery validates those digests against the actual ledger lifecycle records;
-- multi-stage chain restoration and tampered preceding-DPO-chain regression coverage added.
+- multi-stage chain restoration and tampered preceding-DPO-chain regression coverage added;
+- adversarial coverage now checks omitted/reordered stages and substituted predecessor hashes;
+- lifecycle-digest tampering is fail-closed;
+- D001 semantics were corrected so its input DPO hash is bound while its preceding durable-stage hash remains null.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 

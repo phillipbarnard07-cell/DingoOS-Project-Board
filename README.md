@@ -63,3 +63,5 @@ The board intentionally does not claim scientific validation, production certifi
 - attestation distinguishes COMPLETE from unresolved HOLD and cannot create authorization or epistemic truth.
 
 - hardened whole-ledger attestation with explicit continuity invariants: contiguous configured stages, positional checkpoint sequences, unique stage/checkpoint identities, monotonic ledger placement, and exact PREPARED→SUCCEEDED lifecycle ownership; orphan lifecycle records now fail closed.
+
+- DDEP chain attestation is now independently verifiable: RuntimeChainAttestation.verify() checks its canonical SHA-256 digest and recovery-state vocabulary, while attest_chain() remains the source-chain evidence gate.

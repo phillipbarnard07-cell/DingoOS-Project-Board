@@ -45,6 +45,9 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - adversarial coverage now checks omitted/reordered stages and substituted predecessor hashes;
 - lifecycle-digest tampering is fail-closed;
 - D001 semantics were corrected so its input DPO hash is bound while its preceding durable-stage hash remains null.
+- checkpoint-chain binding now requires D001 `previous_checkpoint_hash = null` and every later stage to reference the immediately preceding checkpoint hash;
+- checkpoint input DPO hash, checkpoint hash, stage integrity hash, and next-stage input are now treated as one deterministic provenance chain;
+- adversarial coverage added for substituted checkpoint predecessor hashes.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 

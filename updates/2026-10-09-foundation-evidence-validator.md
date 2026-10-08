@@ -40,4 +40,4 @@ python scripts/run_foundation_ci.py
 python scripts/verify_foundation_evidence.py artifacts/verification/foundation-ci.json
 ```
 
-No tests are claimed executed in this environment. No hosted/paid CI dependency, merge, release, scientific validation or deployment authorization is introduced. The next gate remains obtaining real local execution output and reviewing the exact source revision.
+No tests are claimed executed in this environment. The cross-component test is committed as source but remains unexecuted pending a usable checkout. No hosted/paid CI dependency, merge, release, scientific validation or deployment authorization is introduced. The next gate remains obtaining real local execution output and reviewing the exact source revision.

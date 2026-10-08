@@ -12,7 +12,7 @@ Implemented means executable code exists. Tested means automated tests cover beh
 
 **Evidence Over Assumption · Science Over Belief · Provenance Over Assertion**
 
-## Current engineering checkpoint — 2026-10-08
+## Current engineering checkpoint — 2026-10-09
 
 **Canonical integration:** DingoOS PR #69, branch `integration/all-github-repositories`.
 
@@ -36,13 +36,15 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - regression tests cover both provenance boundaries;
 - durable execution lifecycle events now validate their internal event digest and embedded ExecutionObject/state consistency, with tamper-detection regressions;
 - fail-closed execution recovery/reconciliation is now formalized: unresolved PREPARED executions become HOLD, successful lifecycle completion requires a matching DDEP stage commit, and unresolved terminal/commit disagreement cannot replay automatically;
-- DDEPResearchRuntime now exposes the deterministic recovery reconciliation API, with architecture contract documentation and regression coverage.
+- DDEPResearchRuntime now exposes the deterministic recovery reconciliation API, with architecture contract documentation and regression coverage;
+- DDEP stage commits are now cryptographically/provenance-bound to the exact ExecutionObject version: execution ID, ExecutionObject digest, DPO/stage identity, provenance event, and durable lifecycle event references; recovery no longer treats step_id alone as sufficient matching evidence;
+- regression coverage now exercises a same-stage/different-execution tamper case and fail-closed recovery.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 
 **Cost boundary:** no paid GitHub service is required or introduced.
 
-**Current DingoOS head:** `75a1c096bc47edf11cfc5edf0bcfb7b543505b06`.
+**Current DingoOS head:** `6587a6c19f16cfcad25cc59af2d90dffd56f55c3`.
 
 **Branch relation:** PR #69 is open, unmerged and non-mergeable; its current head is `c98e225d248e126846078bb1d85d3919af0769c0` (151 commits on the PR). Exact ahead/behind counts are not asserted here because the available GitHub comparison response does not expose them directly.
 

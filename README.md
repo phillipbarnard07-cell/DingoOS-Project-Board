@@ -16,7 +16,7 @@ Implemented means executable code exists. Tested means automated tests cover beh
 
 **Canonical integration:** DingoOS PR #69, branch `integration/all-github-repositories`.
 
-**Current block:** local foundation verification runner hardening, followed by executable repository-wide verification.
+**Current block:** durable execution lifecycle hardening (pre-execution preparation → terminal result → stage commit), followed by executable repository-wide verification.
 
 **Implemented in the private canonical repository:**
 - typed, schema-shaped `ExecutionObject` contract with deterministic digest and fail-closed status rules;
@@ -27,13 +27,16 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - restore validates persisted execution authorization without silently reauthorizing replay; resume re-enters the pre-execution authorization gate;
 - malformed execution records, non-finite latency, scheduler/execution authorization confusion, and related fail-closed boundaries have regression coverage;
 - the local foundation runner now excludes runtime `artifacts/` from source inventory and fails closed on repository symlinks, with regression tests for both boundaries;
-- hosted workflows on the integration branch remain manual-only to preserve the project cost boundary.
+- hosted workflows on the integration branch remain manual-only to preserve the project cost boundary;
+- durable execution lifecycle events now persist an authorized `PREPARED` event before consequential execution and a terminal `SUCCEEDED`/`FAILED` event before the DDEP stage commit;
+- orphaned or terminal-without-commit execution lifecycles fail closed and block re-execution pending recovery/reconciliation;
+- the prior post-execution `EXECUTION_OBJECT` persistence model remains available as an explicit compatibility mode (`durable_execution_lifecycle=False`) rather than being discarded.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 
 **Cost boundary:** no paid GitHub service is required or introduced.
 
-**Current DingoOS head:** `b7f7a4dc08e46eb4a55ac0711772bfb8f2973a48`.
+**Current DingoOS head:** `012d86d198b4574049f1c33356467b8c3c0e6624`.
 
 **Branch relation:** integration branch is currently 140 commits ahead / 3 behind `main` and remains diverged; PR #69 is open and non-mergeable.
 

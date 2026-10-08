@@ -69,3 +69,5 @@ The board intentionally does not claim scientific validation, production certifi
 - Runtime attestation persistence completed: verified DDEP chain attestations can be stored as idempotent `RUNTIME_CHAIN_ATTESTATION` operational evidence, with pre-attestation ledger-head binding and portable digest verification. This remains integrity evidence, not scientific truth or a canonical EvidenceObject.
 
 - Objective Design Kernel completed: C-2PO objectives now have explicit metrics, hard feasibility constraints, deterministic candidate identity/evaluation digests, Pareto non-dominance filtering, provenance-preserving exponential expansion, and an explicit candidate-growth cap. Pareto survival remains separate from verification, qualification, authorization, deployment, and truth.
+
+- Flying-vehicle objective block added: an evidence-governed roadable electric VTOL design space now has explicit preliminary objectives and mandatory engineering screening gates. The repository deliberately treats this as a design/simulation target, not an existing or certified aircraft.

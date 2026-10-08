@@ -16,7 +16,7 @@ Implemented means executable code exists. Tested means automated tests cover beh
 
 **Canonical integration:** DingoOS PR #69, branch `integration/all-github-repositories`.
 
-**Current block:** durable execution lifecycle hardening (pre-execution preparation → terminal result → stage commit), followed by executable repository-wide verification.
+**Current block:** executable repository-wide verification remains the highest-value blocker; lifecycle hardening is implemented and is undergoing static boundary review while runtime execution is unavailable.
 
 **Implemented in the private canonical repository:**
 - typed, schema-shaped `ExecutionObject` contract with deterministic digest and fail-closed status rules;
@@ -30,14 +30,15 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - hosted workflows on the integration branch remain manual-only to preserve the project cost boundary;
 - durable execution lifecycle events now persist an authorized `PREPARED` event before consequential execution and a terminal `SUCCEEDED`/`FAILED` event before the DDEP stage commit;
 - orphaned or terminal-without-commit execution lifecycles fail closed and block re-execution pending recovery/reconciliation;
-- the prior post-execution `EXECUTION_OBJECT` persistence model remains available as an explicit compatibility mode (`durable_execution_lifecycle=False`) rather than being discarded.
+- the prior post-execution `EXECUTION_OBJECT` persistence model remains available as an explicit compatibility mode (`durable_execution_lifecycle=False`) rather than being discarded;
+- static reassessment found and corrected a lifecycle defect where FAILED/HOLD terminal records did not propagate their failure reason into the terminal `ExecutionObject`; regression tests now cover both terminal states.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment can inspect and modify the GitHub branch but cannot execute the repository-local runner because no usable checkout is available and network resolution for GitHub is unavailable. Existing hosted Foundation Gates evidence remains non-actionable at executable-step level (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 
 **Cost boundary:** no paid GitHub service is required or introduced.
 
-**Current DingoOS head:** `012d86d198b4574049f1c33356467b8c3c0e6624`.
+**Current DingoOS head:** `c98e225d248e126846078bb1d85d3919af0769c0`.
 
-**Branch relation:** integration branch is currently 140 commits ahead / 3 behind `main` and remains diverged; PR #69 is open and non-mergeable.
+**Branch relation:** PR #69 is open, unmerged and non-mergeable; its current head is `c98e225d248e126846078bb1d85d3919af0769c0` (151 commits on the PR). Exact ahead/behind counts are not asserted here because the available GitHub comparison response does not expose them directly.
 
 The board intentionally does not claim scientific validation, production certification, consequential deployment, or overall completion percentage.

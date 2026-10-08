@@ -24,8 +24,8 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - DDEP can run in strict binding mode and durably record one `EXECUTION_OBJECT` per committed stage;
 - execution authorization is now explicitly separated from scheduler/resource eligibility; strict DDEP execution fails closed without an explicit authorization;
 - the authorization gate reuses the canonical `AuthorityRegistry`/`Authorization` primitives, requires matching resource and `AUTHORIZE` scope, and records the authorization reference/result on the ExecutionObject;
-- restore verifies the durable execution binding against the scheduler decision; DDEP resume re-enters the same pre-execution authorization gate rather than bypassing it;
-- regression coverage includes malformed fields, fail-closed status, replay/idempotency, tamper detection, strict resume authorization, and scheduler/execution authorization separation.
+- restore verifies the durable execution binding against the scheduler decision; DDEP resume re-enters the same pre-execution authorization gate rather than bypassing it; scheduler DecisionObject output now explicitly distinguishes resource authorization from execution authorization;
+- regression coverage includes malformed fields, fail-closed status, replay/idempotency, tamper detection, strict resume authorization, and scheduler/execution authorization separation; hosted workflows were also reconciled to valid manual-only triggers so they cannot create automatic paid-run pressure.
 
 **Verification state:** **HOLD / NOT VERIFIED**. The current execution environment cannot run the repository-local foundation runner because no usable checkout is available and network resolution for GitHub is unavailable. GitHub Foundation Gates is observable only as a completed failure with no executable steps/logs exposed (`steps: null`, `logs_url: null`); no source-code failure is inferred.
 

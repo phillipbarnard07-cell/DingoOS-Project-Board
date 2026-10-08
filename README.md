@@ -61,3 +61,5 @@ The board intentionally does not claim scientific validation, production certifi
 
 - whole-ledger continuity attestation added: complete append-only ledger, contiguous DDEP prefix, checkpoint/DPO/stage links, execution lifecycle binding, and deterministic attestation digest are validated read-only;
 - attestation distinguishes COMPLETE from unresolved HOLD and cannot create authorization or epistemic truth.
+
+- hardened whole-ledger attestation with explicit continuity invariants: contiguous configured stages, positional checkpoint sequences, unique stage/checkpoint identities, monotonic ledger placement, and exact PREPARED→SUCCEEDED lifecycle ownership; orphan lifecycle records now fail closed.

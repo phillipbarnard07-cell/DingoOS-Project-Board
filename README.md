@@ -71,3 +71,5 @@ The board intentionally does not claim scientific validation, production certifi
 - Objective Design Kernel completed: C-2PO objectives now have explicit metrics, hard feasibility constraints, deterministic candidate identity/evaluation digests, Pareto non-dominance filtering, provenance-preserving exponential expansion, and an explicit candidate-growth cap. Pareto survival remains separate from verification, qualification, authorization, deployment, and truth.
 
 - Flying-vehicle objective block added: an evidence-governed roadable electric VTOL design space now has explicit preliminary objectives and mandatory engineering screening gates. The repository deliberately treats this as a design/simulation target, not an existing or certified aircraft.
+
+- E-HOVER-01 dynamics/control block advanced: deterministic rigid-body 6-DOF Newton-Euler state model plus distributed-propulsion wrench allocation/rank analysis, with fail-closed actuator bounds and explicit validation boundaries. Reference tests and formal contracts added; no airworthiness claim.

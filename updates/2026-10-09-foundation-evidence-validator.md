@@ -187,3 +187,14 @@ Commits:
 - d6c284958c1e1182bda7bd93a97fec88898070e1 — formal contract
 
 Tests remain NOT EXECUTED. PR #69 remains open/unmerged; no paid CI dependency added.
+
+
+## 2026-10-09 reassessment — executable no-cost regression protocol
+
+Hosted Actions remains unreliable under the current billing restriction, so this block formalizes the local path rather than adding any paid dependency. Added `docs/architecture/FOUNDATION-LOCAL-REGRESSION-EXECUTION-PROTOCOL.md` to specify the exact targeted pytest invocation, clean-checkout and full-SHA preconditions, pre/post source-state binding, required output/exit-code preservation, environment metadata, output-log SHA-256, and PASS/FAIL/HOLD rules. The evidence-validation contract links to this protocol.
+
+Commits:
+- d145b83914b906270122c13a5bb4abeba395bc55 — local regression execution protocol
+- dfa4ba23d62d4566bff93f660b5befafbfd46979 — evidence contract cross-reference
+
+This is formal documentation only. Tests remain NOT EXECUTED, no execution evidence was fabricated, PR #69 remains open/unmerged, and no paid CI or billing gate was introduced.

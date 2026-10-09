@@ -116,3 +116,24 @@ python scripts/verify_foundation_evidence.py artifacts/verification/foundation-c
 ```
 
 Files changed on `integration/all-github-repositories`: runner, validator, validator tests and contract. **Tests have not been executed here.** This is source-level hardening only; do not infer a passing runner, merge readiness, scientific validation, or deployment authorization.
+
+
+## 2026-10-09 reassessment — cross-platform path validation
+
+A further source audit found that the artifact path guard rejected doubled backslashes but could admit a single backslash. This is unsafe for cross-platform path interpretation because Windows treats backslashes as separators.
+
+Corrective commits on integration/all-github-repositories now:
+- reject any backslash in the structural inventory validator;
+- apply the same check in checkout-backed inventory verification and Git revision binding;
+- expand regression inputs to single-backslash paths, backslash traversal, and doubled backslashes;
+- add a direct checkout-inventory regression case;
+- document the cross-platform path contract.
+
+Commits:
+- efd40bef77218adf4544eddd8265d2e1eee881cb — initial structural guard
+- 977e085b9a4f2fdcf51234e59f0f35bc07f5c4ff — defense-in-depth checks
+- cabc4e431f02abea0abcd212be4fc8e6b8150d01 — regression cases
+- 4e060674e18c08ecc6d2ecdbd89634fc9d555c13 — direct helper regression
+- a34036c180edde82dc52d033245799b3ebf07aa3 — contract update
+
+Evidence status: source changes are committed; regression tests remain NOT EXECUTED. PR #69 remains open/unmerged; release readiness remains HOLD. GitHub Actions query for the prior head returned zero runs, and no paid CI requirement was introduced. The next gate remains real test execution on the exact reviewed revision.

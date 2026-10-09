@@ -41,3 +41,19 @@ PR #69 remains unpromoted until source-bound verification evidence is available.
 
 
 Privacy clarification: the one-day JSON artifact contains captured command stdout/stderr, which may include private paths or test-generated data; treat it as private evidence and inspect before sharing. Runbook clarification commit: `a17ee06234a41d35047894e8e295ffed5cd8f071`.
+
+## Follow-up source-level hardening — 2026-10-10
+
+After re-reading the canonical runner and evidence validator on PR #69's candidate branch, the workflow's CLI arguments were confirmed to match the validator interface. The scripts are intentionally absent from `main` but present on the candidate revision, so dispatch must use that exact current candidate SHA.
+
+Additional defense-in-depth committed to the default-branch workflow:
+- Final gate independently requires both report revision fields to equal the operator-supplied SHA.
+- It independently requires source revision stability, repository/branch stability and clean pre/post-run worktree claims.
+- It explicitly enforces `claims.paid_github_ci_required == false`, preserving the project owner's no-paid-CI boundary.
+- It continues to require the evidence validator and artifact upload to succeed, plus `result == PASS`.
+- It does not install packages, use GitHub-hosted runners, or dispatch itself.
+
+Workflow hardening commit: `3efc18bbf642c61e520730c6442cb0637be06a01`.
+
+**Evidence status unchanged:** source-level interface review only. No workflow dispatch, runner execution or tests were performed in this session. The workflow is not runtime-verified until an owner-operated self-hosted runner is online and the exact-revision run is inspected. Decision remains **NOT VERIFIED / NO-GO / HOLD**.
+

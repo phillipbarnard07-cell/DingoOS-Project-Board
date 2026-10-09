@@ -102,3 +102,12 @@ PR #76 now independently verifies each resource record's canonical SHA-256 paylo
 Latest PR head: `df521f015acb7ec38cc1e6d66cbd3bfa2d6498c7`.
 
 **Verification remains pending:** these additional tests have not been executed; adapters and runtime integration remain outstanding. Do not promote the block beyond implemented-in-isolation / production HOLD.
+
+
+## Production readiness process — 2026-10-10
+
+The private DingoOS feature branch now contains [DDEP Production Readiness and Release Process v1.0](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/runtime/DDEP_PRODUCTION_READINESS_PROCESS_V1.0.md), committed as `40d35aa50bdc4ceac7888aae239a9c33d19d928e`.
+
+The process formalizes PROPOSED → SPECIFIED → IMPLEMENTED → TESTED → INTEGRATED → VERIFIED → REVIEWED → RELEASE-CANDIDATE → AUTHORIZED → DEPLOYED → MONITORED → CLOSED, with backward transitions whenever a revision changes or evidence fails. It defines contract/threat review, free local runner evidence, authoritative resource and authorization checks, durable provenance/EMO, independent review, explicit human authorization, deployment observation, no-go triggers and incident/rollback.
+
+**Current status is unchanged:** DDEP resource admission remains implemented in isolation; tests have not been executed in this environment; authoritative adapters and runtime integration remain unverified; production is NO-GO/HOLD. The process document is not production approval. No paid CI or billing gate introduced.

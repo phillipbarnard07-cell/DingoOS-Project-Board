@@ -223,3 +223,12 @@ Source review identified that `unittest discover` may exit zero with zero tests;
 **Actual execution remains blocked in this session:** there is no local checkout or connected shell for the private repository. The available GitHub connector exposes no workflow-dispatch/remote-shell capability, and the exact candidate has no associated PR workflow runs returned. Paid Actions is not a fallback due to the existing billing/spending-limit constraint. Therefore no tests or build have been executed here and no pass is claimed.
 
 Required next action: run the runner in a clean local checkout at the exact full candidate SHA, inspect the report and raw logs, fix any failures, then rerun against the corrected revision. PR remains draft/unmerged; production remains NOT VERIFIED / NO-GO / HOLD.
+
+
+### Local execution handoff formalized
+
+The protocol now includes explicit clean-checkout commands for a machine with authorized access to the private repository, and tells the operator to copy the current full PR #75 head SHA immediately before checkout (rather than relying on a stale SHA). It then invokes the runner and retains generated logs/report locally for review.
+
+Protocol commit: `003b547b8dc497e3b0c1bc82fefee4456a6b2af9`.
+
+The current assistant environment still cannot execute commands in the private repository: no local checkout or connected remote shell is available, and paid Actions remains excluded. The actual test/build run is therefore still outstanding and must be performed in a local terminal.

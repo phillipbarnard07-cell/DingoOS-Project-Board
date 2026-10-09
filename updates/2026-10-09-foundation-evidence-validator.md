@@ -98,3 +98,21 @@ python scripts/verify_foundation_evidence.py artifacts/verification/foundation-c
 ```
 
 Source commits pushed; execution remains **NOT VERIFIED**. This is a revision identity check, not producer authentication, inventory completeness, or proof that test commands ran.
+
+
+## Reassessment follow-through — trusted revision and inventory completeness
+
+Further review found two gaps: local `HEAD` agreement alone did not select a revision independently, and verifying only listed hashes could not detect omitted tracked source. Corrected as follows:
+
+- `--bind-git-revision` now requires `--expected-revision`, a full lowercase SHA supplied independently by the reviewer; checkout `HEAD` and both report revision fields must match.
+- The runner now inventories Git-tracked files rather than every filesystem file, avoiding ignored local environments and generated files being mistaken for source.
+- Revision binding compares the declared inventory path set against tracked source paths and rejects omissions and unexpected entries.
+- Added regression source for an expected-revision mismatch and an omitted tracked source file.
+
+Use:
+
+```bash
+python scripts/verify_foundation_evidence.py artifacts/verification/foundation-ci.json --checkout-root . --bind-git-revision --expected-revision <full-40-character-commit-sha>
+```
+
+Files changed on `integration/all-github-repositories`: runner, validator, validator tests and contract. **Tests have not been executed here.** This is source-level hardening only; do not infer a passing runner, merge readiness, scientific validation, or deployment authorization.

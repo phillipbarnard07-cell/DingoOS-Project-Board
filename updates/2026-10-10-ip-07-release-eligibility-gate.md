@@ -1,40 +1,44 @@
-# Engineering update — 2026-10-10: IP-07
+# Engineering update — 2026-10-10: IP-07 pending-work review
 
 **Workstream:** DingoOS protected-IP governance and provenance  
-**State:** Reference eligibility gate pushed; canonical adapters and executable verification pending  
 **Private implementation PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/75  
-**Dependency:** IP-06 checkpoint/recovery protocol, PR #74
+**Latest source revision:** `eeff492bec7fcdff04796913268f64825f60a37b`  
+**State:** Canonical provenance event shape implemented; runtime adapters and execution evidence pending
 
-## Delivered
+## New findings and corrections
 
-- Composed IP-03 rights-review blockers with IP-05 durable event history and IP-06 checkpoint verification.
-- Required explicit rights domains and exact asset-bound authorization scope.
-- Required checkpoint sequence/hash to match the current ledger head for eligibility.
-- Bound each required rights state and evidence digest to the latest durable review event.
-- Added fail-closed authorization, provenance-validation and provenance-publication callback seams.
-- Limited positive outcome to ELIGIBLE_FOR_HUMAN_AUTHORIZATION; no release execution exists in the module.
-- Authored nine standard-library regression tests and formal specification.
+The IP-07 pending review inspected the actual schemas on the IP-06 dependency branch:
 
-## Status
+- `schemas/provenance/provenance-event.schema.json`
+- `schemas/ip-asset-register-v1.schema.json`
+- `schemas/ip-release-manifest-v1.schema.json`
+- `security/ip_policy.py`
+- `security/integrity.py`
+
+IP-07 has been corrected from its earlier custom envelope to the canonical ProvenanceEvent field shape (`event_id`, `object_id`, `version_id`, `content_hash`, `provenance_hash`, `event_type`, plus only permitted optional fields). A standard-library validator checks required/allowed fields, types, digest formats, and the canonical event hash. The test asset ID was changed to match the canonical `DGO-IP-...` format.
+
+The canonical release-manifest schema requires `authorization_status: NOT_GRANTED`. It must not be treated as a grant or altered to imply release approval. The canonical asset register exists but is not yet queried by the gate.
+
+## Verified from GitHub
+
+- Latest branch commit inspected: `eeff492bec7fcdff04796913268f64825f60a37b`.
+- PR #75 remains open, draft, and unmerged.
+- GitHub returned no workflow runs and no status checks for that latest commit. This is not a test pass.
+- Tests are authored but not executed against a canonical checkout.
+
+## Remaining gates
 
 | Gate | State |
 |---|---|
-| Source, tests and specification committed | DONE |
-| Draft PR opened | DONE |
-| Regression tests authored | DONE |
-| Tests executed against exact canonical revision | NOT VERIFIED |
-| Canonical AuthorizationObject adapter | PENDING |
-| Canonical ProvenanceEvent/EMO/release-manifest adapter | PENDING |
-| Independent production checkpoint store | PENDING |
-| Human-governed end-to-end release validation | PENDING |
+| Canonical ProvenanceEvent field-shape alignment | DONE in reference code |
+| Canonical event-hash validation | DONE in reference code |
+| Query/validate canonical IP asset register | PENDING |
+| Enforce classification/destination/disclosure policy | PENDING |
+| Authoritative AuthorizationObject + revocation adapter | PENDING |
+| Durable canonical provenance publisher + idempotency | PENDING |
+| Independent checkpoint store/key custody | PENDING |
+| Exact-revision test run and retained evidence | PENDING |
+| Human-governed end-to-end release path | PENDING |
 | Merge/release | HOLD |
 
-## Trust boundary
-
-The repository inspection did not establish the canonical schemas/services needed for real authorization and provenance integration. The new callbacks are explicit adapter contracts, not a claim that canonical integration is complete. The positive result only means the implemented technical checks affirmed; it is not authorization to release protected material.
-
-Tests have been authored but not executed against the canonical checkout. No legal conclusion, production certification, or release authorization is asserted. No paid API, hosted runner or subscription was introduced.
-
-## Next gate
-
-Run IP-07 and all IP-03–IP-06 dependencies against the exact revision and retain output plus revision digest. Then implement and test the real canonical authorization/provenance adapters, independent checkpoint custody, publisher idempotency, and human-authorization path before enabling release enforcement.
+No paid runner or workflow was triggered. No test-pass, legal-clearance, or production-readiness claim is made.

@@ -198,3 +198,24 @@ Commits:
 - dfa4ba23d62d4566bff93f660b5befafbfd46979 — evidence contract cross-reference
 
 This is formal documentation only. Tests remain NOT EXECUTED, no execution evidence was fabricated, PR #69 remains open/unmerged, and no paid CI or billing gate was introduced.
+
+
+## 2026-10-09 reassessment — executable regression evidence capture
+
+Added `scripts/capture_foundation_regression.py`, which executes the targeted runner, validator, and capture-helper regression tests and writes a JSON capture record plus the complete combined pytest log. It requires an independently supplied full lowercase SHA, a clean pre-run checkout, a named branch, and an unchanged clean source state after execution. It records the command, Python/platform/pytest versions, exit code, timestamps, branch/revision stability, and SHA-256 of the log. PASS requires all source-state and execution conditions; failed tests are FAIL when provenance is stable; missing/changed provenance is HOLD. Output paths must be outside the checkout. The report explicitly does not claim hosted CI, scientific validation, or deployment authorization.
+
+Files:
+- `scripts/capture_foundation_regression.py`
+- `tests/core/test_capture_foundation_regression.py`
+- `docs/architecture/FOUNDATION-LOCAL-REGRESSION-EXECUTION-PROTOCOL.md`
+
+Commits:
+- 7a26504f1bd2fea4f67fe60a738ad6421f44db16 — initial capture helper
+- 8ea33747c4552baa4ef4874399278e38f3e82f57 — helper outcome regression tests
+- 01657f49f692aaa784204189d1eb04405159ce96 — protocol instructions
+- 6773cd90019359ed0c33db3c512e71e70018e041 — detached/changed branch HOLD guard
+- c2ce12ac33ba49971fdded9acd2bef8fd01d6767 — detached-head regression test
+- c7b28bbf00329c51cd410570c752ccda50ada54d — include helper tests in captured run
+- a665f51aa356db53a315ad3dfe8486bf2e199187 — align protocol with captured test set
+
+Source-level changes are committed; tests have NOT been executed in a usable checkout. No paid CI or billing dependency was introduced.

@@ -111,3 +111,14 @@ The private DingoOS feature branch now contains [DDEP Production Readiness and R
 The process formalizes PROPOSED → SPECIFIED → IMPLEMENTED → TESTED → INTEGRATED → VERIFIED → REVIEWED → RELEASE-CANDIDATE → AUTHORIZED → DEPLOYED → MONITORED → CLOSED, with backward transitions whenever a revision changes or evidence fails. It defines contract/threat review, free local runner evidence, authoritative resource and authorization checks, durable provenance/EMO, independent review, explicit human authorization, deployment observation, no-go triggers and incident/rollback.
 
 **Current status is unchanged:** DDEP resource admission remains implemented in isolation; tests have not been executed in this environment; authoritative adapters and runtime integration remain unverified; production is NO-GO/HOLD. The process document is not production approval. No paid CI or billing gate introduced.
+
+
+### Signed authoritative DDEP adapter ports — 2026-10-10
+
+PR #76 now adds adapter ports for signed resource qualification and execution-authorization responses:
+- `core/ddep_authoritative_adapters.py`: validates envelope schema, issuer identity, signed current-source response, record kind, resource identity, exact execution/DPO/stage/resource authorization scope, grant decision, revocation flag and authorization binding; failures fail closed.
+- `tests/core/test_ddep_authoritative_adapters.py`: authored positive and adversarial tests for signatures, source currentness, resource identity, authorization scope/decision/revocation and service outages.
+- `docs/runtime/DDEP_AUTHORITATIVE_ADAPTER_CONTRACT_V1.0.md`: defines signed payloads, trusted-key obligations and integration gates.
+- Resource-admission contract updated to link the adapter boundary.
+
+**Status:** adapter code and test definitions are committed, but tests have not been executed here. The repository currently exposes no concrete production resource-registry client, authorization service, trusted-key store or transaction coordinator in the inspected contracts. These adapters do not invent one. Runtime wiring, real signature-verifier configuration, durable admission provenance, atomic dispatch fencing, and local/free-runner verification remain outstanding. **Production stays HOLD / NO-GO.** No paid CI or billing gate introduced.

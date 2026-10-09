@@ -1,7 +1,12 @@
-# Horizon local mathematics adapter — 2026-10-10
+# Horizon local mathematics adapter — integration update
 
-**Status:** Local, free-to-run backend adapter committed; frontend wiring remains the next block.
+**Status:** Local backend adapter and same-origin Horizon wiring committed; runtime verification remains open.
 
-The adapter wraps the canonical E-HOVER sizing kernel, validates a versioned JSON request, provides structured status/errors and provenance, preserves separate governance states, and binds to loopback only. JSON Schema and contract tests are included. It does not authenticate users, connect to SEARM, expose hardware control, or qualify input evidence. Test cases are authored but not executed in this environment. No paid dependency or billing gate added.
+- Local standard-library Python server serves Horizon at `http://127.0.0.1:8765/` and the API from the same origin.
+- Calculator submits versioned requests to `POST /api/v1/mathematics/screening`, which calls the canonical sizing kernel.
+- Backend rejection is surfaced rather than silently replaced by browser output; browser fallback is labelled and used only when the API cannot be reached.
+- Request schema, structured errors, provenance, separated governance states and authored contract tests are included.
+- No test execution or browser smoke test is claimed. Service has no authentication and is local development only; do not expose it publicly.
+- No paid dependencies or billing gate introduced.
 
-Next: connect Horizon to the loopback API behind an explicit connection indicator, add browser/contract tests, and retain a clear offline demo state.
+Next: execute free local contract tests, smoke-test the browser flow, add response schema validation and security review before any deployment.

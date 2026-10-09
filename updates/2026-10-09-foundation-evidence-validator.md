@@ -151,3 +151,15 @@ Commits:
 - f2ff635f7639ee70dffca46d37759cdc063dbbed — clarify the NUL byte literal in the contract
 
 Tests remain NOT EXECUTED. PR #69 remains open/unmerged, and no Actions runs were returned for the prior reviewed head. Do not promote the merge gate until the targeted regression suite is executed against the current exact revision. No paid CI dependency added.
+
+
+## 2026-10-09 reassessment — fail-closed Git inventory
+
+A source audit found that `file_inventory()` caught failures from `git ls-files -z` and silently fell back to filesystem traversal, even when running inside a real Git checkout. That could hide a Git index or inventory failure. The runner now permits filesystem fallback only for non-Git temporary roots; if a checkout marker exists and tracked-path enumeration fails, it raises an explicit `RuntimeError`. Added a regression test using a temporary committed Git repository and an injected `git ls-files` failure.
+
+Commits:
+- ca6be0be41f9f8b47bf0c3176497698cc5957e68 — fail-closed runner inventory
+- 6f1a5e7e9f1b9d3ab315ea67115c52d8c7b33e9c — failure-path regression test
+- 9bf36f425d8852f2fc8f9329e1f2eedaebc1038c — formal contract update
+
+Tests remain NOT EXECUTED. PR #69 remains open and unmerged. No paid CI or billing gate added.

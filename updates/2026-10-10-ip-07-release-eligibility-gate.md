@@ -2,7 +2,7 @@
 
 **Workstream:** DingoOS protected-IP governance and provenance  
 **Private implementation PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/75  
-**Latest source revision:** `defeac42edeef625b49e8a7d2ae75e72fb72b7b2`  
+**Latest source revision:** `71d72615e4643f3e1f85094914342e60eea1ecb8`  
 **State:** Canonical provenance event shape implemented; runtime adapters and execution evidence pending
 
 ## New findings and corrections
@@ -32,7 +32,7 @@ The canonical release-manifest schema requires `authorization_status: NOT_GRANTE
 |---|---|
 | Canonical ProvenanceEvent field-shape alignment | DONE in reference code |
 | Canonical event-hash validation | DONE in reference code |
-| Query/validate canonical IP asset register | PENDING |
+| Resolve required asset ID against injected canonical register payload | DONE in reference code; authoritative file loading/full-schema validation pending |
 | Enforce classification/destination/disclosure policy | PENDING |
 | Authoritative AuthorizationObject + revocation adapter | PENDING |
 | Durable canonical provenance publisher + idempotency | PENDING |

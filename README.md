@@ -79,3 +79,17 @@ The board intentionally does not claim scientific validation, production certifi
 - Canonical CSRE1-CSRE4 postulates formalized: 12 explicit postulates across Reality/Input Integrity, Formal Testability, Controlled Reality Test, and Independent Validation; typed fail-closed gate evaluator and progression blocker added to DingoOS. Standalone verification added to the vehicle-reference workflow. Latest workflow run 1214 (37796969161) again failed with steps=null before executable work, so the infrastructure HOLD remains and is not source-test evidence.
 
 - CSRE1 executable Reality/Input Integrity gate completed: typed observation integrity input, source/acquisition/provenance/calibration/unit/uncertainty controls, fail-closed HOLD semantics, standalone verification, and CI integration. Formal contract: `docs/architecture/CSRE1-REALITY-INPUT-INTEGRITY-CONTRACT.md`. This establishes eligibility for CSRE2 without promoting observations to Evidence or Truth.
+
+
+## DDEP resource admission guard — 2026-10-10
+
+**Implementation block:** [PR #76 — Add fail-closed DDEP resource admission guard](https://github.com/phillipbarnard07-cell/DingoOS/pull/76) (draft; not merged).
+
+Added on a feature branch:
+- `core/ddep_resource_guard.py`: typed resource/authorization snapshots and a fail-closed pre-dispatch admission callback.
+- `tests/core/test_ddep_resource_guard.py`: positive admission plus adversarial cases for qualification, revocation, resource/provenance identity, stage and latency limits, stale/naive timestamps, malformed records, authorization mismatch/denial, missing execution, and resolver outage.
+- `docs/runtime/DDEP_RESOURCE_ADMISSION_GUARD_V1.0.md`: contract, adapter obligations, integration plan and release gates.
+
+**Status:** implemented in isolation; tests authored but not executed; canonical runtime integration not verified; production remains **HOLD**. Authoritative resource-registry and authorization adapters, durable admission provenance, and distributed dispatch/TOCTOU controls remain open. The guard must not be wired to mocks or untrusted snapshots in production.
+
+**Runner/cost boundary:** no paid CI or billing gate introduced. Runner observability issue [#53](https://github.com/phillipbarnard07-cell/DingoOS/issues/53) remains a separate P0 dependency. No CI pass, certification, deployment, or scientific validation is claimed.

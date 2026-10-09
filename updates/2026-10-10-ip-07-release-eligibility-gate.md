@@ -145,3 +145,12 @@ Source review found that `SQLiteReviewLedger` used the SQLite connection context
 ### Decision and next block
 
 **Production readiness: NOT ESTABLISHED. Merge/release: HOLD.** No paid runner/workflow was triggered. The finite next steps are execute the focused regression and complete local suites, fix observed failures, integrate authoritative authorization/revocation and conservative classification policy, establish independent checkpoint/backup/recovery controls, verify schema/package/build behavior, then produce revision-bound evidence and asset-specific rights decisions. Do not expand architecture unless verification demonstrates a material gap.
+
+
+### Upstream architecture dependency warning
+
+A follow-up dependency check found that IP-03 PR #71 is based on `d49728297cd14c32f8945b7a1040a8951b21f494`, the observed head of open/unmerged PR #69 (repository architecture integration). Related cross-cutting PR #64 (evolutionary GitHub substrate) and #68 (canonical system manifest/Snowflake continuity) are also open/unmerged, with #68 based on a separate alpha/beta/gamma/sigma integration branch.
+
+This means the IP stack's upstream system baseline is not yet proven to be the final accepted architecture. The reassessment report now marks dependency reconciliation against the canonical system manifest and relevant architecture/security/governance PRs as a release-critical integration gate. Do not merge unrelated PRs automatically; compare diffs and dependency relationships first.
+
+Latest reassessment report commit: `f54d678baf0655365a0bf8eefba859399e73c1fe`. Current PR #75 remains draft/unmerged. No tests were executed and no paid workflow was triggered. Production readiness remains NOT ESTABLISHED; merge/release HOLD.

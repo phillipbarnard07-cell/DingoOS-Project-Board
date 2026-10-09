@@ -170,3 +170,23 @@ Changes are committed to both the IP-03 source branch and the IP-07 candidate br
 - Reassessment report update: `b5e4e4377486e5a6a8a54747ddcca5a935830f98`
 
 IP-03 rights-ledger suite now has **11 authored test methods** (previously 6). Tests have not been executed; authored coverage is not a pass. PR #71 remains draft/unmerged, and PR #75 remains draft/unmerged. Production status remains NOT ESTABLISHED / HOLD. No paid workflow was triggered.
+
+
+## Next block — versioned conservative classification mapping
+
+The register-to-legacy IP-class mapping is now formalized as policy `DGO-IP-CLASS-MAP-1.0.0` and implemented in `security/ip_classification_mapping.py`. The IP-07 gate uses this shared mapping instead of a private inline table and records the policy version in canonical provenance parameters and deterministic event identity.
+
+Mapping: PUBLIC→C0, INTERNAL→C1, CONFIDENTIAL→C2, RESTRICTED→C3, PRIVATE_IP→C4, SECRET→C4. Unknown, missing, malformed or case-variant labels do not map and block the gate. This mapping is conservative engineering policy, not legal classification or authorization; it still requires authorized policy-owner review before production.
+
+Policy: https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ip-07-provenance-release-gate/docs/ip/IP-CLASSIFICATION-MAPPING-1.0.0.md
+
+Commits:
+- Mapping module `5bdd110b08c1d59c092ebeff7c5ff77e44ff7d46`
+- Mapping tests `aeb0f0deee50f0cb7a40f397ba7c6c6b116c9248`
+- Gate integration `c645fb2576328b712affa27df9ed4bd5c771d4c8`
+- Provenance policy-version binding `82e504d6fc6b919e2db14f3486127bf6f84d5dc5`
+- Gate tests `8d2b381f56c4a11e3fb0d86dd301a63d3e145d0a`
+- Policy document `fb5fba814c7f25ca6b2e83aac4ab476a541290c5`
+- Reassessment report update: `df69e4e3c972bff30200c2599815326d7d112070`
+
+The IP-07 release-gate suite now has 30 authored methods. Mapping and integration tests remain unexecuted; no PASS is claimed. PR #75 remains draft/unmerged. Production status remains NOT VERIFIED / NO-GO / HOLD. No paid workflow was triggered.

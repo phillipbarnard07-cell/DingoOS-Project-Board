@@ -56,4 +56,5 @@ Additional defense-in-depth committed to the default-branch workflow:
 Workflow hardening commit: `3efc18bbf642c61e520730c6442cb0637be06a01`.
 
 **Evidence status unchanged:** source-level interface review only. No workflow dispatch, runner execution or tests were performed in this session. The workflow is not runtime-verified until an owner-operated self-hosted runner is online and the exact-revision run is inspected. Decision remains **NOT VERIFIED / NO-GO / HOLD**.
+- Follow-up runtime compatibility hardening: workflow now enforces Python 3.11+ before running the foundation suite and records the interpreter path/version. Commit: `f50918a76a0ecdaef9819ba74121d5496a1919cb`.
 

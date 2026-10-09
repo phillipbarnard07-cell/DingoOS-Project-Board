@@ -93,3 +93,12 @@ Added on a feature branch:
 **Status:** implemented in isolation; tests authored but not executed; canonical runtime integration not verified; production remains **HOLD**. Authoritative resource-registry and authorization adapters, durable admission provenance, and distributed dispatch/TOCTOU controls remain open. The guard must not be wired to mocks or untrusted snapshots in production.
 
 **Runner/cost boundary:** no paid CI or billing gate introduced. Runner observability issue [#53](https://github.com/phillipbarnard07-cell/DingoOS/issues/53) remains a separate P0 dependency. No CI pass, certification, deployment, or scientific validation is claimed.
+
+
+### Integrity hardening follow-up — 2026-10-10
+
+PR #76 now independently verifies each resource record's canonical SHA-256 payload digest (all required fields except `content_hash`, sorted-key canonical JSON), rejects non-list stage declarations, and has new test cases for hash tampering and malformed stage lists. This is payload-integrity checking only—not issuer authentication or proof of authoritative origin.
+
+Latest PR head: `df521f015acb7ec38cc1e6d66cbd3bfa2d6498c7`.
+
+**Verification remains pending:** these additional tests have not been executed; adapters and runtime integration remain outstanding. Do not promote the block beyond implemented-in-isolation / production HOLD.

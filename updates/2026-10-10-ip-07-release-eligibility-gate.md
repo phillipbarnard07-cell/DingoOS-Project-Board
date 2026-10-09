@@ -96,3 +96,20 @@ The provenance-store source was rechecked against the current PR head and correc
 The objective is now explicitly production-ready DingoOS IP, not indefinite hardening. The acceptance contract separates technical production readiness from legal/commercial IP readiness and sets finite gates for canonical scope, reproducible build, executed exact-revision tests, rights/asset status, authorization separation, durable provenance, security/confidentiality, operations/recovery, and independent evidence review.
 
 **Current decision remains NOT ESTABLISHED / NO-GO / HOLD.** The new document defines acceptance criteria only; it does not pass any gate. The next work should close mandatory blockers and produce executed evidence, not add optional architecture for its own sake. No paid workflow was triggered.
+
+
+## IP-07 next block — SQLite concurrency and rollback regression coverage
+
+**Source test commit:** `6b6e2e849c29a2a1dc6128df4c1f4393bea81c2f`  
+**Specification commit:** `5185e9ca06550fa81c8b47c074fa3c0a9e34072a`  
+**Branch:** `feat/ip-07-provenance-release-gate`
+
+Added three standard-library regression methods to `tests/ip_governance/test_sqlite_provenance_store.py`:
+
+- Concurrent identical publishes from eight independent store instances must be idempotent and leave one exact event.
+- Concurrent valid but conflicting payloads reusing one event ID must yield one stored winner and one explicit conflict; the winner must remain intact.
+- A manually interrupted/uncommitted transaction rolled back before commit must not become visible through store reads or reconciliation.
+
+The SQLite store suite now has **12 authored test methods** (previously 9); the IP-07 gate suite remains 28 and register-source suite remains 10. Updated `docs/ip/IP-07-PROVENANCE-BOUND-RELEASE-ELIGIBILITY-GATE.md` records these cases, exact local test commands, and the distinction between authored tests and executed evidence.
+
+**Verification status:** tests were not executed in this environment. No CI workflow was triggered. These tests improve the intended regression coverage but do not establish target-environment concurrency, crash recovery, backup/restore, independent custody, or production readiness. PR #75 remains open/draft/unmerged; merge and release remain HOLD.

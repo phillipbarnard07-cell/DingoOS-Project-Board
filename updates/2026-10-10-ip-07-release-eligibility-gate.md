@@ -85,3 +85,8 @@ Regression coverage includes malformed register dates, uppercase artifact digest
 - Store uses only Python standard library; no paid service, hosted runner, or network dependency introduced.
 - Verification remains pending: tests were not executed in this environment. Local SQLite behavior is not evidence of production crash durability, external replication, independent custody, backup/restore, or concurrency safety under target deployment.
 - Authoritative AuthorizationObject/revocation integration, protected database/filesystem access, independent checkpoint trust, package build/install, end-to-end human authorization, and exact-revision test evidence remain pending. Merge/release remains HOLD.
+
+
+### Follow-up consistency hardening
+
+The provenance-store source was rechecked against the current PR head and corrected to reuse IP-07's canonical ProvenanceEvent validator and explicitly close read/initialization connections. Current implementation commit: `cedda262c9f4de23ea3f3e3d1eb44f851d6496ab`. This is a source-level consistency update only; tests still have not been executed. Merge/release remains HOLD.

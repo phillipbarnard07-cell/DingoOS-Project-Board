@@ -2,7 +2,7 @@
 
 **Workstream:** DingoOS protected-IP governance and provenance  
 **Private implementation PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/75  
-**Latest source revision:** `1d18182a5b0d63cec81b023fdf9ff15ef9c85b56`  
+**Latest source revision:** `596790cd12b32eb6ac3d59a4683836f462f41ee2`  
 **State:** Canonical provenance event shape implemented; runtime adapters and execution evidence pending
 
 ## New findings and corrections

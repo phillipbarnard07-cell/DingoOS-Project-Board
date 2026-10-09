@@ -85,3 +85,16 @@ python scripts/verify_foundation_evidence.py artifacts/verification/foundation-c
 ```
 
 Files on `integration/all-github-repositories`: validator, validator tests, and validation contract. Execution remains **NOT VERIFIED**; these tests have not been run here. No paid CI, merge, release, scientific validation, or deployment authorization is claimed.
+
+
+## Reassessment correction — independent expected revision
+
+Reassessment found that matching a report to local `HEAD` alone still lets the report/checkout pair agree on an unintended revision. Revision binding now requires `--expected-revision`, an independently supplied full lowercase 40-character SHA. The checkout `HEAD` and both report revision fields must match that value. Added a regression test for an expected-SHA mismatch and updated the formal contract.
+
+Use the SHA copied independently from the reviewed commit:
+
+```bash
+python scripts/verify_foundation_evidence.py artifacts/verification/foundation-ci.json --checkout-root . --bind-git-revision --expected-revision <full-40-character-commit-sha>
+```
+
+Source commits pushed; execution remains **NOT VERIFIED**. This is a revision identity check, not producer authentication, inventory completeness, or proof that test commands ran.

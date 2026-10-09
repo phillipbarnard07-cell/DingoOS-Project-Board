@@ -31,3 +31,14 @@ Any failures must be fixed and re-run before describing the slice as tested or v
 ## Next block
 
 Run the focused tests in an available local checkout without enabling paid CI. Fix and rerun failures; then integrate with the existing ResearchObject / EvidenceObject / ProvenanceEvent / C-4PO / SEARM contracts through adapters and add provenance events for the frozen preregistration digest.
+
+
+## Reassessment follow-up — static hardening (2026-10-09)
+
+A second review of the committed source found and corrected a latent frozen-digest comparison call that used the wrong module. The validator now uses constant-time `hmac.compare_digest` for both the embedded manifest digest and independently stored preregistration digest.
+
+The validator was tightened to reject unknown nested keys, matching the JSON Schema's `additionalProperties: false` intent for endpoint, frequency band, effect threshold, model comparison and controls. A malformed non-string expected digest now fails closed instead of raising a regular-expression type error.
+
+Regression coverage was expanded to **14 test methods**, including independently frozen digest acceptance/tamper detection, unknown nested fields and malformed expected digest types. The JSON Schema was fetched and parsed successfully; committed source and test files were re-fetched from GitHub and their expected contents confirmed.
+
+**Execution boundary unchanged:** the test suite has not run. The available local shell cannot resolve `github.com`, and this session does not have a checked-out repository working tree. Do not infer test success from static inspection. Next step remains running `python -m unittest tests.research.test_csre1_scope -v` in a local checkout with no paid CI.

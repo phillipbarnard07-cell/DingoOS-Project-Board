@@ -2,8 +2,8 @@
 
 **Workstream:** DingoOS protected-IP governance and provenance  
 **Private implementation PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/75  
-**Latest source revision:** `171d007d45c61de8fb21da69f276e1352cf7667d`  
-**State:** Canonical provenance shape, revision/destination binding, and controlled register-source loader implemented; production adapters and execution evidence pending
+**Latest source revision:** `7f444930ec373834c057f1dca7a7af35c061407f`  
+**State:** Canonical provenance shape, revision/destination binding, controlled register-source loader, fail-closed review-validity seam, and package-discovery correction implemented; production adapters and execution evidence pending
 
 ## New findings and corrections
 
@@ -25,7 +25,6 @@ The next design reassessment found a critical binding gap: prior eligibility cou
 
 ## Verified from GitHub
 
-- Latest IP-07 commit at time of this update: `7f444930ec373834c057f1dca7a7af35c061407f`.
 - `tests/ip_governance/test_release_gate.py`: 21 test methods authored.
 - `tests/ip_governance/test_register_source.py`: 10 test methods authored.
 - PR #75 remains open, draft, and unmerged.

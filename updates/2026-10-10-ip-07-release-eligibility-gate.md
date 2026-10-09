@@ -25,12 +25,19 @@ The next design reassessment found a critical binding gap: prior eligibility cou
 
 ## Verified from GitHub
 
-- Latest IP-07 commit at time of this update: `897700287fbbc7ac09f0520651a874e399abb260`.
-- `tests/ip_governance/test_release_gate.py`: 18 test methods authored.
+- Latest IP-07 commit at time of this update: `7f444930ec373834c057f1dca7a7af35c061407f`.
+- `tests/ip_governance/test_release_gate.py`: 21 test methods authored.
 - `tests/ip_governance/test_register_source.py`: 10 test methods authored.
 - PR #75 remains open, draft, and unmerged.
 - GitHub returned no workflow runs and no status checks for that latest commit. This is not a test pass.
-- Twenty-eight regression test methods across IP-07 gate/source-loader suites are authored but not executed against a canonical checkout.
+- Thirty-one regression test methods across IP-07 gate/source-loader suites are authored but not executed against a canonical checkout.
+
+## Latest design hardening — review validity and packaging
+
+- Added the optional `review_validity_validator` adapter to IP-07. It receives the request, selected rights records, and current durable review events. If absent, returns anything other than literal `True`, or raises, the gate returns HOLD. This is a fail-closed integration contract, not an implementation of a freshness window: the authoritative service must apply a versioned policy and current revocation/disclosure state. No arbitrary review-age period was invented.
+- Added three tests: missing validator, explicit denial, and validator exception all HOLD. Gate test count is now 21; source-loader tests remain 10.
+- Updated `pyproject.toml` package discovery to include `ip_governance*`, addressing a packaging omission. Distribution build/install verification is still pending.
+- Latest IP-07 commit at time of this update: `7f444930ec373834c057f1dca7a7af35c061407f`.
 
 ## Remaining gates
 
@@ -38,8 +45,12 @@ The next design reassessment found a critical binding gap: prior eligibility cou
 |---|---|
 | Canonical ProvenanceEvent field-shape alignment | DONE in reference code |
 | Canonical event-hash validation | DONE in reference code |
-| Resolve asset against injected register and run repository structural validator | DONE in reference code; authoritative file loading and standards-compliant JSON Schema validation pending |
-| Enforce existing classification policy and trusted-destination adapter | DONE in reference code; final mapping/freshness/revocation review pending |
+| Resolve asset against register and run repository structural validator | DONE in reference code |
+| Controlled register loader, mandatory independent digest pin and provenance source binding | DONE in reference code; protected deployment root/pin custody pending |
+| Standards-compliant JSON Schema validation | PENDING |
+| Review freshness/revocation validator seam | DONE; authoritative policy/service integration pending |
+| setuptools discovery includes `ip_governance*` | DONE in source config; distribution build/install verification pending |
+| Enforce existing classification policy and trusted-destination adapter | DONE in reference code; final classification mapping review pending |
 | Authoritative AuthorizationObject + revocation adapter | PENDING |
 | Durable canonical provenance publisher + idempotency | PENDING |
 | Independent checkpoint store/key custody | PENDING |

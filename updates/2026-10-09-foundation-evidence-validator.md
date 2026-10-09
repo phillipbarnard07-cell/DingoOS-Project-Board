@@ -230,3 +230,16 @@ A follow-up source review found the helper reported HOLD on detached HEAD but wo
 - e63fa3d7b7de99b6bba80cbcd8e1152e092e5cd9 — clarify protocol precondition
 
 Source re-fetch review is required; tests remain NOT EXECUTED. No paid CI requirement introduced.
+
+
+## 2026-10-09 reassessment — provenance-aware FAIL/HOLD classification
+
+Further review tightened the capture helper's outcome rule. A non-zero pytest exit is classified `FAIL` only if the checkout was clean before the run, the independently supplied expected SHA matched, a named branch was present, and both branch and revision remain unchanged with a clean post-run tree. If tests fail but branch/provenance changes, the outcome is `HOLD`, not `FAIL`, because the failure cannot be attributed confidently to the reviewed source. Added regression tests for both stable-source failure and branch-change HOLD, and documented the rule in the local execution protocol and evidence-validation contract.
+
+Commits:
+- 824d84079258531b5a2debdd21f07975dac7c30d — tighten FAIL classification
+- 3456d745ec8b992cbbd60ae2e291ef13679e198e — regression coverage
+- d563a0a61018306f2fe5b6d57f3c1ded81b8d576 — execution protocol update
+- f8299d6876fd91454b249bf5864af31c349607fc — evidence contract update
+
+Tests remain NOT EXECUTED; these are source-level corrections only. No paid CI or billing requirement introduced.

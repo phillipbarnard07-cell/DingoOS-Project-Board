@@ -163,3 +163,14 @@ Commits:
 - 9bf36f425d8852f2fc8f9329e1f2eedaebc1038c — formal contract update
 
 Tests remain NOT EXECUTED. PR #69 remains open and unmerged. No paid CI or billing gate added.
+
+
+## Follow-up correction — NUL literal itself
+
+A post-commit inspection caught that the first NUL-delimiter correction had accidentally left a double-backslash Python literal, which would represent the literal bytes backslash-plus-zero rather than a NUL byte. Corrected the source literal in both the runner and revision verifier to the one-backslash Python spelling `b"\0"`; re-fetched source confirms each line contains exactly one backslash before `0`. This correction supersedes the earlier claim that the first delimiter correction was complete.
+
+Commits:
+- f6eb88b0b05bac7de39e3e2708492fa7f2e44964 — runner literal correction
+- 15f5c9b6dc1fdfe9a112e371a2c2fcc0c0e1b76c — verifier literal correction
+
+The test suite remains NOT EXECUTED; these are source inspection results only. PR #69 remains open/unmerged. No paid CI dependency introduced.

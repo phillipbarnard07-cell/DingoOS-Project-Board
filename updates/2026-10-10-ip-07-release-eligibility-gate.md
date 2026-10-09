@@ -210,3 +210,16 @@ Commits:
 - Protocol clarification: `fc36667aadaeab9bd1fb9d0fc4435f7bb55d6738`
 
 **The runner has not been executed here.** This is tooling and procedure, not test evidence. Test execution, clean wheel-build evidence, authorized classification-policy approval, upstream PR reconciliation, independent durability and rights clearance remain open. PR #75 remains draft/unmerged. Production remains NOT VERIFIED / NO-GO / HOLD. No paid workflow was triggered.
+
+
+## Execution blocker and false-positive hardening
+
+Source review identified that `unittest discover` may exit zero with zero tests; runner now preflights all eight configured files and requires a positive, parseable `Ran N tests` count for every test step. Missing files or unparseable/zero counts fail closed.
+
+- Runner preflight/count enforcement: `9f9709417b4732226a3e38dce0f6f75ddc9aa989`
+- Count parsing correction: `1ebc17fe66df8f99b3026b56afeff2690bab6055`
+- Protocol update: `8ce661fff88dcb8396b3bfac1da6daa1fe780759`
+
+**Actual execution remains blocked in this session:** there is no local checkout or connected shell for the private repository. The available GitHub connector exposes no workflow-dispatch/remote-shell capability, and the exact candidate has no associated PR workflow runs returned. Paid Actions is not a fallback due to the existing billing/spending-limit constraint. Therefore no tests or build have been executed here and no pass is claimed.
+
+Required next action: run the runner in a clean local checkout at the exact full candidate SHA, inspect the report and raw logs, fix any failures, then rerun against the corrected revision. PR remains draft/unmerged; production remains NOT VERIFIED / NO-GO / HOLD.

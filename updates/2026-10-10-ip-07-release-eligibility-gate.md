@@ -190,3 +190,23 @@ Commits:
 - Reassessment report update: `df69e4e3c972bff30200c2599815326d7d112070`
 
 The IP-07 release-gate suite now has 30 authored methods. Mapping and integration tests remain unexecuted; no PASS is claimed. PR #75 remains draft/unmerged. Production status remains NOT VERIFIED / NO-GO / HOLD. No paid workflow was triggered.
+
+
+## Next block — free, revision-bound verification harness
+
+Added a local verification runner and protocol because the available GitHub content operations cannot execute the candidate's code, and authored tests must not be reported as passing.
+
+- Runner: https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ip-07-provenance-release-gate/scripts/verify_ip_candidate.py
+- Protocol: https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ip-07-provenance-release-gate/docs/ip/IP-CANDIDATE-LOCAL-VERIFICATION-PROTOCOL-1.0.0.md
+- Reassessment update: `255c53abb4582379196b72f636d1fb0d3f4aca89`
+
+The runner refuses to execute unless the supplied full candidate SHA matches the checkout and the working tree is clean. It runs eight test files independently via `unittest discover`, records commands, UTC times, exit codes, runtime details and SHA-256 hashes of captured stdout/stderr, then attempts a local wheel build with `--no-deps --no-build-isolation`. It does not install dependencies, invoke paid CI, or grant authorization. Local output is written under ignored `artifacts/ip-verification/`; logs require review before sharing.
+
+Commits:
+- Runner initial: `f52a12bb2b42725ff1164215ca9e1b12c9250435`
+- Runner hardening: `e7deb0cdfd8cae82e676d833e4098d0e64624ebe`
+- Local evidence ignore rule: `8d316379114a1b5767090140f525cbd434a831ac`
+- Protocol: `9d88e26744096f7e5b601279b666071a37566965`
+- Protocol clarification: `fc36667aadaeab9bd1fb9d0fc4435f7bb55d6738`
+
+**The runner has not been executed here.** This is tooling and procedure, not test evidence. Test execution, clean wheel-build evidence, authorized classification-policy approval, upstream PR reconciliation, independent durability and rights clearance remain open. PR #75 remains draft/unmerged. Production remains NOT VERIFIED / NO-GO / HOLD. No paid workflow was triggered.

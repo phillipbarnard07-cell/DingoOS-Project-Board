@@ -59,7 +59,6 @@ The next design reassessment found a critical binding gap: prior eligibility cou
 
 Regression coverage includes malformed register dates, uppercase artifact digests, register/artifact mismatch, authorization digest/version/destination mismatch, source pin mismatch, path traversal, duplicate JSON keys, invalid JSON, size limits, symlinks, and in-memory snapshot mutation. Tests remain authored but unexecuted. No paid runner or workflow was triggered. No test-pass, legal-clearance, or production-readiness claim is made.
 
-
 ## Latest hardening — deterministic provenance idempotency and ambiguous-write recovery
 
 **Private implementation PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/75  
@@ -73,7 +72,6 @@ Regression coverage includes malformed register dates, uppercase artifact digest
 - Added four gate regression methods: mismatched receipt, timeout reconciled against exact event/hash, timeout without confirmation, and reconciliation-service exception. Gate suite now has 25 authored methods; the source-loader suite has 10.
 - Tests remain authored, not executed against a canonical checkout. No paid workflow/runner was triggered. Durable publisher integration, atomicity, conflict handling, and real store crash-recovery remain pending. Merge/release remains HOLD.
 
-
 ## Latest block — SQLite durable provenance reference adapter
 
 **Current IP-07 implementation branch:** `feat/ip-07-provenance-release-gate`  
@@ -86,7 +84,15 @@ Regression coverage includes malformed register dates, uppercase artifact digest
 - Verification remains pending: tests were not executed in this environment. Local SQLite behavior is not evidence of production crash durability, external replication, independent custody, backup/restore, or concurrency safety under target deployment.
 - Authoritative AuthorizationObject/revocation integration, protected database/filesystem access, independent checkpoint trust, package build/install, end-to-end human authorization, and exact-revision test evidence remain pending. Merge/release remains HOLD.
 
-
 ### Follow-up consistency hardening
 
-The provenance-store source was rechecked against the current PR head and corrected to reuse IP-07's canonical ProvenanceEvent validator and explicitly close read/initialization connections. Current implementation commit: `cedda262c9f4de23ea3f3e3d1eb44f851d6496ab`. This is a source-level consistency update only; tests still have not been executed. Merge/release remains HOLD.
+The provenance-store source was rechecked against the current PR head and corrected to reuse IP-07's canonical ProvenanceEvent validator and explicitly close read/initialization connections. Current implementation commit recorded in the prior update: `cedda262c9f4de23ea3f3e3d1eb44f851d6496ab`. This is a source-level consistency update only; tests still have not been executed. Merge/release remains HOLD.
+
+## Production-readiness closure criteria — 2026-10-10
+
+**Acceptance contract:** https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ip-07-provenance-release-gate/docs/ip/IP-PRODUCTION-READINESS-EXIT-CRITERIA.md  
+**Acceptance-contract commit:** `6a4410d722682661e1dbc717c0193f4af0829700`
+
+The objective is now explicitly production-ready DingoOS IP, not indefinite hardening. The acceptance contract separates technical production readiness from legal/commercial IP readiness and sets finite gates for canonical scope, reproducible build, executed exact-revision tests, rights/asset status, authorization separation, durable provenance, security/confidentiality, operations/recovery, and independent evidence review.
+
+**Current decision remains NOT ESTABLISHED / NO-GO / HOLD.** The new document defines acceptance criteria only; it does not pass any gate. The next work should close mandatory blockers and produce executed evidence, not add optional architecture for its own sake. No paid workflow was triggered.

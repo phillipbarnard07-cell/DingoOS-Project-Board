@@ -139,3 +139,19 @@ The private DingoOS development branch now contains:
 
 **Cost boundary:** no paid CI, GitHub billing requirement, or paid API has been introduced.
 
+## DDEP admission provenance and local dispatch claim — 2026-10-10
+
+**Private implementation branch:** `feat/ddep-resource-admission-guard`  
+**PR:** [#76 — DDEP resource admission guard](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)
+
+Implemented in the private branch:
+- immutable append-only `DDEP_ADMISSION_DECISION_V1` records for PRE_DISPATCH and POST_PREPARED checks;
+- admission evidence binds execution/DPO/stage, resource qualification hash/version/constraints, authorization reference/digest/revocation counter, source issuer/revision/status, and signature-verification result;
+- a durable single-ResearchLedger append-once dispatch claim bound to the post-PREPARED admission event ID and ledger integrity hash;
+- duplicate-claim conflict handling that preserves the winning worker's PREPARED lifecycle rather than terminalizing it;
+- regression tests authored for successful evidence binding, HOLD/no-dispatch, single-use claims, and lifecycle preservation.
+
+**Boundary:** the local ledger claim is not distributed atomicity and does not synchronize external authorization revocation with dispatch. Real source-of-record services, production trust-key lifecycle, enforced cross-service fencing/lease semantics, crash/concurrency tests, local runner results and EMO remain outstanding.
+
+**Verification:** tests are authored but NOT EXECUTED. State remains **IMPLEMENTED / INTEGRATION HOLD / PRODUCTION NO-GO**. No paid CI or billing gate introduced.
+

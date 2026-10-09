@@ -155,3 +155,14 @@ Implemented in the private branch:
 
 **Verification:** tests are authored but NOT EXECUTED. State remains **IMPLEMENTED / INTEGRATION HOLD / PRODUCTION NO-GO**. No paid CI or billing gate introduced.
 
+### Follow-up: bind admission claim through the final DDEP stage commit — 2026-10-10
+
+Private branch follow-up now validates and persists the full provenance chain:
+
+`POST_PREPARED admission decision → single-ledger dispatch claim → DDEP stage execution binding → stage commit / runtime attestation`.
+
+The stage commit records claim/admission event IDs and integrity hashes. Restore/attestation checks those references against the actual ledger records. The stage-binding validator schema was reconciled with the persisted `authorization_digest` and `provenance_event_hash` fields, and it checks the authorization digest against the canonical `ExecutionObject`.
+
+**Candidate code head at this checkpoint:** `cdbacf8360414be0ea9b3f2e3b8e6bc71a2ba08d`  
+**Verification:** new end-to-end regression asserts were authored but not executed; GitHub reports no status checks for the candidate. Keep the PR in draft and production on HOLD until the free local runner executes the focused and full suites.
+

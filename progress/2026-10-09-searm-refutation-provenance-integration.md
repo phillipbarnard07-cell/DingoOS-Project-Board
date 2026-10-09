@@ -14,6 +14,7 @@
 - Wired the Horizon `/horizon/searm/c4po/refute-and-counter` route to accept `evidence_id` and return the canonical provenance event for governed requests.
 - Kept backward compatibility for computation-only requests, but now labels them `COMPUTATION_ONLY_EVIDENCE_ID_REQUIRED` and returns no qualification provenance.
 - Added API and HTTP-route regression coverage; governed requests require a pre-existing EPC lifecycle event and evidence record tied to the target claim.
+- Added EPC transition preflight so an illegal/duplicate refutation is rejected before another refutation result is persisted.
 - Documented the authority split between SEARM refutation, EPC state transition, and provenance recording.
 
 ## Files

@@ -154,3 +154,19 @@ A follow-up dependency check found that IP-03 PR #71 is based on `d49728297cd14c
 This means the IP stack's upstream system baseline is not yet proven to be the final accepted architecture. The reassessment report now marks dependency reconciliation against the canonical system manifest and relevant architecture/security/governance PRs as a release-critical integration gate. Do not merge unrelated PRs automatically; compare diffs and dependency relationships first.
 
 Latest reassessment report commit: `f54d678baf0655365a0bf8eefba859399e73c1fe`. Current PR #75 remains draft/unmerged. No tests were executed and no paid workflow was triggered. Production readiness remains NOT ESTABLISHED; merge/release HOLD.
+
+
+## Next-block implementation — IP-03 malformed-input hardening and asset isolation
+
+Source review found that runtime values are not enforced by Python dataclass annotations. Invalid values could raise exceptions during rights validation; additionally, the reusable rights blocker function did not enforce that all supplied records belonged to one asset.
+
+The rights ledger now validates runtime field types, rejects malformed evidence and non-record inputs, rejects invalid/duplicate required domains, and blocks mixed-asset evaluations. Five regression methods were added covering malformed record/evidence fields, invalid state, non-record/invalid-domain input, and mixed asset IDs.
+
+Changes are committed to both the IP-03 source branch and the IP-07 candidate branch:
+- IP-03 source: `096f13ef624c00783aeae5c3b7ed5da21fb54b88`
+- IP-03 tests / updated PR head: `acf17eedc5aedbc1b65f97be903473cd73117d76`
+- IP-07 candidate source: `ab7d25b1dc448c9758f49f287fb06757553dad65`, `6a1fde26ea9dcc9c91e0346d68cde1ee74327d86`
+- IP-07 candidate tests: `7a68cee8ba048a1757fb7d3dc677bb2d85bfdd68`
+- Reassessment report update: `b5e4e4377486e5a6a8a54747ddcca5a935830f98`
+
+IP-03 rights-ledger suite now has **11 authored test methods** (previously 6). Tests have not been executed; authored coverage is not a pass. PR #71 remains draft/unmerged, and PR #75 remains draft/unmerged. Production status remains NOT ESTABLISHED / HOLD. No paid workflow was triggered.

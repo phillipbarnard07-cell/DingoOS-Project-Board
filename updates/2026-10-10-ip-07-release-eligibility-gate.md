@@ -72,3 +72,16 @@ Regression coverage includes malformed register dates, uppercase artifact digest
 - The persisted event records `ELIGIBILITY_CANDIDATE` and `TECHNICAL_ELIGIBILITY_ONLY`, rather than claiming a final eligible decision before persistence has been confirmed. No authorization or release is implied.
 - Added four gate regression methods: mismatched receipt, timeout reconciled against exact event/hash, timeout without confirmation, and reconciliation-service exception. Gate suite now has 25 authored methods; the source-loader suite has 10.
 - Tests remain authored, not executed against a canonical checkout. No paid workflow/runner was triggered. Durable publisher integration, atomicity, conflict handling, and real store crash-recovery remain pending. Merge/release remains HOLD.
+
+
+## Latest block — SQLite durable provenance reference adapter
+
+**Current IP-07 implementation branch:** `feat/ip-07-provenance-release-gate`  
+**Latest specification commit:** `749829882e30bb492d8dba8559756de835538c6c`
+
+- Added `ip_governance/sqlite_provenance_store.py`: canonical event/hash validation, atomic SQLite append transaction, deterministic event-ID receipt, idempotent identical retries, conflict on same ID/different payload, append-only UPDATE/DELETE triggers, and exact payload/hash reconciliation.
+- Gate integration now independently reconciles the exact event ID and hash after successful publish whenever the reconciler is configured. A fake receipt without a durable write remains HOLD.
+- Added `tests/ip_governance/test_sqlite_provenance_store.py` with 9 authored test methods; added 3 integration methods to the gate suite. Current authored test-method counts: gate 28, SQLite provenance store 9, register-source 10.
+- Store uses only Python standard library; no paid service, hosted runner, or network dependency introduced.
+- Verification remains pending: tests were not executed in this environment. Local SQLite behavior is not evidence of production crash durability, external replication, independent custody, backup/restore, or concurrency safety under target deployment.
+- Authoritative AuthorizationObject/revocation integration, protected database/filesystem access, independent checkpoint trust, package build/install, end-to-end human authorization, and exact-revision test evidence remain pending. Merge/release remains HOLD.

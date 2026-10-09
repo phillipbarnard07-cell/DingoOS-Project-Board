@@ -11,6 +11,9 @@
 - Persist `SEARM_EPISTEMIC_TRANSITION_RECORDED` through the existing Research Ledger.
 - Return the provenance ledger entry as `PersistedRefutation.qualification_entry`.
 - Added end-to-end regression tests for contradictory results and non-contradictory results that must not emit a qualification event.
+- Wired the Horizon `/horizon/searm/c4po/refute-and-counter` route to accept `evidence_id` and return the canonical provenance event for governed requests.
+- Kept backward compatibility for computation-only requests, but now labels them `COMPUTATION_ONLY_EVIDENCE_ID_REQUIRED` and returns no qualification provenance.
+- Added API and HTTP-route regression coverage; governed requests require a pre-existing EPC lifecycle event and evidence record tied to the target claim.
 - Documented the authority split between SEARM refutation, EPC state transition, and provenance recording.
 
 ## Files
@@ -30,4 +33,4 @@ Tests are authored but not executed in this session. No claim of passing runtime
 
 ## Next block
 
-Run the focused tests in a real checkout; inspect and address any failures; then extend the same audit to other epistemic transitions and ensure no alternate public API path can bypass governed lifecycle rules.
+Run the focused tests in a real checkout; inspect and address any failures; then extend the same audit to other epistemic transitions and verify authorization, state restoration, and error-path atomicity.

@@ -174,3 +174,16 @@ Commits:
 - 15f5c9b6dc1fdfe9a112e371a2c2fcc0c0e1b76c — verifier literal correction
 
 The test suite remains NOT EXECUTED; these are source inspection results only. PR #69 remains open/unmerged. No paid CI dependency introduced.
+
+
+## 2026-10-09 reassessment — reject empty Git inventory
+
+The runner previously allowed a valid Git inventory command that returned zero tracked paths to continue, potentially producing evidence with no source files represented. Both Git-checkout enumeration paths now fail closed with `RuntimeError("Git-tracked source inventory is empty")`. Added a regression test using a newly initialized empty Git repository. This is a source-level guard; tests have not yet been executed.
+
+Commits:
+- 3feb62b7cdc2aba32cf19b42fec9f1116c7a9e6d — initial empty-inventory guard
+- 525329b936e20ce087368412031dd4d95ce9ed70 — corrected guard indentation
+- d04836c4cdb7dcff16570df2363415f60783fa61 — regression test
+- d6c284958c1e1182bda7bd93a97fec88898070e1 — formal contract
+
+Tests remain NOT EXECUTED. PR #69 remains open/unmerged; no paid CI dependency added.

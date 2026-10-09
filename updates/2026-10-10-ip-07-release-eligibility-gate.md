@@ -113,3 +113,35 @@ Added three standard-library regression methods to `tests/ip_governance/test_sql
 The SQLite store suite now has **12 authored test methods** (previously 9); the IP-07 gate suite remains 28 and register-source suite remains 10. Updated `docs/ip/IP-07-PROVENANCE-BOUND-RELEASE-ELIGIBILITY-GATE.md` records these cases, exact local test commands, and the distinction between authored tests and executed evidence.
 
 **Verification status:** tests were not executed in this environment. No CI workflow was triggered. These tests improve the intended regression coverage but do not establish target-environment concurrency, crash recovery, backup/restore, independent custody, or production readiness. PR #75 remains open/draft/unmerged; merge and release remain HOLD.
+
+
+## Cross-stack production design reassessment — 2026-10-10
+
+**Assessment report:** https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ip-07-provenance-release-gate/docs/ip/IP-PRODUCTION-DESIGN-REASSESSMENT-2026-10-10.md  
+**Current IP-07 PR head after this block:** `0d6aa7864c1d8f5a5721354654ad765b283a36a6`  
+**Status:** Source/design assessment; not test execution, legal clearance, or production certification.
+
+Reviewed the live IP-03 → IP-07 stack and canonical IP register, provenance and release-manifest schemas, policy primitives, package configuration, and production acceptance contract. PRs #71–#75 remain a stacked chain of open draft PRs; each layer must be reviewed and tested against the exact dependency revisions, then integrated and verified in order.
+
+### Findings preserved in the reassessment
+
+- IP-03's scoped rights model and fail-closed required-domain checks are useful, but unresolved asset states remain blockers rather than ownership claims.
+- IP-04's `ReviewHistory` is an in-memory reference implementation; it is not durable production history.
+- IP-05's SQLite ledger has authorization-validator integration and local append-only triggers, but local SQLite does not establish independent custody or tamper-proof storage.
+- IP-06's HMAC checkpoint protocol is a useful contract; the in-memory/local file stores do not meet independent production trust custody.
+- IP-07's maximum positive state remains eligibility for human authorization, not authorization or release. Authoritative authorization/revocation, review freshness, protected source-pin custody, classification mapping, schema validation, operational recovery, and exact-revision execution remain blockers.
+- Canonical Draft 2020-12 schemas exist; the current runtime validators are structural, not full standards-compliant JSON Schema validators.
+- Register classifications and legacy C0–C4 policy vocabulary require an explicit, tested conservative mapping.
+
+### Concrete defect fixed
+
+Source review found that `SQLiteReviewLedger` used the SQLite connection context manager in its initialization/read paths, which manages transactions but does not itself close the connection. The code now explicitly closes these connections with `contextlib.closing`. Added a regression test that tracks and asserts closure for both paths.
+
+- Source commit: `19b8abac5b043158f7b1f371aefd45509d21dcb4`
+- Test commit: `7902ec178ba075df16cd0e10050bdb7298cdb8f1`
+- Reassessment report commit: `0d6aa7864c1d8f5a5721354654ad765b283a36a6`
+- The review-ledger suite now has 8 authored test methods. The new test and suite have not been executed in this environment.
+
+### Decision and next block
+
+**Production readiness: NOT ESTABLISHED. Merge/release: HOLD.** No paid runner/workflow was triggered. The finite next steps are execute the focused regression and complete local suites, fix observed failures, integrate authoritative authorization/revocation and conservative classification policy, establish independent checkpoint/backup/recovery controls, verify schema/package/build behavior, then produce revision-bound evidence and asset-specific rights decisions. Do not expand architecture unless verification demonstrates a material gap.

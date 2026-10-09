@@ -148,5 +148,6 @@ Commits:
 - fb7c929eb7fafbaa0956a42320b1700108d5bfbe — verifier NUL delimiter
 - 9cd4c7b1248f41751bc6e849ec16b877114a008f — tracked-path regression fixture
 - c2cc8740b05cde5a4a92e65d9019e673d72d6b3d — contract update
+- f2ff635f7639ee70dffca46d37759cdc063dbbed — clarify the NUL byte literal in the contract
 
 Tests remain NOT EXECUTED. PR #69 remains open/unmerged, and no Actions runs were returned for the prior reviewed head. Do not promote the merge gate until the targeted regression suite is executed against the current exact revision. No paid CI dependency added.

@@ -219,3 +219,14 @@ Commits:
 - a665f51aa356db53a315ad3dfe8486bf2e199187 — align protocol with captured test set
 
 Source-level changes are committed; tests have NOT been executed in a usable checkout. No paid CI or billing dependency was introduced.
+
+
+### Capture-helper reassessment — detached HEAD fail-closed correction
+
+A follow-up source review found the helper reported HOLD on detached HEAD but would still attempt to invoke pytest before deciding the result. Corrected it to skip test execution when the branch name is empty, and amended the regression test to assert pytest is not invoked in this condition. The protocol now explicitly lists a named branch as a precondition.
+
+- a4263f568ac0ba6ff01df3a1f40c926ae50455ea — prevent execution on detached HEAD
+- 6a8d999bc22d51ef7d4fbc9b0240e3f4bfed8220 — regression test for detached-HEAD preflight
+- e63fa3d7b7de99b6bba80cbcd8e1152e092e5cd9 — clarify protocol precondition
+
+Source re-fetch review is required; tests remain NOT EXECUTED. No paid CI requirement introduced.

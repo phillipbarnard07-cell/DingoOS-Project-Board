@@ -122,3 +122,20 @@ PR #76 now adds adapter ports for signed resource qualification and execution-au
 - Resource-admission contract updated to link the adapter boundary.
 
 **Status:** adapter code and test definitions are committed, but tests have not been executed here. The repository currently exposes no concrete production resource-registry client, authorization service, trusted-key store or transaction coordinator in the inspected contracts. These adapters do not invent one. Runtime wiring, real signature-verifier configuration, durable admission provenance, atomic dispatch fencing, and local/free-runner verification remain outstanding. **Production stays HOLD / NO-GO.** No paid CI or billing gate introduced.
+
+## DDEP resource admission wiring checkpoint — 2026-10-10
+
+**State: IMPLEMENTED / INTEGRATION HOLD. Production: NO-GO.**
+
+The private DingoOS development branch now contains:
+- a canonical composition factory for guarded DDEP runtime construction;
+- mandatory execution binding and durable lifecycle settings in that factory;
+- authoritative resource and authorization checks before preparation and a second revalidation after PREPARED, immediately before the stage handler;
+- focused regression tests and updated admission contracts/readiness documentation.
+
+**Still unresolved:** no verified live resource-registry or authorization-authority client; no production trusted-key lifecycle; no atomic dispatch claim or enforced fencing token; no durable admission-decision provenance record; and no executed test evidence for the current candidate. Double revalidation narrows but does not eliminate the authorization/dispatch race.
+
+**Verification:** tests are authored but NOT EXECUTED. No production integration or certification is claimed. Keep the release on HOLD until real authorities, race-safe dispatch, provenance, local/free-runner results, independent review, and an Evidence Manifest Object are available.
+
+**Cost boundary:** no paid CI, GitHub billing requirement, or paid API has been introduced.
+

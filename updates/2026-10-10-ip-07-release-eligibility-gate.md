@@ -2,7 +2,7 @@
 
 **Workstream:** DingoOS protected-IP governance and provenance  
 **Private implementation PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/75  
-**Latest source revision:** `afe45ef5633c7d8eb7222f5ddd781032913708cc`  
+**Latest source revision:** `25ef5293f2fc8b81aedb5271976de6583246daa9`  
 **State:** Canonical provenance event shape implemented; runtime adapters and execution evidence pending
 
 ## New findings and corrections
@@ -17,14 +17,14 @@ The IP-07 pending review inspected the actual schemas on the IP-06 dependency br
 
 IP-07 has been corrected from its earlier custom envelope to the canonical ProvenanceEvent field shape (`event_id`, `object_id`, `version_id`, `content_hash`, `provenance_hash`, `event_type`, plus only permitted optional fields). A standard-library validator checks required/allowed fields, types, digest formats, and the canonical event hash. The test asset ID was changed to match the canonical `DGO-IP-...` format.
 
-The canonical release-manifest schema requires `authorization_status: NOT_GRANTED`. It must not be treated as a grant or altered to imply release approval. The canonical asset register exists but is not yet queried by the gate.
+The canonical release-manifest schema requires `authorization_status: NOT_GRANTED`. It must not be treated as a grant or altered to imply release approval. The canonical asset register is now a required input. The gate calls the repository-maintained `scripts.validate_ip_register.validate_register` structural validator on each evaluation, checks the requested asset's release-relevant review states, requires an exact lowercase artifact digest, and applies the existing trusted-destination/classification policy. This structural validator is not a standards-complete JSON Schema engine, and authoritative file loading remains pending.
 
 ## Verified from GitHub
 
-- Latest branch commit inspected: `eeff492bec7fcdff04796913268f64825f60a37b`.
+- Latest IP-07 documentation commit at time of this update: `25ef5293f2fc8b81aedb5271976de6583246daa9`.
 - PR #75 remains open, draft, and unmerged.
 - GitHub returned no workflow runs and no status checks for that latest commit. This is not a test pass.
-- Tests are authored but not executed against a canonical checkout.
+- Thirteen regression test methods are authored but not executed against a canonical checkout.
 
 ## Remaining gates
 
@@ -32,8 +32,8 @@ The canonical release-manifest schema requires `authorization_status: NOT_GRANTE
 |---|---|
 | Canonical ProvenanceEvent field-shape alignment | DONE in reference code |
 | Canonical event-hash validation | DONE in reference code |
-| Resolve required asset ID against injected canonical register payload | DONE in reference code; authoritative file loading/full-schema validation pending |
-| Enforce existing classification policy and trusted-destination adapter | DONE in reference code; final mapping/freshness review pending |
+| Resolve asset against injected register and run repository structural validator | DONE in reference code; authoritative file loading and standards-compliant JSON Schema validation pending |
+| Enforce existing classification policy and trusted-destination adapter | DONE in reference code; final mapping/freshness/revocation review pending |
 | Authoritative AuthorizationObject + revocation adapter | PENDING |
 | Durable canonical provenance publisher + idempotency | PENDING |
 | Independent checkpoint store/key custody | PENDING |
@@ -41,4 +41,4 @@ The canonical release-manifest schema requires `authorization_status: NOT_GRANTE
 | Human-governed end-to-end release path | PENDING |
 | Merge/release | HOLD |
 
-No paid runner or workflow was triggered. No test-pass, legal-clearance, or production-readiness claim is made.
+New regression cases cover malformed register dates and uppercase artifact digests. No paid runner or workflow was triggered. No test-pass, legal-clearance, or production-readiness claim is made.

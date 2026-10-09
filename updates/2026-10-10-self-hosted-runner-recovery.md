@@ -38,3 +38,6 @@ If no self-hosted runner is online, the job will remain queued. No execution or 
 ## Governance disposition
 
 PR #69 remains unpromoted until source-bound verification evidence is available. A successful software test run would not itself establish scientific validity, legal/IP clearance, production readiness, or consequential deployment authorization. Production remains **NOT VERIFIED / NO-GO / HOLD**. No paid workflow was triggered.
+
+
+Privacy clarification: the one-day JSON artifact contains captured command stdout/stderr, which may include private paths or test-generated data; treat it as private evidence and inspect before sharing. Runbook clarification commit: `a17ee06234a41d35047894e8e295ffed5cd8f071`.

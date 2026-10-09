@@ -166,3 +166,16 @@ The stage commit records claim/admission event IDs and integrity hashes. Restore
 **Candidate code head at this checkpoint:** `cdbacf8360414be0ea9b3f2e3b8e6bc71a2ba08d`  
 **Verification:** new end-to-end regression asserts were authored but not executed; GitHub reports no status checks for the candidate. Keep the PR in draft and production on HOLD until the free local runner executes the focused and full suites.
 
+### Free local runner candidate pinning — 2026-10-10
+
+The existing local-first `scripts/run_foundation_ci.py` now accepts `--expected-sha` and `--expected-branch`, refuses to run if the checkout does not match the requested candidate, and records the expected candidate in its evidence report. Regression tests cover SHA/branch mismatch stopping before any gate invocation.
+
+**Current PR #76 candidate:** `515de55bd709cbf7c4a55443a5850707eaf3d38b`  
+**Command for the exact candidate:**
+
+```bash
+python scripts/run_foundation_ci.py --expected-sha 515de55bd709cbf7c4a55443a5850707eaf3d38b --expected-branch feat/ddep-resource-admission-guard
+```
+
+**Execution status:** not run in this ChatGPT environment; GitHub reports no status checks or workflow runs for this head. The candidate must be tested from a clean local checkout. No paid CI requirement was introduced.
+

@@ -137,3 +137,16 @@ Commits:
 - a34036c180edde82dc52d033245799b3ebf07aa3 — contract update
 
 Evidence status: source changes are committed; regression tests remain NOT EXECUTED. PR #69 remains open/unmerged; release readiness remains HOLD. GitHub Actions query for the prior head returned zero runs, and no paid CI requirement was introduced. The next gate remains real test execution on the exact reviewed revision.
+
+
+## 2026-10-09 reassessment — Git NUL delimiter correction
+
+A further review found that both Git tracked-path readers used the wrong byte delimiter for git ls-files -z. Git's -z mode separates filenames with actual NUL bytes. The runner inventory and revision-binding verifier have now been corrected to split on the NUL byte. Added a runner regression fixture with two committed files (including a space in one filename) to assert that the inventory emits two distinct paths. Existing revision-binding regression cases exercise tracked-source completeness against a real temporary Git repository.
+
+Commits:
+- 56de448e9b51898532ed01a0a20aaed273b6c67a — runner NUL delimiter
+- fb7c929eb7fafbaa0956a42320b1700108d5bfbe — verifier NUL delimiter
+- 9cd4c7b1248f41751bc6e849ec16b877114a008f — tracked-path regression fixture
+- c2cc8740b05cde5a4a92e65d9019e673d72d6b3d — contract update
+
+Tests remain NOT EXECUTED. PR #69 remains open/unmerged, and no Actions runs were returned for the prior reviewed head. Do not promote the merge gate until the targeted regression suite is executed against the current exact revision. No paid CI dependency added.

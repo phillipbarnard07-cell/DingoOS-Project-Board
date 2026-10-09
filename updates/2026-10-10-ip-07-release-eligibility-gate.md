@@ -58,3 +58,17 @@ The next design reassessment found a critical binding gap: prior eligibility cou
 | Merge/release | HOLD |
 
 Regression coverage includes malformed register dates, uppercase artifact digests, register/artifact mismatch, authorization digest/version/destination mismatch, source pin mismatch, path traversal, duplicate JSON keys, invalid JSON, size limits, symlinks, and in-memory snapshot mutation. Tests remain authored but unexecuted. No paid runner or workflow was triggered. No test-pass, legal-clearance, or production-readiness claim is made.
+
+
+## Latest hardening — deterministic provenance idempotency and ambiguous-write recovery
+
+**Private implementation PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/75  
+**Implementation commit:** `ff66643b9c01bf8ec2b09b5de1b186d38330abec`  
+**Regression-test commit:** `95b67570b001dbc2080b20222c4407e92d0be94f`  
+**Specification commit:** `1bb32f7538c568700994db76aff6bec4d7feafa1`
+
+- The canonical deterministic `event_id` is now the publisher's required idempotency key/receipt; arbitrary non-empty IDs are rejected.
+- Added an optional fail-closed reconciliation adapter that receives the expected `event_id` and canonical `provenance_hash`. It may recover an ambiguous timeout only by affirming the exact durable event/hash; denial, exception, or no adapter leaves the decision at HOLD.
+- The persisted event records `ELIGIBILITY_CANDIDATE` and `TECHNICAL_ELIGIBILITY_ONLY`, rather than claiming a final eligible decision before persistence has been confirmed. No authorization or release is implied.
+- Added four gate regression methods: mismatched receipt, timeout reconciled against exact event/hash, timeout without confirmation, and reconciliation-service exception. Gate suite now has 25 authored methods; the source-loader suite has 10.
+- Tests remain authored, not executed against a canonical checkout. No paid workflow/runner was triggered. Durable publisher integration, atomicity, conflict handling, and real store crash-recovery remain pending. Merge/release remains HOLD.

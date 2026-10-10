@@ -3,7 +3,8 @@
 **Repository:** phillipbarnard07-cell/DingoOS  
 **Branch:** feat/observable-free-verification-runner-v1  
 **Related blocker:** [Issue #53](https://github.com/phillipbarnard07-cell/DingoOS/issues/53)  
-**Status:** Implementation and regression tests committed to a draft PR; tests have not been executed in a real DingoOS checkout by this session.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/96  
+**Status:** Implementation and regression tests committed; draft PR is open and unmerged. Tests have not been executed in a real DingoOS checkout by this session.
 
 ## Delivered
 - `scripts/verification_evidence_runner.py`: standard-library runner that requires a clean Git checkout, pins the exact HEAD SHA, executes reviewed argv commands with `shell=False`, writes per-gate combined logs and SHA-256 digests, records environment/plan identity and UTC timestamps, and returns PASS only when every declared gate succeeds and the checkout remains unchanged.

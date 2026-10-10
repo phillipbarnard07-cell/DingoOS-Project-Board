@@ -475,3 +475,14 @@ PR #120 now also includes root-sum-square combination for independent standard-u
 ### Physical evidence input path added
 
 The physical-reality branch now has a strict versioned mapping loader that rejects missing or unexpected fields without silently coercing input, plus root-sum-square uncertainty combination for independent same-unit components. The locally assembled mirror's standard-library suite now passes 14/14; exact remote branch execution remains unverified. PR #120 remains open/draft/unmerged.
+
+
+## Foundation Runner Execution and Mortality/Stewardship Doctrine — 2026-10-10
+
+**DingoOS PR #121:** https://github.com/phillipbarnard07-cell/DingoOS/pull/121 — open draft, unmerged.
+
+The branch supplies the two scripts missing from `main` that the manual self-hosted foundation workflow invokes: `scripts/run_foundation_ci.py` and `scripts/verify_foundation_evidence.py`. The runner uses the existing pytest installation without network calls or dependency installation, disables pytest's cache provider to protect clean-checkout verification, and binds the report to an exact revision. Contract tests check workflow path existence and reject a tampered report. The scripts and tests have not been executed on the exact remote branch; no CI pass is claimed.
+
+The branch also formalizes the “nobody gets out of here alive / Grace of the Source” narrative as a human-centered mortality, dignity, knowledge stewardship, succession and safe-closure doctrine. It explicitly makes no metaphysical proof claim and prohibits using fear, grief or spirituality to coerce people.
+
+PR #75 remains the IP-07 integration candidate. No parallel release authority, paid CI, paid API or subscription requirement was added. Production remains HOLD / NO-GO.

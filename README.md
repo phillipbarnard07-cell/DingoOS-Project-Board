@@ -534,3 +534,12 @@ These are authored implementations and tests, not verified test passes; the exac
 - **PR #129 — Section #008 Evidence Ledger:** https://github.com/phillipbarnard07-cell/DingoOS/pull/129. Preserves the existing append-only/chained ledger, rejects non-standard NaN/infinity from canonical JSON and validates append input types before writing. Typed raw→calibrated→derived→analysed→reported stage graph and trusted root/anchoring remain open.
 
 Both PRs are open drafts, stacked in order on Sections #001–#007. Tests are authored but not run on exact remote branches. The original 464/484-section master source remains not located as one file, so mapping is provisional. No paid CI/service/API requirement added. Production remains HOLD / NO-GO.
+
+
+## SEARM Build Cycle — Replay Integrity — 2026-10-10
+
+**PR #130:** https://github.com/phillipbarnard07-cell/DingoOS/pull/130 — open draft, stacked on PR #129.
+
+Inspected and reused the existing ResearchExecutionController, ResearchService, persistent ledger, typed research objects, Evidence Graph, integrity audit and Knowledge Projection services. Hardened execution replay so existing experiment/observation/analysis/evidence IDs are checked against canonical scientific inputs before any new writes. Identical replay should remain deterministic; changed input under a reused ID fails closed. RawObservation digest now binds the full serialized instrument, calibration, environment and measurement-context metadata.
+
+Added tests for identical replay, altered measurement collision, altered protocol collision, preflight preventing partial writes, duplicate IDs, calibration identity and environment identity. **Tests are authored but not executed on this exact remote branch.** No CI run/status was reported for the head commit; no test pass is claimed. This verifies input identity/replay contracts, not scientific truth or physical calibration. Production remains HOLD / NO-GO.

@@ -586,3 +586,13 @@ PR #130 now also reuses the deterministic relationship-provenance anchor when ev
 - Progress record: https://github.com/phillipbarnard07-cell/DingoOS/commit/81bc6e79953d272d1fa4fd501ae98ef565f80d13
 
 This closes one retry duplication case only. The complete SEARM multi-record lifecycle is still not transactional; exact-revision tests have not run, and the branch remains open draft. Production remains HOLD / NO-GO.
+
+
+### Allocation-to-experiment retry recovery — 2026-10-10
+
+PR #130's SEARM execution controller now checks the deterministic resource-allocation record before creating it. If experiment persistence fails after allocation, retry reuses one matching allocation; conflicting or duplicate allocation records fail closed and require reconciliation. A fault-injection regression test exercises the interruption and retry:
+- Implementation: https://github.com/phillipbarnard07-cell/DingoOS/commit/cc4dd170d7d622cfae89d78de6b3cf79f50a752f
+- Regression test: https://github.com/phillipbarnard07-cell/DingoOS/commit/4fdd80cc97d05056def42e082452f006563c890e
+- Progress record: https://github.com/phillipbarnard07-cell/DingoOS/commit/035056c0a994a925a6782823bb7a68f170a40b8d
+
+This closes one specific duplicate-allocation retry case only. The full multi-record research lifecycle remains non-atomic; exact-SHA tests have not run, and PR #130 remains draft. Production remains HOLD / NO-GO.

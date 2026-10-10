@@ -389,3 +389,15 @@ Follow-up engineering PR: [DingoOS PR #114 — align hydrogen–helium foundatio
 This reassessment corrected a custom blended epistemic label to the canonical DPO `PROPOSED` state, separated DPO lifecycle states from `core/c4po_intelligence.py`'s `MemorySnowflake.EpistemicType`, and added five local pytest contract checks plus an integration crosswalk. Unknown state mappings must fail closed to HOLD.
 
 **Validation:** ResearchObject JSON syntax passes. The five tests are implemented but have not been run; production schema validation, cosmology source review, Snowflake runtime integration, and canonical E-HOVER/E-MOTO requirement mapping remain pending. This is not a scientific validation or production integration claim. Continue review in stack order (#111 → #113 → #112 → #114).
+
+
+## Complete DingoOS Pty Ltd IP design — 2026-10-10
+
+**Design proposal:** [DingoOS PR #115 — complete IP design and traceability](https://github.com/phillipbarnard07-cell/DingoOS/pull/115) (draft; open; not merged).
+
+**Artifacts:**
+- `docs/ip/DINGOOS-PTY-LTD-COMPLETE-IP-DESIGN-V1.md` — complete target design covering asset rights, IP-01..IP-12 controls, DPO/DDEP, evidence/provenance, Snowflake, science/mathematics, E-HOVER/E-MOTO, security, release and production gates.
+- `docs/ip/DINGOOS-IP-REQUIREMENTS-TRACEABILITY-V1.json` — 20 requirement rows with explicit implementation/verification state.
+- `progress/2026-10-10-complete-dingoos-ip-design-v1.md` — scope and verification boundary.
+
+**Validation:** traceability JSON parsed successfully. Tests, build, canonical schema checks, legal review, security audit, and vehicle validation have not been performed by this block. The overall release state remains HOLD. This design does not establish legal ownership or production readiness. Existing architecture and IP PR stacks remain to be reconciled; no paid CI/service was added.

@@ -526,3 +526,11 @@ The next three stacked draft PRs are open and unmerged:
 - **PR #127 — Section #006 Measurement Object:** https://github.com/phillipbarnard07-cell/DingoOS/pull/127. Adds eager numeric/type/finite-value validation to the metrology Measurement primitive and adversarial tests. Dimensional validation, calibration lineage and covariance-aware uncertainty remain open.
 
 These are authored implementations and tests, not verified test passes; the exact remote branches have not been executed in this environment. Review/merge order is #122 → #123 → #124 → #125 → #126 → #127 because each is stacked on the prior reassessment branch. The original 464/484-section master source remains not located as a single file, so section mapping remains provisional. No paid CI/service is introduced. Production remains HOLD / NO-GO.
+
+
+## Ordered Reassessment Continuation — Sections #007–#008 — 2026-10-10
+
+- **PR #128 — Section #007 Experiment Protocol:** https://github.com/phillipbarnard07-cell/DingoOS/pull/128. Adds typed preregistration/protocol completeness model and schema with variables, controls, sample size, randomization/blinding decision, stopping criteria and safety gates. Governed execution integration and exact-branch verification remain open.
+- **PR #129 — Section #008 Evidence Ledger:** https://github.com/phillipbarnard07-cell/DingoOS/pull/129. Preserves the existing append-only/chained ledger, rejects non-standard NaN/infinity from canonical JSON and validates append input types before writing. Typed raw→calibrated→derived→analysed→reported stage graph and trusted root/anchoring remain open.
+
+Both PRs are open drafts, stacked in order on Sections #001–#007. Tests are authored but not run on exact remote branches. The original 464/484-section master source remains not located as one file, so mapping is provisional. No paid CI/service/API requirement added. Production remains HOLD / NO-GO.

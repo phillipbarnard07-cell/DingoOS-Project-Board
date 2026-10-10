@@ -181,3 +181,30 @@ python scripts/run_foundation_ci.py --expected-sha d52199d8d41d2596be0f4ff900c43
 
 **Execution status:** not run in this ChatGPT environment; GitHub reports no status checks or workflow runs for this head. The candidate must be tested from a clean local checkout. No paid CI requirement was introduced.
 
+## IP publication and software production release process — 2026-10-10
+
+**Private implementation branch:** `feat/ddep-resource-admission-guard`  
+**PR:** [#76 — DDEP resource admission guard](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
+**Current candidate:** `bc4085063f25e2500a4bc0ca609bd343ced221cf`  
+**Operational follow-up:** [Issue #78 — execute IP publication readiness gate and close release evidence](https://github.com/phillipbarnard07-cell/DingoOS/issues/78)
+
+Added the controlled process and implementation:
+- [IP Publication and Software Production Release Process v1.0](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/ip/DINGOOS-IP-PUBLICATION-AND-PRODUCTION-RELEASE-PROCESS-V1.md)
+- `scripts/ip_publication_gate.py`: fail-closed readiness evaluator.
+- `schemas/ip-publication-packet-v1.schema.json`: strict packet contract.
+- `ip/templates/ip-publication-packet-v1.template.json`: blocked-by-default packet.
+- `tests/test_ip_publication_gate.py`: candidate pinning, scope/register/manifest binding, byte integrity, IP-state, required-gate and authorization-boundary regression tests.
+- IP register entries and a progress record.
+
+The evaluator checks the clean exact Git revision, release packet, committed scope, canonical IP register, manifest digest and exact selected artifact bytes. PUBLICATION requires `PUBLIC` classification, `DOCUMENTED` ownership review, `CLEAR` third-party review and `APPROVED` disclosure for every selected asset. SOFTWARE_PRODUCTION additionally requires test, security, rollback and monitoring attestations. Automated decisions are limited to `BLOCKED` or `READY_FOR_HUMAN_AUTHORIZATION`; authorization is always `NOT_GRANTED`.
+
+**Verification status:** the new tests have NOT been run on the canonical checkout; current candidate has no GitHub status checks or workflow runs. Run from a clean checkout of the exact candidate:
+
+```bash
+python -m unittest discover -s tests -p 'test_ip_publication_gate.py' -v
+python -m unittest discover -s tests -p 'test_ip_release_manifest.py' -v
+python scripts/validate_ip_register.py ip/register.v1.json
+```
+
+Do not treat the existing default release scope as a public-release scope: it is an INTERNAL integrity archive. A real release needs a separately reviewed release scope, generated/verified manifest, independent review of evidence and rights, and explicit human authorization for the exact digest and destination. Trusted signing-key verification is not yet implemented. No publication or production deployment is authorized. No paid CI/billing gate introduced.
+

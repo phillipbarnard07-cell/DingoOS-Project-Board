@@ -185,11 +185,12 @@ python scripts/run_foundation_ci.py --expected-sha d52199d8d41d2596be0f4ff900c43
 
 **Private implementation branch:** `feat/ddep-resource-admission-guard`  
 **PR:** [#76 — DDEP resource admission guard](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
-**Current candidate:** `cea28b1a5a4dbc343486fce7630557d853105512`  
+**Current candidate:** `4cdad2dda6cbab483f75ba9d25bbf271c464bdd8`  
 **Operational follow-up:** [Issue #78 — execute IP publication readiness gate and close release evidence](https://github.com/phillipbarnard07-cell/DingoOS/issues/78)
 
 Added the controlled process and implementation:
 - [IP Publication and Software Production Release Process v1.0](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/ip/DINGOOS-IP-PUBLICATION-AND-PRODUCTION-RELEASE-PROCESS-V1.md)
+- [Canonical IP Publication Dossier Template v1.0](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/ip/DINGOOS-IP-PUBLICATION-DOSSIER-TEMPLATE-V1.md)
 - `scripts/ip_publication_gate.py`: fail-closed readiness evaluator.
 - `schemas/ip-publication-packet-v1.schema.json`: strict packet contract.
 - `ip/templates/ip-publication-packet-v1.template.json`: blocked-by-default packet.

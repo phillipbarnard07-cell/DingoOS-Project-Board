@@ -569,3 +569,10 @@ Follow-up review caught and corrected an escaping defect in the persisted-ledger
 **Foundation runner PR #121:** https://github.com/phillipbarnard07-cell/DingoOS/pull/121 — open draft, not merged. The runner and evidence verifier exist on that branch but are absent from `main` at the inspected revision, so the main-branch workflow's runner dependency is not yet resolved. The PR's tests also remain unexecuted. Do not dispatch the manual self-hosted workflow until an authorized, isolated runner is available. No paid CI or service requirement is introduced.
 
 **Next release-blocking steps:** verify the SEARM tests on a clean exact-SHA checkout; run the full suite and validate the external evidence report with the existing free/local runner; reconcile and merge the runner fix only after review and execution; then reassess the ordered dependency stack before any integration or production promotion. The production state remains **HOLD / NO-GO**.
+
+
+### Additional SEARM transaction finding — 2026-10-10
+
+A source audit of the replay controller found that preflight prevents a known identity collision from causing writes, but the entire multi-record lifecycle is not atomic. Allocation, experiment, observations, analysis, evidence, EPC state transitions and evidence-graph relationships are persisted via separate operations. A storage or validation failure after preflight can leave a partial lifecycle even though each individual ledger append is atomic.
+
+This is now recorded on PR #130's progress branch: https://github.com/phillipbarnard07-cell/DingoOS/commit/ddcc22e1fd7f06befe822c4e115b7f5182c653aa. It is a separate release blocker. The next engineering step is to reconcile the existing integration work and implement one canonical atomic-batch or durable recovery protocol, with injected-failure tests at persistence boundaries. Do not create a parallel ledger or bypass EPC/SEARM. Tests remain unexecuted, and production remains HOLD / NO-GO.

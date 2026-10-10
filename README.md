@@ -218,7 +218,7 @@ Do not treat the existing default release scope as a public-release scope: it is
 
 ## Current engineering checkpoint — DDEP dispatch fencing — 2026-10-10
 
-**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `29db56f62cf277adb9cbbfc4f723763ef6b38172`.
+**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `49457bbc206437bf5bbbdb1ce6e244ac86e3307d`.
 
 **Formalised:** the private repository now contains a v1 distributed dispatch-fencing contract, a strict fence-envelope JSON Schema and a progress record. The contract specifies the required authority and dispatcher trust boundary, monotonic fence epochs, revocation ordering, binding to the exact execution/resource/authorization, single-use consumption at the side-effect boundary, unknown-outcome recovery, provenance/EMO linkage and required adversarial verification.
 
@@ -229,7 +229,7 @@ Do not treat the existing default release scope as a public-release scope: it is
 
 ## DDEP fenced-dispatch adapter seam — 2026-10-10
 
-**Private candidate:** [PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `29db56f62cf277adb9cbbfc4f723763ef6b38172`.
+**Private candidate:** [PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `49457bbc206437bf5bbbdb1ce6e244ac86e3307d`.
 
 **Added:** typed fail-closed dispatch coordinator and boundary protocol, focused unit tests (authored, not run), adapter contract, progress record, and four corresponding IP inventory/scope entries. Register/scope structural inspection shows 34 unique entries each, no missing asset IDs or metadata mismatches.
 
@@ -238,4 +238,13 @@ Do not treat the existing default release scope as a public-release scope: it is
 
 ### Fail-closed receipt typing follow-up
 
-Candidate refreshed to `29db56f62cf277adb9cbbfc4f723763ef6b38172`. Dispatch receipts now require a typed `DispatchOutcome` enum and reject string lookalikes, with a regression test authored. This closes an identified fail-open edge case in the coordinator seam. Test remains unexecuted; real backend and integration remain outstanding.
+Candidate refreshed to `49457bbc206437bf5bbbdb1ce6e244ac86e3307d`. Dispatch receipts now require a typed `DispatchOutcome` enum and reject string lookalikes, with a regression test authored. This closes an identified fail-open edge case in the coordinator seam. Test remains unexecuted; real backend and integration remain outstanding.
+
+
+## Whole-design IP/schema reassessment — 2026-10-10
+
+**Private candidate:** [PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), `49457bbc206437bf5bbbdb1ce6e244ac86e3307d`, branch `feat/ddep-resource-admission-guard`.
+
+Added the whole-design IP/schema reassessment, a machine-readable partial schema contract inventory, a free standard-library structural auditor and regression tests. IP register/scope parity was structurally checked: 39 unique entries each, no missing IDs or review metadata mismatches. Four release-path schema IDs match the inventory and declare JSON Schema 2020-12.
+
+**Limitations:** complete recursive schema enumeration and canonical object/state/authorization/provenance/EMO mapping remain outstanding. Three inspected schema IDs use a placeholder `.example` namespace. Auditor and tests have not been executed; no JSON Schema meta-validation or canonical Python test result is claimed. Rights/licensing, real distributed fencing, trusted recovery and human authorization remain unresolved. PR #76 remains draft/unmerged; production/publication HOLD / NO-GO. No paid gate added.

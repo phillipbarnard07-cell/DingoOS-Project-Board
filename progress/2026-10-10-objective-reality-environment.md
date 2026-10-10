@@ -3,7 +3,8 @@
 **Repository:** `phillipbarnard07-cell/DingoOS`  
 **Branch:** `docs/objective-reality-environment-v1`  
 **Parent:** `feat/chemistry-reality-evaluation-v1` (PR #91 stack)  
-**Status:** Core architecture, validator, schema and tests committed; draft PR pending creation; unmerged. Tests have not been run in an actual checkout.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/92  
+**Status:** Core architecture, validator, schema and tests committed; draft PR open and unmerged. Tests have not been run in an actual checkout.
 
 ## Objective
 Define a shared, auditable environment for precision science, physics, engineering, technology, industry and mathematics. Separate the physical world, observations, models, simulations, qualified evidence, and authorized actions.

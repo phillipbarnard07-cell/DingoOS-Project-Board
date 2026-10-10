@@ -423,3 +423,12 @@ This reassessment corrected a custom blended epistemic label to the canonical DP
 **Delivered:** dependency-free reference evaluator, immutable decision records, deterministic DENY > HOLD > ELIGIBLE precedence, fail-closed default when required checks are not explicitly verified, local standard-library tests, and implementation status record.
 
 **Validation boundary:** source/tests committed; tests have not been run. JSON Schema engine validation, execution of the 15 protocol vectors, canonical authorization/provenance integration, security review and production executor remain outstanding. Never use the reference evaluator to authorize a real release. No paid CI/service added.
+
+
+## System-wide DingoOS design reassessment — 2026-10-10
+
+**Audit draft:** [DingoOS PR #118](https://github.com/phillipbarnard07-cell/DingoOS/pull/118) — open, draft, not merged. Report: `docs/architecture/DINGOOS-SYSTEM-WIDE-DESIGN-REASSESSMENT-V1.md`.
+
+**Decision:** production NO-GO / HOLD. The audit identifies a fragmented unmerged dependency stack, a verification workflow whose two referenced runner scripts were not found on `main`, and duplicate release-gate paths: the more developed existing IP-07 implementation in PR #75 versus the newer reference-only PR #117. It recommends consolidating around one canonical gate, fixing exact-SHA verification, and closing authorization/revocation, epistemic crosswalk, provenance custody, schema, legal rights, privacy/security and recovery blockers.
+
+This is a source/metadata audit, not a full test run or certification. Existing work and PR history are preserved; no paid CI or service is introduced.

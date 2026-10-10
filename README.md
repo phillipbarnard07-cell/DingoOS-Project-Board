@@ -465,3 +465,8 @@ The audit explicitly preserves the existing IP-07 gate in PR #75 as the primary 
 ### IP traceability quantified
 
 The 20-row traceability matrix in PR #115 was parsed: all 20 requirements are design-specified, but none is marked verified. Eight are partial/unverified, four report reference implementations without verification, and the remaining eight have specific integration, execution, adapter, domain, baseline, legal-review or end-to-end verification gaps. “20 specified” is not “20 verified”; the matrix itself remains HOLD.
+
+
+### Physical-evidence mathematics hardening
+
+PR #120 now also includes root-sum-square combination for independent standard-uncertainty components, with explicit same-unit and independence assumptions; correlated uncertainty requires covariance treatment. The result label is deliberately `RECORD_COMPLETE_FOR_REVIEW`, not “supported,” because this validator does not authenticate raw data or prove scientific validity. Twelve tests are defined; 12/12 passed in a locally assembled mirror, while exact remote-branch execution remains unverified.

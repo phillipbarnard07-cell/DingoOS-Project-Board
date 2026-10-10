@@ -432,3 +432,12 @@ This reassessment corrected a custom blended epistemic label to the canonical DP
 **Decision:** production NO-GO / HOLD. The audit identifies a fragmented unmerged dependency stack, a verification workflow whose two referenced runner scripts were not found on `main`, and duplicate release-gate paths: the more developed existing IP-07 implementation in PR #75 versus the newer reference-only PR #117. It recommends consolidating around one canonical gate, fixing exact-SHA verification, and closing authorization/revocation, epistemic crosswalk, provenance custody, schema, legal rights, privacy/security and recovery blockers.
 
 This is a source/metadata audit, not a full test run or certification. Existing work and PR history are preserved; no paid CI or service is introduced.
+
+
+## Competitive Development Evaluation V1 — 2026-10-10
+
+**Implementation draft:** [DingoOS PR #119](https://github.com/phillipbarnard07-cell/DingoOS/pull/119) — open, draft, not merged.
+
+This workstream formalizes fair competition between candidate designs, algorithms, hypotheses and implementations using a frozen common protocol, explicit baseline, mandatory safety/correctness/rights gates, evidence provenance, uncertainty, adversarial challenge, Pareto comparison, retained failures and human review.
+
+Initial files include the framework specification, local Python comparison primitives, unit tests, a JSON Schema case contract and an illustrative example. Tests and schema validation have not yet been executed; no benchmark result is claimed. Runtime/DPO integration remains future work. Free/local-first; no paid CI or service introduced.

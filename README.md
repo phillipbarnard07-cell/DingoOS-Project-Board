@@ -446,3 +446,6 @@ Initial files include the framework specification, local Python comparison primi
 ### Competitive evaluation hardening follow-up
 
 The PR #119 branch has been strengthened to require a declared mandatory-gate set, exactly one baseline plus at least two competing candidates, and complete mandatory-gate evidence for every candidate before comparison. Duplicate candidate/gate/metric identifiers invalidate the relevant comparison; candidate-supplied optionality cannot override a case-mandated gate. These changes are committed but still await execution of the local test suite and schema validation.
+
+
+Further implementation in PR #119 adds a semantic case validator (baseline membership, baseline plus two challengers, unique objective/gate IDs, frozen protocol completeness, finite resource budgets) and deterministic JSON report serialization. Candidate artifact identity now requires a SHA-256 digest. Local tests and JSON Schema validation remain unexecuted because the available execution environment could not resolve GitHub for a checkout; no pass claim is made.

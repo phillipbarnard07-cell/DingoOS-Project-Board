@@ -3,7 +3,8 @@
 **Repository:** phillipbarnard07-cell/DingoOS  
 **Branch:** docs/master-scientific-evidence-gap-register-v1  
 **Canonical document:** docs/architecture/DINGOOS-MASTER-SCIENTIFIC-EVIDENCE-IMPLEMENTATION-GAP-REGISTER-V1.md  
-**Status:** Document committed; draft PR not yet created when this record was authored. No code tests are claimed by this documentation-only change.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/95  
+**Status:** Document committed; draft PR open and unmerged. No code tests are claimed by this documentation-only change.
 
 ## Purpose
 Consolidate the existing master reassessment and issue history into a prioritised register for scientific evidence, integration, verification, safety and implementation. This is a navigation/acceptance artifact, not a replacement for existing issues or the Master Engineering Control Board.

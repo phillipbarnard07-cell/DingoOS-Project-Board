@@ -576,3 +576,13 @@ Follow-up review caught and corrected an escaping defect in the persisted-ledger
 A source audit of the replay controller found that preflight prevents a known identity collision from causing writes, but the entire multi-record lifecycle is not atomic. Allocation, experiment, observations, analysis, evidence, EPC state transitions and evidence-graph relationships are persisted via separate operations. A storage or validation failure after preflight can leave a partial lifecycle even though each individual ledger append is atomic.
 
 This is now recorded on PR #130's progress branch: https://github.com/phillipbarnard07-cell/DingoOS/commit/ddcc22e1fd7f06befe822c4e115b7f5182c653aa. It is a separate release blocker. The next engineering step is to reconcile the existing integration work and implement one canonical atomic-batch or durable recovery protocol, with injected-failure tests at persistence boundaries. Do not create a parallel ledger or bypass EPC/SEARM. Tests remain unexecuted, and production remains HOLD / NO-GO.
+
+
+### Relationship retry recovery — 2026-10-10
+
+PR #130 now also reuses the deterministic relationship-provenance anchor when evidence-graph persistence fails after the anchor is durable, and fails closed if that anchor is duplicated, incomplete, or has a different identity. A fault-injection regression test covers retry without a second anchor:
+- Implementation: https://github.com/phillipbarnard07-cell/DingoOS/commit/ca5fbc8db5a0ef59e06cf343b977c8108a8afef1
+- Regression test: https://github.com/phillipbarnard07-cell/DingoOS/commit/05cbe1b09313cb24fd009eefa80c399db1e03944
+- Progress record: https://github.com/phillipbarnard07-cell/DingoOS/commit/81bc6e79953d272d1fa4fd501ae98ef565f80d13
+
+This closes one retry duplication case only. The complete SEARM multi-record lifecycle is still not transactional; exact-revision tests have not run, and the branch remains open draft. Production remains HOLD / NO-GO.

@@ -449,3 +449,14 @@ The PR #119 branch has been strengthened to require a declared mandatory-gate se
 
 
 Further implementation in PR #119 adds a semantic case validator (baseline membership, baseline plus two challengers, unique objective/gate IDs, frozen protocol completeness, finite resource budgets) and deterministic JSON report serialization. Candidate artifact identity now requires a SHA-256 digest. Local tests and JSON Schema validation remain unexecuted because the available execution environment could not resolve GitHub for a checkout; no pass claim is made.
+
+
+## Physical Reality and IP Evidence Audit V1 — 2026-10-10
+
+**DingoOS PR #120:** https://github.com/phillipbarnard07-cell/DingoOS/pull/120 — open draft, unmerged.
+
+This branch adds an evidence-bound review of physical claims and company IP reality, plus a local-first physical experiment record validator, JSON Schema, illustrative fixture and nine tests. It checks only declared record structure and supplied conservation residual bounds; it does not prove physics, authenticate data, establish ownership/patentability, or certify a product.
+
+A locally assembled mirror of the authored Python logic passed 9/9 standard-library tests; exact remote branch checkout execution remains unverified. Schema/example JSON parse and required-field checks passed, but a JSON Schema engine has not been run. No physical experiment was performed. Production/IP release remains HOLD / NO-GO. No paid CI or services introduced.
+
+The audit explicitly preserves the existing IP-07 gate in PR #75 as the primary integration candidate while reconciling #116/#117, and requires asset-by-asset rights evidence, exact-SHA test logs, independent physical evidence where relevant, and human authorization.

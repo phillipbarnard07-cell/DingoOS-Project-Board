@@ -9,6 +9,9 @@
 ## Purpose
 Consolidate the existing master reassessment and issue history into a prioritised register for scientific evidence, integration, verification, safety and implementation. This is a navigation/acceptance artifact, not a replacement for existing issues or the Master Engineering Control Board.
 
+## Follow-on implementation
+The P0 observable-runner block is now proposed in [DingoOS PR #96](https://github.com/phillipbarnard07-cell/DingoOS/pull/96). It adds a portable evidence runner and regression tests, but remains untested in a real checkout; Issue #53 remains open pending execution artifacts and independent review.
+
 ## Priority sequence
 - **P0:** Observable exact-revision runner evidence (Issue #53); canonical DDEP execution/resource identity and contract integration (Issue #61/#62); distributed dispatch fencing/revocation ordering (Issue #77); provenance convergence; actual IP publication gate execution (Issue #78).
 - **P1:** C-4PO EvaluationObject and SEARM qualification adapters; Knowledge Snowflake admission convergence; explicit epistemic/operational state mapping; reference artifact registry; units, uncertainty and metrology; time/frame conventions; measured resource telemetry; security/deployment/recovery gates.

@@ -266,3 +266,21 @@ Added the whole-design IP/schema reassessment, a machine-readable partial schema
 **Verification:** Python tests, the auditor, JSON Schema meta-validation, and the full foundation runner have NOT been executed. The matrix is intentionally partial; FoundationObject/state/AuthorizationObject/provenance/EMO and full DDEP contract paths still require tree-wide discovery. Dispatch fencing remains design/interface only; real authority, key lifecycle, revocation ordering, actual side-effect enforcement, and recovery tests remain outstanding.
 
 **Disposition:** PR #76 remains draft and unmerged. Publication and production remain HOLD / NO-GO. No paid CI, billing requirement, or paid API introduced. This checkpoint supersedes the older 39-entry count above.
+
+
+## Workflow runner completion and conformance blueprint — 2026-10-10
+
+**Private implementation/design branch:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
+**Latest authored blueprint commit:** [e1b40677ccee363c93750620b6cb2d6c04e5bd61](https://github.com/phillipbarnard07-cell/DingoOS/commit/e1b40677ccee363c93750620b6cb2d6c04e5bd61)
+
+Authored a versioned workflow-runner conformance design and machine-readable contract:
+
+- [Workflow Runner Completion and Conformance Blueprint v1](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/workflows/DINGOOS-WORKFLOW-RUNNER-COMPLETION-AND-CONFORMANCE-BLUEPRINT-V1.md)
+- [Machine-readable conformance contract](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/workflows/workflow-runner-conformance.v1.json)
+- [Progress and verification boundary](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/progress/2026-10-10-workflow-runner-conformance-blueprint-v1.md)
+
+The blueprint defines a small end-to-end reference workflow, separate operational/epistemic/maturity/authorization state dimensions, durable candidate-bound provenance, safe retry/reconciliation rules, independent evidence verification, and 22 conformance scenarios. It explicitly treats invalid input as an admission error, not REFUTED; uncertain consequential outcomes as HOLD_UNKNOWN; and a local ledger claim as insufficient for distributed fencing.
+
+**Status: DESIGN BASELINE ONLY / NOT VERIFIED / HOLD / NO-GO.** Tests, full runner execution, build, live-authority integration, distributed revocation/fencing conformance, and EMO verification were not executed by this block. Do not count design artifacts as implemented or tested. Continue with a pinned-candidate inventory and executable runner contract tests. P0 [issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains a blocker.
+
+**Cost boundary:** free/local-first; no paid CI, billing, hosted-service, or API gate introduced.

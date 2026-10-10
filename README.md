@@ -596,3 +596,14 @@ PR #130's SEARM execution controller now checks the deterministic resource-alloc
 - Progress record: https://github.com/phillipbarnard07-cell/DingoOS/commit/035056c0a994a925a6782823bb7a68f170a40b8d
 
 This closes one specific duplicate-allocation retry case only. The full multi-record research lifecycle remains non-atomic; exact-SHA tests have not run, and PR #130 remains draft. Production remains HOLD / NO-GO.
+
+
+
+### SEARM ambiguous observation-write recovery — 2026-10-10
+
+DingoOS PR #130 (open draft, unmerged) now has an additional fault-injection regression for the case where a raw-observation ledger append is durable but the persistence call raises before confirmation. The test retries the identical execution and asserts that the existing observation is reused rather than duplicated, then checks the research audit and ledger integrity assertions.
+
+- Test commit: https://github.com/phillipbarnard07-cell/DingoOS/commit/19497314b4c253bd7d1aa6227749dcad6f90897b
+- Progress record: https://github.com/phillipbarnard07-cell/DingoOS/commit/d18cd102aaf19dceb3ffc4d9ae1adc9b38b9fc3a
+
+**Status:** test authored; not executed on the exact remote SHA. This covers one ambiguous-write recovery boundary only. It does not establish lifecycle-wide atomicity or production readiness. PR #130 remains draft and production remains HOLD / NO-GO. No paid CI or service requirement introduced.

@@ -218,7 +218,7 @@ Do not treat the existing default release scope as a public-release scope: it is
 
 ## Current engineering checkpoint — DDEP dispatch fencing — 2026-10-10
 
-**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `ea175b10ab07ccf8d9473c44c462990c24c1a92b`.
+**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `816a5e678426dd6ec6024f57b50f849d81327038`.
 
 **Formalised:** the private repository now contains a v1 distributed dispatch-fencing contract, a strict fence-envelope JSON Schema and a progress record. The contract specifies the required authority and dispatcher trust boundary, monotonic fence epochs, revocation ordering, binding to the exact execution/resource/authorization, single-use consumption at the side-effect boundary, unknown-outcome recovery, provenance/EMO linkage and required adversarial verification.
 

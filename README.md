@@ -515,3 +515,14 @@ This is not yet a unified URO/FoundationObject/KnowledgeObject/EvidenceObject co
 Chunk 03 is provisionally mapped to **Provenance and integrity**. Existing canonical JSON/SHA-256/chained-provenance and append-only ledger components are preserved. The branch closes a specific static contract gap: persisted provenance verification now recomputes the envelope digest against the exact ledger object type/ID, method and predecessor, and fails closed when identity is omitted or mismatched. Adversarial tests are authored but not executed against the exact remote branch.
 
 This is hash-contract verification only; it does not prove source truth, authorization, trusted chain root, durable append-only enforcement or production security. Original 464/484 section mapping remains unresolved. Production remains HOLD / NO-GO.
+
+
+## Ordered Reassessment Continuation — Sections #004–#006 — 2026-10-10
+
+The next three stacked draft PRs are open and unmerged:
+
+- **PR #125 — Section #004 Claim Registry:** https://github.com/phillipbarnard07-cell/DingoOS/pull/125. Runtime validation added for claim identity/type and lifecycle command references/flags. Existing C-3PO proposal, C-4PO challenge/refutation and human domain-validation authorization are preserved. Transactional event recovery and reference existence checks remain open.
+- **PR #126 — Section #005 Theorem/Model Registry:** https://github.com/phillipbarnard07-cell/DingoOS/pull/126. Adds a minimal typed in-memory theorem registry, explicit status transitions, proof/check/counterexample reference gates and dependency checks. Proof references are not formal proof verification; durable persistence and model registry remain open.
+- **PR #127 — Section #006 Measurement Object:** https://github.com/phillipbarnard07-cell/DingoOS/pull/127. Adds eager numeric/type/finite-value validation to the metrology Measurement primitive and adversarial tests. Dimensional validation, calibration lineage and covariance-aware uncertainty remain open.
+
+These are authored implementations and tests, not verified test passes; the exact remote branches have not been executed in this environment. Review/merge order is #122 → #123 → #124 → #125 → #126 → #127 because each is stacked on the prior reassessment branch. The original 464/484-section master source remains not located as a single file, so section mapping remains provisional. No paid CI/service is introduced. Production remains HOLD / NO-GO.

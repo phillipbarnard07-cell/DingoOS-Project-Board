@@ -359,3 +359,24 @@ Free/local-first development retained; no paid CI, API, subscription or billing 
 - **Science note:** eight post-1973 milestones count W and Z separately. Mesons were known before 1973; the pion was discovered in 1947.
 - **DingoOS application:** preserve hypothesis-to-evidence transitions, calibration, uncertainties, null/background models, independent checks, and append-only correction history. JSON syntax was parsed successfully; tests and primary-source review remain outstanding.
 
+
+
+## Cosmic-abundance universal foundation — 2026-10-10
+
+**Research block:** [DingoOS PR #112 — Hydrogen–helium universal foundation and Snowflake workflow](https://github.com/phillipbarnard07-cell/DingoOS/pull/112) (draft; not merged).
+
+**Supporting research stack:**
+- [PR #113 — Toroidal multiscale systems research register](https://github.com/phillipbarnard07-cell/DingoOS/pull/113) (draft; not merged).
+- [PR #111 — Particle-discovery evidence workflow](https://github.com/phillipbarnard07-cell/DingoOS/pull/111) (draft; not merged).
+
+**Artifacts in PR #112:**
+- denominator-aware cosmology foundation: hydrogen and helium dominate ordinary cosmic matter, but “98% of everything” is not a defined universal claim and must not conflate elemental abundance with total cosmic energy density;
+- typed ResearchObject for universal workflow reuse;
+- proposed Knowledge Snowflake memory/recall contract preserving source, scope, denominator, uncertainty, epistemic state, and correction history;
+- textbook prospectus connecting mathematics, cosmology, toroidal models, evidence governance, and engineering case studies;
+- E-HOVER/E-MOTO energy-accounting interface proposal;
+- public-safe external scientific review packet requesting criticism rather than automatic acceptance.
+
+**Validation:** the ResearchObject JSON syntax was checked and passed. Project-schema validation, acceptance tests, systematic source review, Snowflake runtime integration, and canonical E-HOVER/E-MOTO mapping remain pending. No empirical vehicle validation or external endorsement is claimed. No paid CI or service introduced.
+
+**Review order:** PR #112 is based on the toroidal research branch, which in turn stacks on the particle-discovery research branch. Review in stack order; none of these draft research documents constitutes production integration or scientific verification.

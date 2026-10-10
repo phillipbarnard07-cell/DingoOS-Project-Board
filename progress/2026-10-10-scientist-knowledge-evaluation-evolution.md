@@ -3,7 +3,8 @@
 **Repository:** `phillipbarnard07-cell/DingoOS`  
 **Development branch:** `docs/scientist-knowledge-evaluation-v1`  
 **Commit:** `2ff3e04667342a7762b84fb052a8842c5c810932`  
-**Status:** Documentation committed; draft PR to be opened; not merged; no tests run for this documentation-only block.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/89  
+**Status:** Documentation committed; draft PR open and unmerged; no tests run for this documentation-only block.
 
 ## Objective
 Formalize how DingoOS Pty Ltd draws on the work of Neil deGrasse Tyson, Donald Hoffman, Stephen Hawking, and other relevant scientists and scholars for evaluation, development, mathematical modelling, evidence qualification, and controlled evolution.
@@ -24,4 +25,4 @@ This is a workflow specification, not a completed literature review or scientifi
 Implement shared typed records and standard-library validators that extend the existing theorem registry rather than creating a competing authority. Add synthetic regression tests for provenance, attribution uncertainty, status separation, correction/retraction lineage, source dependence, falsification fields, and authorization/revocation. Keep CI and APIs free-first.
 
 ## Governance
-The PR is stacked on the mathematics-driven IP workflow branch. Preserve dependency order and do not merge without review and user approval.
+PR #89 is stacked on the mathematics-driven IP workflow branch. Preserve dependency order and do not merge without review and user approval.

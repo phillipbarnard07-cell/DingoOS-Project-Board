@@ -299,3 +299,17 @@ The runner map was written after inspecting the current source for DDEP runtime,
 Gravity is added as a **background-only ResearchObject**. Newtonian/GR baselines are distinguished from speculative modified/resonance-mediated gravity. Five research questions, quantitative falsification criteria, confounder controls and provenance requirements are recorded. The machine-readable JSON was re-fetched and parsed successfully. No gravity claim is promoted; no experiment, actuation, or publication is authorized.
 
 **Status: SOURCE-INSPECTED DESIGN / TESTS NOT RUN / HOLD / NO-GO.** No runner tests, build, or scientific experiments were executed in this block. P0 [issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains unresolved. Free/local-first development preserved; no paid gates added.
+
+
+## Workflow runner conformance test slice — 2026-10-10
+
+**Private DingoOS PR:** [#76 — fail-closed DDEP resource admission](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
+**Test file:** [tests/test_workflow_runner_conformance.py](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/tests/test_workflow_runner_conformance.py)  
+**Test specification:** [Workflow Runner Conformance Test Slice v1](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/workflows/WORKFLOW-RUNNER-CONFORMANCE-TEST-SLICE-V1.md)  
+**Progress record:** [2026-10-10 checkpoint](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/progress/2026-10-10-runner-conformance-test-slice-v1.md)
+
+Five focused regression tests were authored for: invalid DPO identity with no side effects; out-of-order stage rejection; idempotent stage replay; fresh-runtime checkpoint restore and next-stage continuation; and ledger integrity failure after payload tampering. The tests use temporary local storage and do not require paid services.
+
+**Verification status: NOT RUN.** This tool session can write and re-fetch files but does not provide a runnable checkout/test environment for the private repository. Test creation is not a passing test result. Run from a clean checkout with the project's test dependencies using `python -m pytest -q tests/test_workflow_runner_conformance.py` and record candidate SHA, Python version, raw output and exit code.
+
+Scope does not prove distributed fencing, crash atomicity around external effects, live revocation enforcement, full 74-stage conformance, or scientific result correctness. P0 [issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains open. Release remains HOLD / NO-GO. No paid gates added.

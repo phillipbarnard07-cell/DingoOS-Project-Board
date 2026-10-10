@@ -506,3 +506,12 @@ Machine-readable assessment: `docs/architecture/SECTION-001-FOUNDATION-CONSTITUT
 Chunk 02 is mapped provisionally to **Universal research object** in `docs/architecture/DINGOOS_IMPLEMENTATION_CHUNKS_01_20.md`. Existing typed models, persistent reconstruction, schemas and tests are preserved. The branch hardens runtime validation for identity fields, dictionary payloads, Claim assumption/dependency collections, and finite numeric measurements/uncertainties. It adds adversarial tests, but those tests have not been run on the exact remote branch.
 
 This is not yet a unified URO/FoundationObject/KnowledgeObject/EvidenceObject contract. Unit/dimensional checks, calibration/source lineage, correlation-aware uncertainty and schema/persistence integration remain open. The original 464/484-section master remains not located as a single file; numbering crosswalk remains provisional. Production stays HOLD / NO-GO.
+
+
+## Ordered Reassessment Continuation — Section #003 — 2026-10-10
+
+**PR #124:** https://github.com/phillipbarnard07-cell/DingoOS/pull/124 — open draft, stacked on PR #123; review in order.
+
+Chunk 03 is provisionally mapped to **Provenance and integrity**. Existing canonical JSON/SHA-256/chained-provenance and append-only ledger components are preserved. The branch closes a specific static contract gap: persisted provenance verification now recomputes the envelope digest against the exact ledger object type/ID, method and predecessor, and fails closed when identity is omitted or mismatched. Adversarial tests are authored but not executed against the exact remote branch.
+
+This is hash-contract verification only; it does not prove source truth, authorization, trusted chain root, durable append-only enforcement or production security. Original 464/484 section mapping remains unresolved. Production remains HOLD / NO-GO.

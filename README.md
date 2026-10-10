@@ -380,3 +380,12 @@ Free/local-first development retained; no paid CI, API, subscription or billing 
 **Validation:** the ResearchObject JSON syntax was checked and passed. Project-schema validation, acceptance tests, systematic source review, Snowflake runtime integration, and canonical E-HOVER/E-MOTO mapping remain pending. No empirical vehicle validation or external endorsement is claimed. No paid CI or service introduced.
 
 **Review order:** PR #112 is based on the toroidal research branch, which in turn stacks on the particle-discovery research branch. Review in stack order; none of these draft research documents constitutes production integration or scientific verification.
+
+
+## H/He foundation canonical-state reassessment — 2026-10-10
+
+Follow-up engineering PR: [DingoOS PR #114 — align hydrogen–helium foundation with canonical DPO state contract](https://github.com/phillipbarnard07-cell/DingoOS/pull/114) (draft; not merged; stacks on PR #112).
+
+This reassessment corrected a custom blended epistemic label to the canonical DPO `PROPOSED` state, separated DPO lifecycle states from `core/c4po_intelligence.py`'s `MemorySnowflake.EpistemicType`, and added five local pytest contract checks plus an integration crosswalk. Unknown state mappings must fail closed to HOLD.
+
+**Validation:** ResearchObject JSON syntax passes. The five tests are implemented but have not been run; production schema validation, cosmology source review, Snowflake runtime integration, and canonical E-HOVER/E-MOTO requirement mapping remain pending. This is not a scientific validation or production integration claim. Continue review in stack order (#111 → #113 → #112 → #114).

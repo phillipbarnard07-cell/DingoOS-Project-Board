@@ -170,12 +170,14 @@ The stage commit records claim/admission event IDs and integrity hashes. Restore
 
 The existing local-first `scripts/run_foundation_ci.py` now accepts `--expected-sha` and `--expected-branch`, refuses to run if the checkout does not match the requested candidate, and records the expected candidate in its evidence report. Regression tests cover SHA/branch mismatch stopping before any gate invocation.
 
-**Current PR #76 candidate:** `515de55bd709cbf7c4a55443a5850707eaf3d38b`  
+**Current PR #76 candidate:** `cc12fb0cf3632ddbae0906aa111994db5aeb56c2`  
 **Command for the exact candidate:**
 
 ```bash
-python scripts/run_foundation_ci.py --expected-sha 515de55bd709cbf7c4a55443a5850707eaf3d38b --expected-branch feat/ddep-resource-admission-guard
+python scripts/run_foundation_ci.py --expected-sha cc12fb0cf3632ddbae0906aa111994db5aeb56c2 --expected-branch feat/ddep-resource-admission-guard
 ```
+
+**Distributed-fencing blocker:** tracked as [Issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77). The single-ledger claim is not cross-service atomicity.
 
 **Execution status:** not run in this ChatGPT environment; GitHub reports no status checks or workflow runs for this head. The candidate must be tested from a clean local checkout. No paid CI requirement was introduced.
 

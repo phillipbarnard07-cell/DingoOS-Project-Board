@@ -218,7 +218,7 @@ Do not treat the existing default release scope as a public-release scope: it is
 
 ## Current engineering checkpoint — DDEP dispatch fencing — 2026-10-10
 
-**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `0dfe3f89406c40923d790526966e9240c790052f`.
+**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `29db56f62cf277adb9cbbfc4f723763ef6b38172`.
 
 **Formalised:** the private repository now contains a v1 distributed dispatch-fencing contract, a strict fence-envelope JSON Schema and a progress record. The contract specifies the required authority and dispatcher trust boundary, monotonic fence epochs, revocation ordering, binding to the exact execution/resource/authorization, single-use consumption at the side-effect boundary, unknown-outcome recovery, provenance/EMO linkage and required adversarial verification.
 
@@ -229,8 +229,13 @@ Do not treat the existing default release scope as a public-release scope: it is
 
 ## DDEP fenced-dispatch adapter seam — 2026-10-10
 
-**Private candidate:** [PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `0dfe3f89406c40923d790526966e9240c790052f`.
+**Private candidate:** [PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `29db56f62cf277adb9cbbfc4f723763ef6b38172`.
 
 **Added:** typed fail-closed dispatch coordinator and boundary protocol, focused unit tests (authored, not run), adapter contract, progress record, and four corresponding IP inventory/scope entries. Register/scope structural inspection shows 34 unique entries each, no missing asset IDs or metadata mismatches.
 
 **Boundary:** the adapter seam is not a distributed fencing backend and is not integrated into production DDEP. Real source-of-record authority, trusted key lifecycle, linearizable revocation/consume at the side-effect boundary, durable receipt retrieval, recovery and real race/crash/replay tests remain outstanding. No tests/CI ran in this environment. Issue #77 remains OPEN/P0; PR #76 remains draft/unmerged; production remains HOLD / NO-GO. Free-first development retained; no paid gate added.
+
+
+### Fail-closed receipt typing follow-up
+
+Candidate refreshed to `29db56f62cf277adb9cbbfc4f723763ef6b38172`. Dispatch receipts now require a typed `DispatchOutcome` enum and reject string lookalikes, with a regression test authored. This closes an identified fail-open edge case in the coordinator seam. Test remains unexecuted; real backend and integration remain outstanding.

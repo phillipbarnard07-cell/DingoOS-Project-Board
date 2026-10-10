@@ -284,3 +284,18 @@ The blueprint defines a small end-to-end reference workflow, separate operationa
 **Status: DESIGN BASELINE ONLY / NOT VERIFIED / HOLD / NO-GO.** Tests, full runner execution, build, live-authority integration, distributed revocation/fencing conformance, and EMO verification were not executed by this block. Do not count design artifacts as implemented or tested. Continue with a pinned-candidate inventory and executable runner contract tests. P0 [issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains a blocker.
 
 **Cost boundary:** free/local-first; no paid CI, billing, hosted-service, or API gate introduced.
+
+
+## Runner capability inventory + gravity background research — 2026-10-10
+
+**Private DingoOS branch:** [PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
+**Runner capability map:** [Open source-inspection map](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/workflows/WORKFLOW-RUNNER-CURRENT-CAPABILITY-MAP-V1.md)  
+**Gravity research background:** [Open scientific research brief](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/research/frontier/gravity/GRAVITY-RESEARCH-BACKGROUND-V1.md)  
+**Machine-readable gravity object:** [Open JSON research object](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/research/frontier/gravity/gravity-background-object.v1.json)  
+**Progress record:** [Open checkpoint](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/progress/2026-10-10-runner-capability-and-gravity-background-v1.md)
+
+The runner map was written after inspecting the current source for DDEP runtime, DDEP engine, ResearchLedger and resource guard. It distinguishes existing source paths (ordered 74-step catalogue, durable stage commits, restore/resume/reconciliation methods, chained ledger, optional dispatch guard callbacks) from capabilities still requiring executed proof (clean-candidate binding, crash-window behavior, independent report verification, trusted live authority, distributed fencing and external-effect reconciliation).
+
+Gravity is added as a **background-only ResearchObject**. Newtonian/GR baselines are distinguished from speculative modified/resonance-mediated gravity. Five research questions, quantitative falsification criteria, confounder controls and provenance requirements are recorded. The machine-readable JSON was re-fetched and parsed successfully. No gravity claim is promoted; no experiment, actuation, or publication is authorized.
+
+**Status: SOURCE-INSPECTED DESIGN / TESTS NOT RUN / HOLD / NO-GO.** No runner tests, build, or scientific experiments were executed in this block. P0 [issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains unresolved. Free/local-first development preserved; no paid gates added.

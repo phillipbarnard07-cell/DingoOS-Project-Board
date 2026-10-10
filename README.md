@@ -401,3 +401,16 @@ This reassessment corrected a custom blended epistemic label to the canonical DP
 - `progress/2026-10-10-complete-dingoos-ip-design-v1.md` — scope and verification boundary.
 
 **Validation:** traceability JSON parsed successfully. Tests, build, canonical schema checks, legal review, security audit, and vehicle validation have not been performed by this block. The overall release state remains HOLD. This design does not establish legal ownership or production readiness. Existing architecture and IP PR stacks remain to be reconciled; no paid CI/service was added.
+
+
+## IP release gate technical protocol — 2026-10-10
+
+**Next implementation contract:** [DingoOS PR #116 — deterministic IP release gate protocol](https://github.com/phillipbarnard07-cell/DingoOS/pull/116) (draft; open; not merged; stacked on PR #115's design branch).
+
+**Artifacts**
+- `docs/ip/IP-RELEASE-GATE-TECHNICAL-PROTOCOL-V1.md`: decision precedence, exact candidate binding, rights/classification/provenance/test/authorization checks, HOLD/DENY/ELIGIBLE semantics, TOCTOU resistance, executor receipts and audit requirements.
+- `schemas/ip-release-decision-request-v1.schema.json`: closed JSON request contract.
+- `schemas/ip-release-gate-conformance-vectors-v1.json`: 15 specification vectors.
+- `progress/2026-10-10-ip-release-gate-protocol-v1.md`: validation boundary and next gates.
+
+**Verified here:** both JSON artifacts parsed successfully; 15 vectors present. **Not verified:** schema-engine validation, conformance execution, runtime implementation, security/legal review, or production integration. Release remains HOLD. No paid CI/service introduced.

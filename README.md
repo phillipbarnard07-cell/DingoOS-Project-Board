@@ -185,7 +185,7 @@ python scripts/run_foundation_ci.py --expected-sha d52199d8d41d2596be0f4ff900c43
 
 **Private implementation branch:** `feat/ddep-resource-admission-guard`  
 **PR:** [#76 — DDEP resource admission guard](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
-**Current candidate:** `9b35daa11f0adbfa16ab70985bd8011011a7d487`  
+**Current candidate:** `f5684f3dff636784854390a998ee8d2196dc3440`  
 **Operational follow-up:** [Issue #78 — execute IP publication readiness gate and close release evidence](https://github.com/phillipbarnard07-cell/DingoOS/issues/78)
 
 Added the controlled process and implementation:
@@ -195,6 +195,7 @@ Added the controlled process and implementation:
 - `scripts/record_release_gate_evidence.py`: free local command recorder for candidate-bound execution reports, stdout/stderr hashes and exit codes.
 - `ip/release-test-plan.v1.json` + `schemas/release-test-plan-v1.schema.json`: seven mandatory production test IDs. The evaluator requires complete report coverage and exact planned commands, not a single arbitrary PASS.
 - `schemas/release-gate-execution-evidence-v1.schema.json`: formal contract for captured execution reports.
+- The internal integrity scope now covers all 27 registered assets; scope governance states match the canonical register. The seven mandatory production test IDs in the plan match the regression fixtures.
 - `ip/release-scope.v1.json` expanded to include the publication workflow implementation, dossier format, test plan, schema, focused tests and progress records as an INTERNAL integrity archive.
 - `tests/test_record_release_gate_evidence.py`: recorder regression tests.
 - `schemas/ip-publication-packet-v1.schema.json`: strict packet contract.

@@ -543,3 +543,14 @@ Both PRs are open drafts, stacked in order on Sections #001–#007. Tests are au
 Inspected and reused the existing ResearchExecutionController, ResearchService, persistent ledger, typed research objects, Evidence Graph, integrity audit and Knowledge Projection services. Hardened execution replay so existing experiment/observation/analysis/evidence IDs are checked against canonical scientific inputs before any new writes. Identical replay should remain deterministic; changed input under a reused ID fails closed. RawObservation digest now binds the full serialized instrument, calibration, environment and measurement-context metadata.
 
 Added tests for identical replay, altered measurement collision, altered protocol collision, preflight preventing partial writes, duplicate IDs, calibration identity and environment identity. **Tests are authored but not executed on this exact remote branch.** No CI run/status was reported for the head commit; no test pass is claimed. This verifies input identity/replay contracts, not scientific truth or physical calibration. Production remains HOLD / NO-GO.
+
+
+## Master Universal Architecture and Production Design v2.0 — 2026-10-10
+
+**PR #131:** https://github.com/phillipbarnard07-cell/DingoOS/pull/131 — open draft, based directly on main.
+
+Created `docs/architecture/DINGOOS_MASTER_UNIVERSAL_ARCHITECTURE_AND_PRODUCTION_DESIGN_V2.md` and linked it from the repository README. This is a 6,700-word integrated design consolidation, not a restart or a claim that all subsystems are complete. It cross-references the current canonical architecture, master system specification, integration manifest, implementation chunks, project register, IP specification, and reassessment documentation.
+
+Coverage includes governance and role separation (C-2PO/C-3PO/C-4PO/C-5PO), DPO/DDEP/EPC, typed object/state model, complete SEARM research lifecycle, persistent ledger and Provenance DAG, uncertainty/statistics, contradiction/refutation, Snowflake gates, mathematics, Digital Twin, Experiment/Engineering Genome, laboratory/robotics, Knowledge Mesh/URC, human experience and agent modelling, frontier research, Horizon/API, production operations, security/IP boundaries, free-first CI, acceptance levels, staged build roadmap, risks, and non-goals.
+
+**Verification:** confirmed the PR contains the master design document and README link; PR is open and mergeable at the latest check. Documentation-only change; no software tests were run or claimed. Existing canonical baseline remains in force; no automatic merge or production-readiness claim.

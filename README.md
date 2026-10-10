@@ -345,6 +345,7 @@ Free/local-first development retained; no paid CI, API, subscription or billing 
 - **DingoOS research register:** https://github.com/phillipbarnard07-cell/DingoOS/blob/research/frontier-technetium-nitinol-materials-v1/research/frontier/materials/TECHNETIUM-AND-NITINOL-RESEARCH-REGISTER-V1.md
 - **Typed research object:** https://github.com/phillipbarnard07-cell/DingoOS/blob/research/frontier-technetium-nitinol-materials-v1/research/frontier/materials/technetium-nitinol-research-object-v1.json
 - **Progress record:** https://github.com/phillipbarnard07-cell/DingoOS/blob/research/frontier-technetium-nitinol-materials-v1/progress/2026-10-10-technetium-nitinol-materials-research-v1.md
+- **Draft review:** https://github.com/phillipbarnard07-cell/DingoOS/pull/110 (stacked on the preceding frontier research PR; not merged).
 - **Scientific boundary:** technetium is a radioactive element; nitinol is a nickel–titanium shape-memory alloy. No antigravity, free-energy, or exotic-physics claim is inferred.
 - **Validation limitation:** live standards review, schema validation, tests, physical experiments, and independent replication have not been performed. No paid CI or service is required for this research record.
 

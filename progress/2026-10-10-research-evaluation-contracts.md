@@ -3,12 +3,13 @@
 **Repository:** `phillipbarnard07-cell/DingoOS`  
 **Branch:** `feat/researcher-evaluation-contracts-v1`  
 **Parent:** PR #89 head `2ff3e04667342a7762b84fb052a8842c5c810932`  
-**Status:** Implementation files committed; draft PR pending creation; not merged. Tests have been authored but have not been run in an actual repository checkout.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/90  
+**Status:** Implementation files committed; draft PR open and unmerged. Tests have been authored but have not been run in an actual repository checkout.
 
 ## Delivered
 - `mathematics/research_evaluation.py`: standard-library validators for ResearcherRecord, SourceRecord, ClaimRecord, EvaluationRecord, ResearchEvent, event-history lineage, source-independence warnings, and cross-record reference checks.
 - `schemas/research-evaluation-v1.schema.json`: JSON Schema Draft 2020-12 contracts for the five record families.
-- `tests/test_research_evaluation.py`: synthetic regression tests for malformed records, attribution/source access metadata, falsification requirements, Θ=(D,A,S,R,P,F,E) evaluation fields, authorization restrictions, event lineage/forks, source dependence, and cross-record references.
+- `tests/test_research_evaluation.py`: synthetic regression tests for malformed records, attribution/source access metadata, falsification requirements, Θ=(D,A,S,R,P,F,E) evaluation fields, authorization restrictions, event lineage/forks/cycles, source dependence, and cross-record references.
 
 ## Design decisions
 - Extends the existing `mathematics.theorem_registry` status vocabularies rather than creating a separate epistemic authority.

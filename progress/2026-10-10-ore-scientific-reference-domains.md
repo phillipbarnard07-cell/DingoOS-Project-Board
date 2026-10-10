@@ -3,7 +3,8 @@
 **Repository:** `phillipbarnard07-cell/DingoOS`  
 **Branch:** `docs/preapproved-science-reference-catalog-v1`  
 **Parent:** `docs/objective-reality-environment-v1` (PR #92 stack)  
-**Status:** Reference architecture, registry validator, schema and tests committed; draft PR not yet created at time of writing. Tests have not been run in a real checkout.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/94  
+**Status:** Reference architecture, registry validator, schema and tests committed; draft PR open and unmerged. Tests have not been run in a real checkout.
 
 ## Design correction
 ORE must treat established, predictive science as a foundation—not as abstract speculation. Star navigation/celestial mechanics, metrology, weather observations and forecasting, geodesy/navigation, physical reference data and engineering standards are foundational comparison domains. New DingoOS concepts are evaluated against appropriate baselines and held-out evidence.

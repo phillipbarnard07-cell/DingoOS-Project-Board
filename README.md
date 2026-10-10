@@ -185,13 +185,15 @@ python scripts/run_foundation_ci.py --expected-sha d52199d8d41d2596be0f4ff900c43
 
 **Private implementation branch:** `feat/ddep-resource-admission-guard`  
 **PR:** [#76 — DDEP resource admission guard](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
-**Current candidate:** `4cdad2dda6cbab483f75ba9d25bbf271c464bdd8`  
+**Current candidate:** `8be00d0385acc98651afd5eb9797d1a4859dd92c`  
 **Operational follow-up:** [Issue #78 — execute IP publication readiness gate and close release evidence](https://github.com/phillipbarnard07-cell/DingoOS/issues/78)
 
 Added the controlled process and implementation:
 - [IP Publication and Software Production Release Process v1.0](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/ip/DINGOOS-IP-PUBLICATION-AND-PRODUCTION-RELEASE-PROCESS-V1.md)
 - [Canonical IP Publication Dossier Template v1.0](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/ddep-resource-admission-guard/docs/ip/DINGOOS-IP-PUBLICATION-DOSSIER-TEMPLATE-V1.md)
-- `scripts/ip_publication_gate.py`: fail-closed readiness evaluator.
+- `scripts/ip_publication_gate.py`: fail-closed readiness evaluator, bound to canonical Git origin, exact candidate Git blobs, digest-pinned evidence, and stable clean checkout.
+- `scripts/record_release_gate_evidence.py`: free local command recorder for candidate-bound execution reports, stdout/stderr hashes and exit codes.
+- `tests/test_record_release_gate_evidence.py`: recorder regression tests.
 - `schemas/ip-publication-packet-v1.schema.json`: strict packet contract.
 - `ip/templates/ip-publication-packet-v1.template.json`: blocked-by-default packet.
 - `tests/test_ip_publication_gate.py`: candidate pinning, scope/register/manifest binding, byte integrity, IP-state, required-gate and authorization-boundary regression tests.
@@ -199,7 +201,7 @@ Added the controlled process and implementation:
 
 The evaluator checks the clean exact Git revision, release packet, committed scope, canonical IP register, manifest digest and exact selected artifact bytes. The latest hardening makes the scope path explicit in the packet, checks scope/register state agreement, and provides import compatibility for both module tests and direct CLI execution. PUBLICATION requires `PUBLIC` classification, `DOCUMENTED` ownership review, `CLEAR` third-party review and `APPROVED` disclosure for every selected asset. SOFTWARE_PRODUCTION additionally requires test, security, rollback and monitoring attestations. Automated decisions are limited to `BLOCKED` or `READY_FOR_HUMAN_AUTHORIZATION`; authorization is always `NOT_GRANTED`.
 
-**Verification status:** the new tests have NOT been run on the canonical checkout; current candidate has no GitHub status checks or workflow runs. Run from a clean checkout of the exact candidate:
+**Verification status:** the new tests have NOT been run on the canonical checkout; current candidate has no GitHub status checks or workflow runs. SOFTWARE_PRODUCTION test readiness now requires a structured execution report tied to the exact revision and captured output digests. Synthetic reports used by unit tests are not release evidence. Run from a clean checkout of the exact candidate:
 
 ```bash
 python -m unittest discover -s tests -p 'test_ip_publication_gate.py' -v

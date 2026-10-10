@@ -349,3 +349,13 @@ Free/local-first development retained; no paid CI, API, subscription or billing 
 - **Scientific boundary:** technetium is a radioactive element; nitinol is a nickel–titanium shape-memory alloy. No antigravity, free-energy, or exotic-physics claim is inferred.
 - **Validation limitation:** live standards review, schema validation, tests, physical experiments, and independent replication have not been performed. No paid CI or service is required for this research record.
 
+## Particle-discovery evidence workflow
+
+- **Status:** FORMALISED / BACKGROUND_ONLY / HOLD; no new physics claim.
+- **Research register:** https://github.com/phillipbarnard07-cell/DingoOS/blob/research/frontier-particle-discovery-evidence-workflow-v1/research/frontier/particle-physics/PARTICLE-DISCOVERY-EVIDENCE-WORKFLOW-V1.md
+- **Typed ResearchObject:** https://github.com/phillipbarnard07-cell/DingoOS/blob/research/frontier-particle-discovery-evidence-workflow-v1/research/frontier/particle-physics/particle-discovery-workflow-object-v1.json
+- **Progress record:** https://github.com/phillipbarnard07-cell/DingoOS/blob/research/frontier-particle-discovery-evidence-workflow-v1/progress/2026-10-10-particle-discovery-evidence-workflow-v1.md
+- **Draft review:** https://github.com/phillipbarnard07-cell/DingoOS/pull/111 (stacked research PR; not merged).
+- **Science note:** eight post-1973 milestones count W and Z separately. Mesons were known before 1973; the pion was discovered in 1947.
+- **DingoOS application:** preserve hypothesis-to-evidence transitions, calibration, uncertainties, null/background models, independent checks, and append-only correction history. JSON syntax was parsed successfully; tests and primary-source review remain outstanding.
+

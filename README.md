@@ -414,3 +414,12 @@ This reassessment corrected a custom blended epistemic label to the canonical DP
 - `progress/2026-10-10-ip-release-gate-protocol-v1.md`: validation boundary and next gates.
 
 **Verified here:** both JSON artifacts parsed successfully; 15 vectors present. **Not verified:** schema-engine validation, conformance execution, runtime implementation, security/legal review, or production integration. Release remains HOLD. No paid CI/service introduced.
+
+
+## Executable IP release-gate evaluator — 2026-10-10
+
+**Implementation draft:** [DingoOS PR #117](https://github.com/phillipbarnard07-cell/DingoOS/pull/117) (open, draft, not merged), stacked on PR #116's protocol and PR #115's complete IP design.
+
+**Delivered:** dependency-free reference evaluator, immutable decision records, deterministic DENY > HOLD > ELIGIBLE precedence, fail-closed default when required checks are not explicitly verified, local standard-library tests, and implementation status record.
+
+**Validation boundary:** source/tests committed; tests have not been run. JSON Schema engine validation, execution of the 15 protocol vectors, canonical authorization/provenance integration, security review and production executor remain outstanding. Never use the reference evaluator to authorize a real release. No paid CI/service added.

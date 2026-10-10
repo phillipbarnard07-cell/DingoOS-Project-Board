@@ -470,3 +470,8 @@ The 20-row traceability matrix in PR #115 was parsed: all 20 requirements are de
 ### Physical-evidence mathematics hardening
 
 PR #120 now also includes root-sum-square combination for independent standard-uncertainty components, with explicit same-unit and independence assumptions; correlated uncertainty requires covariance treatment. The result label is deliberately `RECORD_COMPLETE_FOR_REVIEW`, not “supported,” because this validator does not authenticate raw data or prove scientific validity. Twelve tests are defined; 12/12 passed in a locally assembled mirror, while exact remote-branch execution remains unverified.
+
+
+### Physical evidence input path added
+
+The physical-reality branch now has a strict versioned mapping loader that rejects missing or unexpected fields without silently coercing input, plus root-sum-square uncertainty combination for independent same-unit components. The locally assembled mirror's standard-library suite now passes 14/14; exact remote branch execution remains unverified. PR #120 remains open/draft/unmerged.

@@ -6,6 +6,11 @@
 **Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/96  
 **Status:** Implementation and regression tests committed; draft PR is open and unmerged. Tests have not been executed in a real DingoOS checkout by this session.
 
+## Follow-up hardening (2026-10-10)
+- Expanded the regression suite with missing-executable (`UNKNOWN` → `HOLD`) and checkout-mutation (`HOLD`) cases; the suite now defines six test methods.
+- Added `docs/verification/VERIFICATION-RUNNER-VALIDATION-AND-EVIDENCE-CAPTURE-V1.md` with exact local execution commands, candidate identity checks, evidence capsule contents and Stage B gate adoption guidance.
+- Updated PR #96 body with the added files and test cases.
+
 ## Delivered
 - `scripts/verification_evidence_runner.py`: standard-library runner that requires a clean Git checkout, pins the exact HEAD SHA, executes reviewed argv commands with `shell=False`, writes per-gate combined logs and SHA-256 digests, records environment/plan identity and UTC timestamps, and returns PASS only when every declared gate succeeds and the checkout remains unchanged.
 - `tests/test_verification_evidence_runner.py`: regression coverage for a passing gate, nonzero gate/HOLD, dirty-checkout fail-closed behavior and invalid plans.
@@ -19,4 +24,4 @@
 - This is a portable free-first fallback; it does not repair hosted GitHub Actions observability by itself.
 
 ## Verification status
-The source and tests were authored and committed through the GitHub API. No local checkout was available to execute them in this session, so the implementation is **not yet marked TESTED or VERIFIED**. Next action is to run the test module in a clean checkout, run the smoke plan, inspect the evidence capsule, then add repository-specific gates after confirming current dependencies and test commands.
+The source and tests were authored and committed through the GitHub API. A clone attempt was made, but this execution environment could not resolve `github.com`; the tests and smoke plan could not be executed against a real DingoOS checkout. The implementation is **not yet marked TESTED or VERIFIED**. Next action is to run the test module in a clean checkout, run the smoke plan, inspect the evidence capsule, then add repository-specific gates after confirming current dependencies and test commands.

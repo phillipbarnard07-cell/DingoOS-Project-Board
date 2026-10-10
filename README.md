@@ -215,3 +215,13 @@ python scripts/validate_ip_register.py ip/register.v1.json
 
 Do not treat the existing default release scope as a public-release scope: it is an INTERNAL integrity archive. A real release needs a separately reviewed release scope, generated/verified manifest, independent review of evidence and rights, and explicit human authorization for the exact digest and destination. Trusted signing-key verification is not yet implemented. No publication or production deployment is authorized. No paid CI/billing gate introduced.
 
+
+## Current engineering checkpoint — DDEP dispatch fencing — 2026-10-10
+
+**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, head `ea175b10ab07ccf8d9473c44c462990c24c1a92b`.
+
+**Formalised:** the private repository now contains a v1 distributed dispatch-fencing contract, a strict fence-envelope JSON Schema and a progress record. The contract specifies the required authority and dispatcher trust boundary, monotonic fence epochs, revocation ordering, binding to the exact execution/resource/authorization, single-use consumption at the side-effect boundary, unknown-outcome recovery, provenance/EMO linkage and required adversarial verification.
+
+**Important limitation:** this is design/schema work, not a production fencing implementation. The schema does not authenticate signatures, prove source-of-record currentness, serialize revocation with dispatch, or enforce a side effect. No local Python/schema/race tests were run in this environment. The existing single-ledger claim remains local-scope only.
+
+**Status:** issue [#77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains OPEN / P0; PR #76 remains draft/unmerged; production and publication remain HOLD / NO-GO. Next implementation requires the real authority source of record and actual dispatcher, a trusted key lifecycle, linearizable revocation/consume enforcement, and crash/replay/race/tamper tests with candidate-bound evidence. No paid CI or billing gate introduced.

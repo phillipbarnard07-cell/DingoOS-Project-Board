@@ -460,3 +460,8 @@ This branch adds an evidence-bound review of physical claims and company IP real
 A locally assembled mirror of the authored Python logic passed 9/9 standard-library tests; exact remote branch checkout execution remains unverified. Schema/example JSON parse and required-field checks passed, but a JSON Schema engine has not been run. No physical experiment was performed. Production/IP release remains HOLD / NO-GO. No paid CI or services introduced.
 
 The audit explicitly preserves the existing IP-07 gate in PR #75 as the primary integration candidate while reconciling #116/#117, and requires asset-by-asset rights evidence, exact-SHA test logs, independent physical evidence where relevant, and human authorization.
+
+
+### IP traceability quantified
+
+The 20-row traceability matrix in PR #115 was parsed: all 20 requirements are design-specified, but none is marked verified. Eight are partial/unverified, four report reference implementations without verification, and the remaining eight have specific integration, execution, adapter, domain, baseline, legal-review or end-to-end verification gaps. “20 specified” is not “20 verified”; the matrix itself remains HOLD.

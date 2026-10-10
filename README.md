@@ -313,3 +313,14 @@ Five focused regression tests were authored for: invalid DPO identity with no si
 **Verification status: NOT RUN.** This tool session can write and re-fetch files but does not provide a runnable checkout/test environment for the private repository. Test creation is not a passing test result. Run from a clean checkout with the project's test dependencies using `python -m pytest -q tests/test_workflow_runner_conformance.py` and record candidate SHA, Python version, raw output and exit code.
 
 Scope does not prove distributed fencing, crash atomicity around external effects, live revocation enforcement, full 74-stage conformance, or scientific result correctness. P0 [issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains open. Release remains HOLD / NO-GO. No paid gates added.
+
+## Foundation runner timeout regression follow-up — 2026-10-10
+
+**Private DingoOS follow-up:** [PR #108 — enforce HOLD when foundation gates time out](https://github.com/phillipbarnard07-cell/DingoOS/pull/108), stacked on [PR #107](https://github.com/phillipbarnard07-cell/DingoOS/pull/107).
+
+A focused regression test was added to assert that timeout-shaped gate results cannot aggregate into a successful foundation report. A progress record documents the intended local verification sequence and evidence limits.
+
+**Status: TEST AUTHORED / NOT EXECUTED / HOLD.** The test has not been run on a local canonical checkout; no pytest, compile, full runner, or independent report-verification result is claimed. This is a regression-test definition, not runtime evidence. Production remains HOLD pending exact-revision local execution and independent evidence review.
+
+**Cost and governance:** no paid CI or billing gate introduced. No merge, release, deployment, or scientific-validation claim. PR #108 is draft and depends on PR #107; preserve that order.
+

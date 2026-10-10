@@ -185,7 +185,7 @@ python scripts/run_foundation_ci.py --expected-sha d52199d8d41d2596be0f4ff900c43
 
 **Private implementation branch:** `feat/ddep-resource-admission-guard`  
 **PR:** [#76 — DDEP resource admission guard](https://github.com/phillipbarnard07-cell/DingoOS/pull/76)  
-**Current candidate:** `8be00d0385acc98651afd5eb9797d1a4859dd92c`  
+**Current candidate:** `8628fd19f7b183c2e0dc837181decc72daa27d66`  
 **Operational follow-up:** [Issue #78 — execute IP publication readiness gate and close release evidence](https://github.com/phillipbarnard07-cell/DingoOS/issues/78)
 
 Added the controlled process and implementation:
@@ -199,7 +199,7 @@ Added the controlled process and implementation:
 - `tests/test_ip_publication_gate.py`: candidate pinning, scope/register/manifest binding, byte integrity, IP-state, required-gate and authorization-boundary regression tests.
 - IP register entries and a progress record.
 
-The evaluator checks the clean exact Git revision, release packet, committed scope, canonical IP register, manifest digest and exact selected artifact bytes. The latest hardening makes the scope path explicit in the packet, checks scope/register state agreement, and provides import compatibility for both module tests and direct CLI execution. PUBLICATION requires `PUBLIC` classification, `DOCUMENTED` ownership review, `CLEAR` third-party review and `APPROVED` disclosure for every selected asset. SOFTWARE_PRODUCTION additionally requires test, security, rollback and monitoring attestations. Automated decisions are limited to `BLOCKED` or `READY_FOR_HUMAN_AUTHORIZATION`; authorization is always `NOT_GRANTED`.
+The evaluator checks the exact Git revision and canonical origin, committed scope/register/artifact bytes, manifest digest, duplicate-key-safe JSON and digest-pinned evidence. SOFTWARE_PRODUCTION test PASS requires a candidate-bound execution report and captured output digests. The latest hardening makes the scope path explicit in the packet, checks scope/register state agreement, and provides import compatibility for both module tests and direct CLI execution. PUBLICATION requires `PUBLIC` classification, `DOCUMENTED` ownership review, `CLEAR` third-party review and `APPROVED` disclosure for every selected asset. SOFTWARE_PRODUCTION additionally requires test, security, rollback and monitoring attestations. Automated decisions are limited to `BLOCKED` or `READY_FOR_HUMAN_AUTHORIZATION`; authorization is always `NOT_GRANTED`.
 
 **Verification status:** the new tests have NOT been run on the canonical checkout; current candidate has no GitHub status checks or workflow runs. SOFTWARE_PRODUCTION test readiness now requires a structured execution report tied to the exact revision and captured output digests. Synthetic reports used by unit tests are not release evidence. Run from a clean checkout of the exact candidate:
 

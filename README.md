@@ -324,3 +324,18 @@ A focused regression test was added to assert that timeout-shaped gate results c
 
 **Cost and governance:** no paid CI or billing gate introduced. No merge, release, deployment, or scientific-validation claim. PR #108 is draft and depends on PR #107; preserve that order.
 
+## Frontier research — negative gravity, dark energy and Galactic Centre — 2026-10-10
+
+**Private DingoOS research PR:** [Open pull request](https://github.com/phillipbarnard07-cell/DingoOS/pull/109).
+
+The research branch formalises:
+- distinct operational meanings of “negative gravity” and candidate material properties;
+- dark-energy baselines and restrictions against conflating negative pressure with negative mass or extractable energy;
+- Sagittarius A* research questions with explicit mass-energy accounting and uncertainty;
+- quantum-mechanics/GR candidate comparison criteria, baseline recovery and falsifiable-observable requirements;
+- mapping into the existing C-5PO/C-2PO/C-3PO, Mathematics Kernel, SEARM, C-4PO, Evidence Graph, Provenance DAG and governed Snowflake workflow.
+
+**Status: BACKGROUND RESEARCH ONLY / NOT SCIENTIFICALLY VERIFIED / HOLD.** The artifacts do not assert antigravity, negative-mass matter, unlimited black-hole energy extraction, or successful quantum-gravity unification. No local tests, JSON schema validation, numerical analysis, astronomical-data analysis, experiments or independent replication were performed. No production integration or publication is authorized.
+
+Free/local-first development retained; no paid CI, API, subscription or billing gate introduced.
+

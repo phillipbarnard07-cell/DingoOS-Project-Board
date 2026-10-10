@@ -248,3 +248,21 @@ Candidate refreshed to `49457bbc206437bf5bbbdb1ce6e244ac86e3307d`. Dispatch rece
 Added the whole-design IP/schema reassessment, a machine-readable partial schema contract inventory, a free standard-library structural auditor and regression tests. IP register/scope parity was structurally checked: 39 unique entries each, no missing IDs or review metadata mismatches. Four release-path schema IDs match the inventory and declare JSON Schema 2020-12.
 
 **Limitations:** complete recursive schema enumeration and canonical object/state/authorization/provenance/EMO mapping remain outstanding. Three inspected schema IDs use a placeholder `.example` namespace. Auditor and tests have not been executed; no JSON Schema meta-validation or canonical Python test result is claimed. Rights/licensing, real distributed fencing, trusted recovery and human authorization remain unresolved. PR #76 remains draft/unmerged; production/publication HOLD / NO-GO. No paid gate added.
+
+
+## Current engineering checkpoint — schema producer/consumer matrix — 2026-10-10
+
+**Private candidate:** [DingoOS PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), branch `feat/ddep-resource-admission-guard`, current head `a360b7c0edddc6c8b9e21ab8f779a8f486c673c2`.
+
+**Added in this block:**
+- `ip/schema-producer-consumer-matrix.v1.json`: explicit producer/consumer, validation boundary, coupling assumption, status, and fail-closed expectations for the four inspected release-path schemas and unmapped canonical contract families.
+- `docs/ip/DINGOOS-SCHEMA-PRODUCER-CONSUMER-MATRIX-V1.md`: design and verification boundary.
+- `progress/2026-10-10-schema-producer-consumer-matrix-v1.md`: implementation progress and remaining work.
+- `scripts/audit_ip_schema_contracts.py`: additional drift checks for stale inventory counts, duplicate contract IDs, schema path alignment, mapped repository-path existence, and preservation of HOLD/no-paid-gates declarations.
+- Updated auditor test fixtures and refreshed the machine-readable schema inventory counts.
+
+**Structural check:** connector-side comparison shows 42 IP register entries and 42 release-scope entries, with 42 unique IDs in each and no missing IDs or review-state metadata mismatches. The 15 path-shaped producer/consumer/schema references in the new matrix were individually fetched from the candidate branch and resolved. This is not a recursive tree inventory and is not a run of the canonical Python auditor.
+
+**Verification:** Python tests, the auditor, JSON Schema meta-validation, and the full foundation runner have NOT been executed. The matrix is intentionally partial; FoundationObject/state/AuthorizationObject/provenance/EMO and full DDEP contract paths still require tree-wide discovery. Dispatch fencing remains design/interface only; real authority, key lifecycle, revocation ordering, actual side-effect enforcement, and recovery tests remain outstanding.
+
+**Disposition:** PR #76 remains draft and unmerged. Publication and production remain HOLD / NO-GO. No paid CI, billing requirement, or paid API introduced. This checkpoint supersedes the older 39-entry count above.

@@ -441,3 +441,8 @@ This is a source/metadata audit, not a full test run or certification. Existing 
 This workstream formalizes fair competition between candidate designs, algorithms, hypotheses and implementations using a frozen common protocol, explicit baseline, mandatory safety/correctness/rights gates, evidence provenance, uncertainty, adversarial challenge, Pareto comparison, retained failures and human review.
 
 Initial files include the framework specification, local Python comparison primitives, unit tests, a JSON Schema case contract and an illustrative example. Tests and schema validation have not yet been executed; no benchmark result is claimed. Runtime/DPO integration remains future work. Free/local-first; no paid CI or service introduced.
+
+
+### Competitive evaluation hardening follow-up
+
+The PR #119 branch has been strengthened to require a declared mandatory-gate set, exactly one baseline plus at least two competing candidates, and complete mandatory-gate evidence for every candidate before comparison. Duplicate candidate/gate/metric identifiers invalidate the relevant comparison; candidate-supplied optionality cannot override a case-mandated gate. These changes are committed but still await execution of the local test suite and schema validation.

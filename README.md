@@ -554,3 +554,18 @@ Created `docs/architecture/DINGOOS_MASTER_UNIVERSAL_ARCHITECTURE_AND_PRODUCTION_
 Coverage includes governance and role separation (C-2PO/C-3PO/C-4PO/C-5PO), DPO/DDEP/EPC, typed object/state model, complete SEARM research lifecycle, persistent ledger and Provenance DAG, uncertainty/statistics, contradiction/refutation, Snowflake gates, mathematics, Digital Twin, Experiment/Engineering Genome, laboratory/robotics, Knowledge Mesh/URC, human experience and agent modelling, frontier research, Horizon/API, production operations, security/IP boundaries, free-first CI, acceptance levels, staged build roadmap, risks, and non-goals.
 
 **Verification:** confirmed the PR contains the master design document and README link; PR is open and mergeable at the latest check. Documentation-only change; no software tests were run or claimed. Existing canonical baseline remains in force; no automatic merge or production-readiness claim.
+
+
+## Reassessment Update — SEARM Restart Integrity and Verification Blockers — 2026-10-10
+
+**SEARM replay PR #130:** https://github.com/phillipbarnard07-cell/DingoOS/pull/130 — open draft, stacked on PR #129. This remains a separate ordered reassessment stack; it is not represented as merged into the canonical integration branch.
+
+Follow-up review caught and corrected an escaping defect in the persisted-ledger tamper test so the fixture rewrites valid JSONL using real newline separators. Added a fail-closed regression for a truncated final JSONL record, and recorded both changes in the progress note. Relevant commits:
+- Test correction and truncated-record test: https://github.com/phillipbarnard07-cell/DingoOS/commit/02dd42653e85cbe74f335e493dc8177de1099dfe
+- Progress record update: https://github.com/phillipbarnard07-cell/DingoOS/commit/47fd241c837f0cee4bce7067fe20063bf76fecfa
+
+**Verification:** exact-revision tests remain unexecuted. The inspected commit has no reported workflow runs or commit-status checks. No software pass, scientific validation, or production readiness is claimed. The ledger's hash chain detects ordinary persisted-content tampering under its current assumptions; it does not protect against an actor able to rewrite the entire ledger and recompute the chain.
+
+**Foundation runner PR #121:** https://github.com/phillipbarnard07-cell/DingoOS/pull/121 — open draft, not merged. The runner and evidence verifier exist on that branch but are absent from `main` at the inspected revision, so the main-branch workflow's runner dependency is not yet resolved. The PR's tests also remain unexecuted. Do not dispatch the manual self-hosted workflow until an authorized, isolated runner is available. No paid CI or service requirement is introduced.
+
+**Next release-blocking steps:** verify the SEARM tests on a clean exact-SHA checkout; run the full suite and validate the external evidence report with the existing free/local runner; reconcile and merge the runner fix only after review and execution; then reassess the ordered dependency stack before any integration or production promotion. The production state remains **HOLD / NO-GO**.

@@ -3,7 +3,8 @@
 **Repository:** `phillipbarnard07-cell/DingoOS`  
 **Branch:** `feat/ore-units-time-evaluation-v1`  
 **Parent:** `docs/objective-reality-environment-v1` (PR #92 stack)  
-**Status:** Implementation files committed; draft PR pending creation; unmerged. Tests have not been run in an actual repository checkout.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/93  
+**Status:** Implementation files committed; draft PR open and unmerged. Tests have not been run in an actual repository checkout.
 
 ## Delivered
 - `mathematics/units.py`: standard-library SI subset with typed dimensions, conversion, addition/subtraction, multiplication/division, integer powers and first-order uncertainty propagation for independent inputs.

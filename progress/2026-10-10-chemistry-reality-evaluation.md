@@ -3,7 +3,8 @@
 **Repository:** `phillipbarnard07-cell/DingoOS`  
 **Branch:** `feat/chemistry-reality-evaluation-v1`  
 **Parent:** `feat/researcher-evaluation-contracts-v1` (PR #90 stack)  
-**Status:** Files committed; draft PR pending creation; not merged. Tests are authored but have not been run in an actual checkout.
+**Draft PR:** https://github.com/phillipbarnard07-cell/DingoOS/pull/91  
+**Status:** Files committed; draft PR open and unmerged. Tests are authored but have not been run in an actual checkout.
 
 ## Delivered
 - `mathematics/chemistry_reality.py`: bounded chemical formula parser, atom/charge accounting, reaction record validator, and cross-scale physical-layer relation validator.

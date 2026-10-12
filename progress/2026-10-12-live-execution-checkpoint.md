@@ -196,3 +196,15 @@ Make C-4PO Study Buddy a first-class, teaching-oriented research workflow surfac
 ### Acceptance evidence
 
 A UI feature is not “complete” until its UI state is bound to the authoritative service; loading, empty, failure and stale states are tested; evidence/provenance links resolve; unauthorized actions are rejected server-side; and a clean exact-SHA test report is attached. The current assistant environment cannot execute the repository's local test runner; this entry is a requirements checkpoint, not a claim of implementation or verification. Keep publication/deployment HOLD until existing release gates pass.
+
+
+## 2026-10-13 — C-4PO Study Buddy first UI vertical slice
+
+- Existing DingoOS repository/branch reconciled: private repository `phillipbarnard07-cell/DingoOS`; base `integration/all-github-repositories` at `74682b25d8e2d2f5606451425f80716d486059a7`. No default-branch edit.
+- Created draft PR [#193 — C-4PO Study Buddy guided research vertical slice](https://github.com/phillipbarnard07-cell/DingoOS/pull/193), head `feat/horizon-c4po-study-buddy-vertical-slice-2026-10-13`, exact head SHA `3a6868f7cda4c609d1c8c9615af79de76947f0fa`.
+- Implemented in existing `apps/horizon/index.html`: new C-4PO Study Buddy navigation/workspace, six research-stage selectors, question/goal/explanation/assumptions/source-reference form, local study-plan scaffold and generic challenge checklist. User input is rendered with `textContent`, not HTML. Existing Horizon workspaces remain.
+- Added `tests/ui/test_horizon_study_buddy.py` for static HTML contract checks and `docs/architecture/C4PO_STUDY_BUDDY_UI_V1.md` for ethics, scope and acceptance gates.
+- UI is explicitly local-only prototype: no AI/model/backend calls, no persistence, no evidence verification, no canonical state mutation and no authorization. C-4PO is not a truth oracle; SEARM remains qualification authority; consequential actions/publication remain human-authorized.
+- Candidate UI/test/doc files were re-fetched from the branch. GitHub workflow-run lookup returned zero runs. **Tests and browser execution remain NOT_RUN** in this session; no test pass, backend integration, usability validation or production readiness is claimed.
+- P0 remaining: run `python -m pytest -q tests/ui/test_horizon_study_buddy.py` and JavaScript/browser/accessibility checks from a clean checkout pinned to exact SHA; then run the existing free foundation runner and record exit codes/counts/skips/evidence digest.
+- Next after verification: integrate through existing `core/c4po_evaluation.py`, `core/c4po_dpo_audit.py`, `core/searm_service.py`, provenance/ResearchLedger and `core/snowflake_gate.py` contracts. Do not add competing epistemic or authorization authorities. Keep PR #193 draft.

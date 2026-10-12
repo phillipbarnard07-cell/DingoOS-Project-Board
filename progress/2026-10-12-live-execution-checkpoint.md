@@ -56,7 +56,7 @@ Obtain a clean free local checkout of the exact candidate, run the focused proce
 
 - Mathematics PR: [#185](https://github.com/phillipbarnard07-cell/DingoOS/pull/185)
 - Feature branch: `feat/fundamental-mathematics-kernel-2026-10-12`
-- Candidate SHA confirmed from branch ref and PR metadata: `b0aeb45fff82242ee1a4377cfb5df6a2f9c5cd80`
+- Candidate SHA confirmed from branch ref and PR metadata: `9533fc3ebda1d6db035cbc02cc04c11feb76eaa6`
 - `core/epistemic_math.py`: model validity, data validity and provenance completeness now default to false, so omitted qualification yields INCONCLUSIVE rather than silently allowing REFUTED classification.
 - `tests/unit/test_epistemic_math.py`: regression test added for unqualified inputs; numerical-path tests state gate assumptions explicitly.
 - `docs/architecture/FUNDAMENTAL_MATHEMATICS_KERNEL_V1.md`: remaining limitation documented.
@@ -69,3 +69,12 @@ Obtain a clean free local checkout of the exact candidate, run the focused proce
 - Latest PR #186 candidate: `2e15f80e318f41bd7a340fbdfb9a8ca56b372b0d`.
 - The processor's authorization validator is preflight only. PR #76's fencing contract/coordinator is on a separate feature branch and does not establish a verified authority on the current integration base.
 - Consequential DDEP handlers must not be enabled until a real trusted adapter checks current authorization/revocation, consumes a single-use fence, performs/reconciles the effect and records a durable receipt at a documented linearization boundary. Do not create a competing fencing authority in PR #186; keep this path HOLD until PR #76 / issue #77 are reconciled and independently verified.
+
+
+## Additional mathematics hardening — dimensional wrapper
+
+- PR #185 latest candidate: `9533fc3ebda1d6db035cbc02cc04c11feb76eaa6` (branch and PR head agree).
+- `core/physical_units.py`: the dimension-aware `evaluate_quantity_claim` wrapper now also defaults model/data/provenance qualification to false, matching the interval evaluator. SI conversion and dimension consistency are not evidence qualification.
+- `tests/unit/test_physical_units.py`: added an unqualified quantity regression and made tests that expect VERIFIED explicitly state their legacy gate assumptions.
+- Re-read source/test/docs from the branch. No status checks or PR workflow runs returned; tests remain NOT RUN.
+- Caller booleans for qualification, preregistration and replication remain a known gap. The required next design step is to bind to validated existing SEARM/EvidenceObject records without creating a competing epistemic authority.

@@ -74,3 +74,11 @@ Obtain a clean checkout of exact processor head `093db98a26d97b1cdf334de230712c8
 - Extended `tests/core/test_foundation_ci_runner.py` to assert those reference gates and retained the processor unit test in `TEST_TARGETS`. These reference files are standalone scripts rather than pytest test functions, so the runner executes them directly via Python.
 - Live GitHub fetch confirms the updated runner, test, and processor documentation are present. No tests were executed here: local Git failed with exit 128 because github.com could not be resolved, and no PR-triggered workflow run was returned for the candidate SHA.
 - IP blueprint is already represented by existing controlled documents: `docs/ip/DINGOOS_PTY_LTD_MASTER_IP_SPECIFICATION.md`, `docs/ip/DINGOOS-PTY-LTD-IP-GOVERNANCE-AND-EHOVER-APPLICATION-V1.md`, and `docs/ip/DINGOOS-IP-ENGINEERING-AND-PROOF-GOVERNANCE-V1.md`. These are engineering/governance specifications, not proof of ownership, novelty, patentability, or legal clearance. Publication stays HOLD pending issues #78, #175, #176 and human/legal review.
+
+
+## 2026-10-12 follow-up: composed DDEP-to-Knowledge reference coverage
+
+- PR #186 candidate now includes two additional executable reference gates in the canonical foundation runner: `tests/integration_gate_reference.py` (ExecutionObject/C-4PO/SEARM/Knowledge admission schema predicates) and `tests/dingoos_gate_runner_reference.py` (deterministic gate ordering, HOLD behavior and stop-at-first-blocker behavior).
+- `tests/core/test_foundation_ci_runner.py` now asserts both gates are configured. Existing unit suites for DDEP, ExecutionObject binding, C-4PO evaluation, SEARM provenance and Snowflake gate are already under `tests/core`, which the runner includes.
+- Candidate head at checkpoint: `2b6c6ef1e5d4bb7c39068f80cdbdce519a4da598`; base `integration/all-github-repositories`; open/draft/unmerged.
+- This closes a test-orchestration omission, not the full integration issue. Live authorization/dispatch atomicity, revocation ordering, trusted qualification records, and Snowflake production admission remain unverified/HOLD. No test command has run in this environment.

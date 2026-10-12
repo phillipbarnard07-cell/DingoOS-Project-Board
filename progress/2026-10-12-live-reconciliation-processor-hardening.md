@@ -6,7 +6,7 @@
 - Intended integration base for PRs #184–#187: `integration/all-github-repositories`
 - Processor PR #186: https://github.com/phillipbarnard07-cell/DingoOS/pull/186
 - Processor feature branch: `feat/internal-workflow-continuity-processor-2026-10-12`
-- Current PR head confirmed live: `7ebf2dee5a7adde7dc20e9c0f49a9aeef142f0da`
+- Current PR head confirmed live: `093db98a26d97b1cdf334de230712c817ead2ad0`
 - PR state: open, draft, not merged; no independent reviews were returned.
 - PR-triggered workflow query for this exact SHA: no runs returned.
 
@@ -15,7 +15,7 @@
 - `tests/unit/test_workflow_execution_processor.py`: parameterized regression test for NaN, +Infinity, and -Infinity payload values.
 - `docs/architecture/INTERNAL_WORKFLOW_EXECUTION_PROCESSOR_V1.md`: documents strict JSON semantics and states that tests remain to be executed.
 
-Latest commit is on the existing feature branch; no default branch was edited. The commit is `7ebf2dee5a7adde7dc20e9c0f49a9aeef142f0da`.
+Latest commit is on the existing feature branch; no default branch was edited. The commit is `093db98a26d97b1cdf334de230712c817ead2ad0`.
 
 ## Actual execution evidence and blocker
 - Source and test files were retrieved from GitHub at the current branch.
@@ -42,4 +42,15 @@ Latest commit is on the existing feature branch; no default branch was edited. T
 - No paid services or billing dependencies introduced.
 
 ## Next highest-value action
-Obtain a clean checkout of exact processor head `7ebf2dee5a7adde7dc20e9c0f49a9aeef142f0da` on a runtime with repository access; run `pytest -q tests/unit/test_workflow_execution_processor.py`; record environment, command, exit code, counts and raw output digest. Then add tests for strict JSON result handling and dependency/priority/retry edge cases only after reviewing current contract semantics. Resolve issue #77 against a named real authorization/dispatcher source of record before enabling consequential dispatch.
+Obtain a clean checkout of exact processor head `093db98a26d97b1cdf334de230712c817ead2ad0` on a runtime with repository access; run `pytest -q tests/unit/test_workflow_execution_processor.py`; record environment, command, exit code, counts and raw output digest. Then add tests for strict JSON result handling and dependency/priority/retry edge cases only after reviewing current contract semantics. Resolve issue #77 against a named real authorization/dispatcher source of record before enabling consequential dispatch.
+
+
+## 2026-10-12 follow-up: strict handler-result boundary
+
+- Candidate PR #186 head after this increment: `093db98a26d97b1cdf334de230712c817ead2ad0`.
+- Implemented strict JSON serialization for handler results (`allow_nan=False`) with compact deterministic encoding.
+- If a handler returns NaN, positive/negative infinity, or another unsupported JSON value, the task is moved to `HELD`, a `RESULT_REJECTED` lifecycle event is recorded, and the processor reports `RECONCILIATION_REQUIRED`; it is not marked completed or automatically replayed.
+- Added parametrized regression coverage for non-finite handler results and updated the processor architecture document.
+- GitHub contents API confirms the source, test, and docs are present on the feature branch. This is implementation evidence only, not execution evidence.
+- Exact-SHA test execution: NOT RUN. The prior local Git attempt failed because `github.com` could not be resolved; no PR-triggered workflow run was returned for the refreshed head.
+- PR #186 remains draft/open; no independent review or merge. Issue #53 remains P0 and unresolved. Distributed fencing/revocation ordering (#77), trusted publication authorization (#78), canonical SEARM/EvidenceObject integration (#61), and production deployment remain HOLD.

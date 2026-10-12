@@ -125,3 +125,12 @@ This section supersedes older candidate-SHA references above where they differ.
 - Re-fetched source, tests and docs from the live feature branch; the helper, usage and regression tests are present.
 - Current PR #186 candidate SHA: `ff36c7657bb05c42c7de037e190ebcbb9f437901`. Source blob `c4756bb20682b68e16ce2ea8c41dfbae65f4fa7a`; test blob `585e16cfe341b568377e9410205126128e9ce8c9`; architecture doc blob `32d9c82b7e14bc0cba6866696c838800c0fa10b8`.
 - Combined status returned zero checks. The regression tests are authored but NOT RUN; no pass is claimed. PR #186 remains OPEN/DRAFT, with exact-SHA execution and independent review still pending.
+
+
+## Free verification path reconciliation — issue #53
+
+- Confirmed the candidate contains `scripts/run_foundation_ci.py`; the existing provenance contract is `docs/architecture/FOUNDATION-RUNNER-PROVENANCE-CONTRACT.md`.
+- Runner design checks canonical origin, exact Git revision and branch before/after gates, clean working tree before/after, compile/deterministic/reference/pytest commands, source SHA-256 inventory and a deterministic evidence digest. It explicitly is not scientific certification or deployment authorization.
+- `pyproject.toml` declares test extras `pytest>=8,<9` and `pytest-cov>=5,<7`. An earlier environment inspection reported pytest 9.0.2; do not describe that environment as dependency-conformant. Use a clean environment with the declared test extra installed.
+- Added issue #53 comment ID `6123028978` with the exact candidate SHA, focused processor test command and full free runner command.
+- Current PR #186 SHA at time of comment: `ff36c7657bb05c42c7de037e190ebcbb9f437901`. Focused pytest and the full runner remain NOT RUN in this session; GitHub status returned zero checks and no PR-triggered workflow runs. The execution blocker is access to a clean exact-SHA checkout and compatible local test environment, not an authorized paid-service requirement.

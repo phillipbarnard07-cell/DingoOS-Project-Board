@@ -157,3 +157,42 @@ This section supersedes older candidate-SHA references above where they differ.
 - Exact-SHA tests remain NOT_RUN: workflow-run lookup returned zero runs for the latest candidate `9fd78ea192598c9856ff4ec03f07b441c80e6226`. Local clone/test execution remains blocked because this environment could not resolve `github.com`. No pytest pass or scientific certification is claimed.
 - Next action: clean checkout of exact SHA; run `python -m pytest -q tests/core/test_foundation_ci_runner.py`, then the seven suites, then `python scripts/run_foundation_ci.py --output artifacts/verification/pr185-foundation-ci.json`; record exit codes, counts, omissions and evidence digest.
 - Dependencies still open: PR #184 trusted publication authorization/revocation boundary; PR #186 worker processor and exact-SHA verification; issues #53 runner observability, #61 canonical execution/evidence integration, #77 distributed dispatch fencing, #78 release evidence, #175 classification policy, #176 trusted release handoff. No merge, publication, deployment or release authorization.
+
+
+## 2026-10-13 — C-4PO Study Buddy UI / research-workflow requirements
+
+### Product objective
+
+Make C-4PO Study Buddy a first-class, teaching-oriented research workflow surface in the existing DingoOS UI. It challenges claims, explains methods and uncertainty, and helps users progress through research; it is not a truth oracle, an autonomous publication authority, or a substitute for SEARM qualification or human authorization.
+
+### Proposed primary workspace
+
+1. **Study Buddy conversation + context:** persistent research question, user level, learning goal, current workflow stage, assumptions, terminology and cited source/evidence links. Explain each recommendation and offer a “why / show calculation / challenge this” path.
+2. **Research workflow rail:** Question → Proposal → Claim → Model → Resources → Experiment/Observation → Evidence → C-4PO challenge → SEARM qualification → Knowledge admission. Each stage shows owner, prerequisites, missing inputs, status and next safe action; stage completion must come from service-backed state, not UI optimism.
+3. **Evidence and provenance inspector:** source, timestamp, object/version IDs, content/provenance hashes, units, uncertainty, calibration, model/software version, replication status, counter-evidence and lineage. Keep Observation, Evidence and Truth semantically distinct.
+4. **Mathematics / experiment workspace:** editable assumptions, dimensional analysis, interval/uncertainty display, reproducible calculation inputs, resource qualification and experiment controls. Separate computed results from measured observations and simulations.
+5. **C-4PO challenge panel:** strongest supporting argument, strongest counterargument, falsification criteria, alternative explanations, dimensional/unit checks, reproducibility questions and unresolved objections. Every challenge links to its evidence or explicitly labels itself as a hypothesis.
+6. **Qualification and decision panel:** independent fields for epistemic state, maturity, operational state and authorization state. Show VERIFIED/REFUTED/INCONCLUSIVE only when authoritative contracts and qualified records support that transition; otherwise display HOLD/NOT QUALIFIED with the missing conditions.
+7. **Human review / publication gate:** immutable review summary, changed assumptions, unresolved objections, evidence manifest and authorization/revocation freshness. Never enable consequential execution or publication on a client-only flag.
+
+### Missing or not yet demonstrated by current repository evidence
+
+- User-friendly, end-to-end C-4PO Study Buddy UI connected to canonical backend services.
+- Canonical C-4PO EvaluationObject creation and validation, linked to SEARM qualification records (tracked in issue #61).
+- Stable UI/API contracts for workflow stage state, missing prerequisites, provenance/evidence lineage and action availability.
+- A safe evidence/source citation inspector and counter-evidence view.
+- Clear distinctions between simulation, observation, evidence, epistemic classification, maturity, operations and authorization.
+- Accessible onboarding, novice/expert explanation modes, keyboard navigation, responsive layout and explicit loading/empty/error/offline states.
+- UI/API security tests: untrusted prompt/source handling, authorization checks at backend effect boundaries, secret/private-IP redaction, audit trail, stale/revoked authorization and concurrent state changes.
+- Usability and accessibility checks with actual users; no usability, scientific validation or production readiness is claimed from this design entry.
+
+### Patch sequence
+
+- **P0 — contract before polish:** inspect/reuse existing C-4PO, SEARM, EvidenceObject, ProvenanceEvent, ResearchLedger and Snowflake-gate services; document one source of truth and stable read/action APIs. Do not create competing epistemic or authorization authorities.
+- **P1 — UI vertical slice:** question intake → proposed workflow → evidence/provenance view → C-4PO challenge → SEARM qualification result → next-action guidance. Use explicit mock/demo labels until connected to real records.
+- **P2 — guardrails and state fidelity:** backend-authoritative transitions, separate state dimensions, revocation freshness, safe failure states, audit events and no auto-replay of uncertain consequential outcomes.
+- **P3 — quality:** accessible responsive design, novice/expert explanations, deterministic UI tests, API contract tests, security/adversarial tests, and observed task-based usability evaluation.
+
+### Acceptance evidence
+
+A UI feature is not “complete” until its UI state is bound to the authoritative service; loading, empty, failure and stale states are tested; evidence/provenance links resolve; unauthorized actions are rejected server-side; and a clean exact-SHA test report is attached. The current assistant environment cannot execute the repository's local test runner; this entry is a requirements checkpoint, not a claim of implementation or verification. Keep publication/deployment HOLD until existing release gates pass.

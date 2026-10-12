@@ -6,7 +6,7 @@
 - Pull request: [#186 — Internal Workflow Execution and Continuity Processor](https://github.com/phillipbarnard07-cell/DingoOS/pull/186)
 - Feature branch: `feat/internal-workflow-continuity-processor-2026-10-12`
 - Base branch: `integration/all-github-repositories`
-- Candidate head checked after changes: `05a3ed8c7ec998a35f8c1243c9d14bc3a1897917`
+- Candidate head checked after changes: `e0bbedcbad5d383b8d86dadcdad98a8deca56df6`
 - PR state: open, draft. No merge or deployment performed.
 
 ## Implemented source changes

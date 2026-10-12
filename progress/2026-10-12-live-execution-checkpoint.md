@@ -50,3 +50,15 @@
 ## Next concrete action
 
 Obtain a clean free local checkout of the exact candidate, run the focused processor tests and canonical foundation runner, preserve the evidence report, then continue the P0 issue #77 source-of-record/fencing integration without duplicating the existing coordinator contract.
+
+
+## Additional increment — PR #185 qualification-default hardening
+
+- Mathematics PR: [#185](https://github.com/phillipbarnard07-cell/DingoOS/pull/185)
+- Feature branch: `feat/fundamental-mathematics-kernel-2026-10-12`
+- Candidate SHA confirmed from branch ref and PR metadata: `b0aeb45fff82242ee1a4377cfb5df6a2f9c5cd80`
+- `core/epistemic_math.py`: model validity, data validity and provenance completeness now default to false, so omitted qualification yields INCONCLUSIVE rather than silently allowing REFUTED classification.
+- `tests/unit/test_epistemic_math.py`: regression test added for unqualified inputs; numerical-path tests state gate assumptions explicitly.
+- `docs/architecture/FUNDAMENTAL_MATHEMATICS_KERNEL_V1.md`: remaining limitation documented.
+- Source/tests/docs re-read from the candidate branch. Combined status has zero checks and no PR workflow runs were returned. Tests remain NOT RUN due the same local DNS/checkout blocker.
+- **Not complete:** preregistration, replication, model/data validity and provenance are still caller-supplied boolean assertions. This safety increment is not a substitute for validating canonical EvidenceObject/SEARM records. Next math integration step must reconcile existing records and SEARM qualification rather than add a competing epistemic authority.

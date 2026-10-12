@@ -115,3 +115,13 @@ This section supersedes older candidate-SHA references above where they differ.
 - New PR #186 head confirmed from live PR metadata: `561b3f2d3219e52853c7d43ea341848de0431a00`. Processor source and regression-test blobs remain confirmed at `6f93d5084b4d4d33299a3aa375ebda43295ba53a` and `0ca13e3221af12ccd5508e184a65fa927180a070`; architecture doc blob is `af58934fd074989ca68a87f1caa7b343b524ae15`.
 - Combined status returned zero checks; exact-SHA tests and runner remain NOT RUN. No pass is claimed. PR #186 remains OPEN/DRAFT; consequential dispatch HOLD pending actual fence enforcement, race/crash tests, local execution evidence and independent review.
 - Next: establish exact-SHA local test execution; then integrate only through the existing post-PREPARED guard and the authoritative backend selected by issue #77. Do not implement a duplicate fence in the processor.
+
+
+## Bounded retry backoff hardening — PR #186
+
+- Added `_bounded_retry_delay(attempt)` in `core/workflow_execution_processor.py`; it clamps the exponent before computing it. Because (2^9 = 512) already exceeds the 300-second cap, any attempt count at or above 9 returns the same 300-second maximum without constructing a huge integer.
+- Replaced the prior `min(2 ** attempt, 300)` expression with the bounded helper. This preserves the existing retry-delay policy while making extreme/corrupt persisted attempt counts computationally bounded.
+- Added tests for normal delays (2, 256), the cap (300), an extreme integer input (`10**1000`), zero and boolean invalid input. Updated the processor architecture doc.
+- Re-fetched source, tests and docs from the live feature branch; the helper, usage and regression tests are present.
+- Current PR #186 candidate SHA: `ff36c7657bb05c42c7de037e190ebcbb9f437901`. Source blob `c4756bb20682b68e16ce2ea8c41dfbae65f4fa7a`; test blob `585e16cfe341b568377e9410205126128e9ce8c9`; architecture doc blob `32d9c82b7e14bc0cba6866696c838800c0fa10b8`.
+- Combined status returned zero checks. The regression tests are authored but NOT RUN; no pass is claimed. PR #186 remains OPEN/DRAFT, with exact-SHA execution and independent review still pending.

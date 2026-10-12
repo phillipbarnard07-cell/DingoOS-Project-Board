@@ -65,3 +65,12 @@ Obtain a clean checkout of exact processor head `093db98a26d97b1cdf334de230712c8
 - Free commands from a clean candidate checkout: `python -m pip install 'pytest>=8,<9' 'pytest-cov>=5,<7'`; `python scripts/run_foundation_ci.py --output artifacts/verification/pr186-foundation-ci.json`; optionally `python -m pytest -q tests/unit/test_workflow_execution_processor.py` for focused diagnosis.
 - Exact-SHA execution remains NOT RUN in this environment. No PR-triggered workflow run was returned for the candidate. The local Git attempt failed DNS resolution for github.com. No tests are claimed passing.
 - Remaining HOLD: exact-SHA runner execution and independent review (#53); canonical adapters and state-transition contracts (#61); real distributed fencing/revocation ordering (#77); trusted publication authorization/readiness (#78); classification mapping (#175); composed release preflight (#176).
+
+
+## 2026-10-12 follow-up: canonical contract reference gates
+
+- Current PR #186 candidate rechecked: `5f9ce23e4db6dbd8b567666e0878da311ffaff8e`, base `integration/all-github-repositories`, still open/draft/unmerged.
+- Added `REFERENCE_TARGETS` to the existing `scripts/run_foundation_ci.py` for four deterministic executable references: canonical FoundationObject/ProvenanceEvent/EvidenceObject schemas, database ResourceObject, engineering ResourceObject, and existing resource adapters. The runner records each as a separate gate; any nonzero command makes the overall report HOLD.
+- Extended `tests/core/test_foundation_ci_runner.py` to assert those reference gates and retained the processor unit test in `TEST_TARGETS`. These reference files are standalone scripts rather than pytest test functions, so the runner executes them directly via Python.
+- Live GitHub fetch confirms the updated runner, test, and processor documentation are present. No tests were executed here: local Git failed with exit 128 because github.com could not be resolved, and no PR-triggered workflow run was returned for the candidate SHA.
+- IP blueprint is already represented by existing controlled documents: `docs/ip/DINGOOS_PTY_LTD_MASTER_IP_SPECIFICATION.md`, `docs/ip/DINGOOS-PTY-LTD-IP-GOVERNANCE-AND-EHOVER-APPLICATION-V1.md`, and `docs/ip/DINGOOS-IP-ENGINEERING-AND-PROOF-GOVERNANCE-V1.md`. These are engineering/governance specifications, not proof of ownership, novelty, patentability, or legal clearance. Publication stays HOLD pending issues #78, #175, #176 and human/legal review.

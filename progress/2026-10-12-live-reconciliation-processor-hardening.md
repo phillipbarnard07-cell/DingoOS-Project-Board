@@ -54,3 +54,14 @@ Obtain a clean checkout of exact processor head `093db98a26d97b1cdf334de230712c8
 - GitHub contents API confirms the source, test, and docs are present on the feature branch. This is implementation evidence only, not execution evidence.
 - Exact-SHA test execution: NOT RUN. The prior local Git attempt failed because `github.com` could not be resolved; no PR-triggered workflow run was returned for the refreshed head.
 - PR #186 remains draft/open; no independent review or merge. Issue #53 remains P0 and unresolved. Distributed fencing/revocation ordering (#77), trusted publication authorization (#78), canonical SEARM/EvidenceObject integration (#61), and production deployment remain HOLD.
+
+
+## 2026-10-12 follow-up: free local verification runner
+
+- PR #186 candidate head revalidated: `95a178d5335e808581b78b5784912551ec96e558`; base is `integration/all-github-repositories`; still open/draft/unmerged.
+- Added `scripts/run_free_verification.py` using only Python's standard library. It records commit, branch, Python/platform, command lines, start/end times, stdout/stderr, exit codes and an ignored JSON report under `dist/evidence/`.
+- Default mode compiles `core`, `tests`, and `scripts`, then attempts the focused processor test. `--full` attempts the full pytest suite. It refuses test execution if the initial Git tree is dirty and records that omission.
+- Hardened its evidence semantics so a pytest invocation is not automatically counted as test execution; the runner looks for a pytest count summary. This runner itself has not been executed or syntax-tested in this environment.
+- Free setup command from a clean checkout: `python -m pip install 'pytest>=8,<9' 'pytest-cov>=5,<7'`; then `python scripts/run_free_verification.py`, or `python scripts/run_free_verification.py --full`. No paid CI is required. This dependency install does not install the project in editable mode, avoiding an unignored egg-info directory.
+- Exact-SHA test result: NOT RUN. GitHub returned no PR-triggered workflow run for the candidate; local Git previously failed DNS resolution for github.com. No test pass or certification is claimed.
+- Outstanding P0/HOLD: runner execution evidence (#53), canonical contract adapters (#61), distributed dispatch fencing/revocation ordering (#77), publication authorization and readiness (#78), legal/IP classification mapping (#175), and composed release-preflight handoff (#176).

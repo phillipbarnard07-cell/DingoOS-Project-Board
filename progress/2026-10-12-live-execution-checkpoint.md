@@ -78,3 +78,29 @@ Obtain a clean free local checkout of the exact candidate, run the focused proce
 - `tests/unit/test_physical_units.py`: added an unqualified quantity regression and made tests that expect VERIFIED explicitly state their legacy gate assumptions.
 - Re-read source/test/docs from the branch. No status checks or PR workflow runs returned; tests remain NOT RUN.
 - Caller booleans for qualification, preregistration and replication remain a known gap. The required next design step is to bind to validated existing SEARM/EvidenceObject records without creating a competing epistemic authority.
+
+
+## Superseding live reconciliation — latest verified processor candidate
+
+This section supersedes older candidate-SHA references above where they differ.
+
+- Reconciled DingoOS repository metadata: private repository; default branch `main`. No edits were made to `main`.
+- PR #186 is OPEN / DRAFT, not merged. Head branch `feat/internal-workflow-continuity-processor-2026-10-12`; base `integration/all-github-repositories`; current PR head and direct Git ref both confirm `676d50465caf07bb8acd3fcd58b1588d9fed5167`. Base SHA: `74682b25d8e2d2f5606451425f80716d486059a7`.
+- PR #184 is OPEN / DRAFT at `3bb9f99cb8aab9411e1f12ca861cad4ea1772522` (3 changed files; 12 commits). No submitted reviews were returned. Trusted authorization integration, revocation freshness and concurrency semantics remain unverified.
+- PR #185 is OPEN / DRAFT at `9533fc3ebda1d6db035cbc02cc04c11feb76eaa6` (10 changed files; 36 commits). No submitted reviews were returned. Numerical limitations and caller-supplied qualification booleans remain open; no exact-SHA test execution evidence.
+- PR #186 has no submitted reviews. Its combined commit-status endpoint returned zero checks for the new candidate; no test pass is claimed.
+- Issues #53 (observable runner), #61 (canonical contract/DDEP integration), #77 (P0 distributed fencing/revocation), #78 (P0 release evidence), #175 (classification mapping) and #176 (composed release preflight) were re-read. All remain OPEN; #77 is a direct production safety blocker and #53 blocks verification evidence.
+
+### New processor increment on PR #186
+
+- `core/workflow_execution_processor.py`: a failure while recording a missing-handler `BLOCKED` transition is now caught and surfaced through `RECONCILIATION_REQUIRED` worker health, rather than escaping the supervisor tick without an observable health transition.
+- `tests/unit/test_workflow_execution_processor.py`: added a regression test for the missing-handler transition persistence failure.
+- `docs/architecture/INTERNAL_WORKFLOW_EXECUTION_PROCESSOR_V1.md`: documents the behavior.
+- Resulting source, test and documentation blobs were fetched again and the new changes were confirmed present.
+- Three sequential commits were created on the existing feature branch; final candidate SHA above is confirmed from both PR metadata and direct Git ref. No default branch was changed.
+
+### Verification status and blocker
+
+- Exact-SHA focused pytest and the foundation runner were **not executed**. The connected GitHub tools can read/write repository content but do not execute shell commands. Earlier local Git access failed with exit 128 because this runtime could not resolve `github.com`.
+- Free local verification remains: `python -m pytest -q tests/unit/test_workflow_execution_processor.py`, followed by `python scripts/run_foundation_ci.py --output artifacts/verification/pr186-foundation-ci.json` from a clean checkout of the exact SHA. Capture environment, command, exit code, counts, skips and report digest.
+- Keep PR #186 draft and release status HOLD. The SQLite processor is not distributed fencing, not the sole authorization authority and not a deployed service. Reconcile PR #76 / issue #77 at the real consequential side-effect boundary before production claims.

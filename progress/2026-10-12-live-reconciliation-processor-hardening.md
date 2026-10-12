@@ -56,12 +56,11 @@ Obtain a clean checkout of exact processor head `093db98a26d97b1cdf334de230712c8
 - PR #186 remains draft/open; no independent review or merge. Issue #53 remains P0 and unresolved. Distributed fencing/revocation ordering (#77), trusted publication authorization (#78), canonical SEARM/EvidenceObject integration (#61), and production deployment remain HOLD.
 
 
-## 2026-10-12 follow-up: free local verification runner
+## 2026-10-12 follow-up: canonical free verification path (corrected)
 
-- PR #186 candidate head revalidated: `95a178d5335e808581b78b5784912551ec96e558`; base is `integration/all-github-repositories`; still open/draft/unmerged.
-- Added `scripts/run_free_verification.py` using only Python's standard library. It records commit, branch, Python/platform, command lines, start/end times, stdout/stderr, exit codes and an ignored JSON report under `dist/evidence/`.
-- Default mode compiles `core`, `tests`, and `scripts`, then attempts the focused processor test. `--full` attempts the full pytest suite. It refuses test execution if the initial Git tree is dirty and records that omission.
-- Hardened its evidence semantics so a pytest invocation is not automatically counted as test execution; the runner looks for a pytest count summary. This runner itself has not been executed or syntax-tested in this environment.
-- Free setup command from a clean checkout: `python -m pip install 'pytest>=8,<9' 'pytest-cov>=5,<7'`; then `python scripts/run_free_verification.py`, or `python scripts/run_free_verification.py --full`. No paid CI is required. This dependency install does not install the project in editable mode, avoiding an unignored egg-info directory.
-- Exact-SHA test result: NOT RUN. GitHub returned no PR-triggered workflow run for the candidate; local Git previously failed DNS resolution for github.com. No test pass or certification is claimed.
-- Outstanding P0/HOLD: runner execution evidence (#53), canonical contract adapters (#61), distributed dispatch fencing/revocation ordering (#77), publication authorization and readiness (#78), legal/IP classification mapping (#175), and composed release-preflight handoff (#176).
+- PR #186 candidate head: `270cf0dc8f20ee764c436cbb8c055647ea0e3b51`; base `integration/all-github-repositories`; open/draft/unmerged.
+- Repository inspection found an existing canonical local runner on the integration base: `scripts/run_foundation_ci.py`. It is standard-library orchestration for compile checks, deterministic foundation gates and configured regression tests; it records source revision, branch, repository slug, working-tree state, command outputs/exit codes and an evidence digest. No paid hosted CI is required by this path.
+- To avoid duplicate infrastructure, the provisional `scripts/run_free_verification.py` added in this session was removed from PR #186. The processor architecture document now points to the existing runner and explicitly notes that its configured target list does not include `tests/unit/test_workflow_execution_processor.py`; that focused test must be run separately and captured against the exact SHA.
+- Suggested clean-checkout commands: `python -m pip install 'pytest>=8,<9' 'pytest-cov>=5,<7'`; `python scripts/run_foundation_ci.py --output artifacts/verification/pr186-foundation-ci.json`; then `python -m pytest -q tests/unit/test_workflow_execution_processor.py`.
+- Execution remains NOT RUN in this environment. No PR-triggered workflow run was returned for the candidate. The existing runner and focused processor tests still need actual execution and evidence review.
+- P0/HOLD dependencies remain: runner evidence (#53), canonical resource/DDEP/SEARM/Snowflake adapter chain (#61), distributed fencing/revocation ordering (#77), publication authorization/readiness (#78), classification mapping (#175), composed release preflight (#176).

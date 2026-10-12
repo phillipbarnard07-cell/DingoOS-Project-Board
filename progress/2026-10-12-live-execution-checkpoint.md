@@ -134,3 +134,16 @@ This section supersedes older candidate-SHA references above where they differ.
 - `pyproject.toml` declares test extras `pytest>=8,<9` and `pytest-cov>=5,<7`. An earlier environment inspection reported pytest 9.0.2; do not describe that environment as dependency-conformant. Use a clean environment with the declared test extra installed.
 - Added issue #53 comment ID `6123028978` with the exact candidate SHA, focused processor test command and full free runner command.
 - Current PR #186 SHA at time of comment: `ff36c7657bb05c42c7de037e190ebcbb9f437901`. Focused pytest and the full runner remain NOT RUN in this session; GitHub status returned zero checks and no PR-triggered workflow runs. The execution blocker is access to a clean exact-SHA checkout and compatible local test environment, not an authorized paid-service requirement.
+
+
+## Anti-drift continuity protocol — recorded 2026-10-12
+
+- Canonical DingoOS issue: [#189 — P0 Anti-drift continuity protocol](https://github.com/phillipbarnard07-cell/DingoOS/issues/189).
+- This protocol is an operating rule for the existing project, not a new architecture or restart.
+- Session start: reconcile live repository, exact branch/base/head SHAs, open PRs/issues, current board checkpoint and machine-readable verification evidence. Resolve discrepancies explicitly; never silently choose or rewrite history.
+- Every work increment: re-anchor to SHA → select one concrete defect/integration seam → trace caller through authoritative service, persistence, state transition, provenance and downstream admission → smallest justified fix → falsification/regression tests → execute free local verification on exact SHA → independent challenge → durable board/issue update with results and one next action.
+- Status dimensions remain separate: implementation, verification (NOT_RUN/PASS/FAIL/BLOCKED), integration, epistemic classification, maturity, operational state and authorization. Never infer one from another.
+- Continuity invariants: append-only history; preserve contradictory/null/refuting results; retain uncertainty and source links when summarizing; missing qualification fails closed; model-generated/external assertions are untrusted until qualified; C-4PO challenges, SEARM qualifies, C-5PO governs; consequential actions require human authorization.
+- Session end must record exact SHA, actual changes, tests really executed, tests not run, evidence digests, unresolved blockers and the single next executable action. The next session re-reads and reconciles this checkpoint against live GitHub state before acting.
+- Current concrete blockers remain unchanged: exact-SHA local verification is not executed in this assistant environment; issues #53, #61 and #77 plus PRs #184–#186 retain their documented verification/integration/security gaps. No test pass, merge, deployment or production readiness is implied by this protocol entry.
+- Anti-drift acceptance: a subsequent session independently reconstructs the same state and next blocker from repository/board evidence without repeating completed work. This is not yet demonstrated; issue #189 remains OPEN.

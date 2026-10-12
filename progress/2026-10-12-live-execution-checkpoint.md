@@ -150,10 +150,10 @@ This section supersedes older candidate-SHA references above where they differ.
 
 ## 2026-10-13 — PR #185 local-runner coverage increment
 
-- Live PR #185 candidate: `965e2a611770d4ef934eec953fa5a8f4319a143e`, branch `feat/fundamental-mathematics-kernel-2026-10-12`, base `integration/all-github-repositories`; PR remains open/draft/unmerged.
+- Live PR #185 candidate: `9fd78ea192598c9856ff4ec03f07b441c80e6226`, branch `feat/fundamental-mathematics-kernel-2026-10-12`, base `integration/all-github-repositories`; PR remains open/draft/unmerged.
 - Updated `scripts/run_foundation_ci.py` to include seven existing PR #185 unit suites: `tests/unit/test_epistemic_math.py`, `tests/unit/test_interval_arithmetic.py`, `tests/unit/test_interval_extreme_values.py`, `tests/unit/test_interval_numeric_overflow.py`, `tests/unit/test_interval_properties.py`, `tests/unit/test_physical_units.py`, and `tests/unit/test_physical_units_hardening.py`.
-- Updated `tests/core/test_foundation_ci_runner.py` with a regression assertion for all seven targets.
+- Updated `tests/core/test_foundation_ci_runner.py` with a regression assertion for all seven targets and an existence check that each configured path is a file in the candidate checkout.
 - Live GitHub file reads confirmed all seven test paths exist on the candidate branch. This is path/coverage configuration evidence, not test execution.
-- Exact-SHA tests remain NOT_RUN: workflow-run lookup returned zero runs for the candidate. Local clone/test execution remains blocked because this environment could not resolve `github.com`. No pytest pass or scientific certification is claimed.
+- Exact-SHA tests remain NOT_RUN: workflow-run lookup returned zero runs for the latest candidate `9fd78ea192598c9856ff4ec03f07b441c80e6226`. Local clone/test execution remains blocked because this environment could not resolve `github.com`. No pytest pass or scientific certification is claimed.
 - Next action: clean checkout of exact SHA; run `python -m pytest -q tests/core/test_foundation_ci_runner.py`, then the seven suites, then `python scripts/run_foundation_ci.py --output artifacts/verification/pr185-foundation-ci.json`; record exit codes, counts, omissions and evidence digest.
 - Dependencies still open: PR #184 trusted publication authorization/revocation boundary; PR #186 worker processor and exact-SHA verification; issues #53 runner observability, #61 canonical execution/evidence integration, #77 distributed dispatch fencing, #78 release evidence, #175 classification policy, #176 trusted release handoff. No merge, publication, deployment or release authorization.

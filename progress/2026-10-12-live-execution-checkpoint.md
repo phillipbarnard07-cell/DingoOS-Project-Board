@@ -6,7 +6,7 @@
 - Processor PR: [#186 — Internal Workflow Execution and Continuity Processor](https://github.com/phillipbarnard07-cell/DingoOS/pull/186)
 - Feature branch: `feat/internal-workflow-continuity-processor-2026-10-12`
 - Base branch: `integration/all-github-repositories`
-- Exact live candidate SHA confirmed from both the feature-branch Git ref and PR metadata: `307db5367c439e2405af7225a190b3d68b407085`
+- Exact live candidate SHA confirmed from both the feature-branch Git ref and PR metadata: `2e15f80e318f41bd7a340fbdfb9a8ca56b372b0d`
 - PR remains OPEN / DRAFT. No merge, release, publication or deployment.
 
 ## Implemented in this increment
@@ -62,3 +62,10 @@ Obtain a clean free local checkout of the exact candidate, run the focused proce
 - `docs/architecture/FUNDAMENTAL_MATHEMATICS_KERNEL_V1.md`: remaining limitation documented.
 - Source/tests/docs re-read from the candidate branch. Combined status has zero checks and no PR workflow runs were returned. Tests remain NOT RUN due the same local DNS/checkout blocker.
 - **Not complete:** preregistration, replication, model/data validity and provenance are still caller-supplied boolean assertions. This safety increment is not a substitute for validating canonical EvidenceObject/SEARM records. Next math integration step must reconcile existing records and SEARM qualification rather than add a competing epistemic authority.
+
+
+## DDEP handler safety boundary clarification
+
+- Latest PR #186 candidate: `2e15f80e318f41bd7a340fbdfb9a8ca56b372b0d`.
+- The processor's authorization validator is preflight only. PR #76's fencing contract/coordinator is on a separate feature branch and does not establish a verified authority on the current integration base.
+- Consequential DDEP handlers must not be enabled until a real trusted adapter checks current authorization/revocation, consumes a single-use fence, performs/reconciles the effect and records a durable receipt at a documented linearization boundary. Do not create a competing fencing authority in PR #186; keep this path HOLD until PR #76 / issue #77 are reconciled and independently verified.

@@ -720,3 +720,10 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - Change: `SEARMResearchService.refute_claim` now preflights the SEARM outcome and rejects a non-`CONTRADICTED` result before calling the helper that persists `REFUTATION_RESULT` and `COUNTER_HYPOTHESIS`. This prevents a non-contradiction from being persisted as though it were an accepted refutation attempt.
 - The preflight and persistence currently evaluate SEARM twice; a defensive runtime check fails closed if the status changes. Follow-up should refactor to compute once and persist that exact result, then add a regression test asserting the ledger is unchanged on non-contradiction.
 - **Verification: source diff fetched and inspected; automated tests NOT RUN; CI status not established.** This is a code change, not a verified release. PR #196 remains draft; P0 #77 remains a production blocker. No merge/deployment claim.
+
+
+### Follow-up engineering correction — exact-result persistence
+
+- Commit [9c1c65fcc5a7d9baaa24d9fb11735bb2cb6fa2cc](https://github.com/phillipbarnard07-cell/DingoOS/commit/9c1c65fcc5a7d9baaa24d9fb11735bb2cb6fa2cc) refactors the SEARM persistence path into `_persist_refutation_result(...)`.
+- `refute_claim` now preflights the result, rejects non-`CONTRADICTED` outcomes before ledger writes, and persists that exact computed `RefutationResult` once. This removes the interim double-computation noted above and avoids divergence between a preview and persisted result.
+- Verified by fetching and inspecting the exact GitHub commit diff and re-fetching the branch source. Workflow-run query for this SHA returned zero runs; tests remain **NOT RUN**. No test pass, merge, or deployment is claimed.

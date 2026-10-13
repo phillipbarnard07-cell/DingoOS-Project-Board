@@ -748,3 +748,24 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - Formatting-only commit [7536c2f31b037574bae1c661fc279d2a7a96c782](https://github.com/phillipbarnard07-cell/DingoOS/commit/7536c2f31b037574bae1c661fc279d2a7a96c782) is now the latest PR #196 head. The two new regression paths remain in `tests/unit/test_searm_review_status.py`; line wrapping and function spacing were normalized.
 - Current PR metadata confirms draft/open, base `integration/all-github-repositories`. Source file was re-fetched at the current branch ref. Combined status checks and workflow-run query for the exact SHA returned none; tests remain **NOT RUN**.
 - No merge/deployment, scientific verification, or production-readiness claim. Release remains HOLD pending exact-SHA execution, integration/recovery tests, independent review, and P0 resolution.
+
+
+## Completion reconciliation checkpoint — 2026-10-13 (current)
+**Status rule:** no item is promoted from HELD / BLOCKED / NOT RUN / NOT ESTABLISHED without exact-candidate evidence. Repository metadata and authored tests are not execution evidence.
+
+### SEARM evidence review boundary
+- [Issue #188](https://github.com/phillipbarnard07-cell/DingoOS/issues/188) remains open pending exact-SHA tests and integration proof.
+- [PR #192](https://github.com/phillipbarnard07-cell/DingoOS/pull/192) and [PR #196](https://github.com/phillipbarnard07-cell/DingoOS/pull/196) modify the same two files and are overlapping draft candidates. #196 head observed: `7536c2f31b037574bae1c661fc279d2a7a96c782`. #196 has additional service-level regression paths; #192 includes extra parameterized invalid-status cases (whitespace, PENDING/QUALIFIED, boolean). A reconciliation comment was added to #192. Neither PR has been merged or closed. Merge the unique #192 cases into a single candidate only after review; do not resolve issue #188 until verification is recorded.
+- Current #196 exact-SHA status/workflow lookups returned no checks/runs. Focused tests and integration tests are **NOT RUN**. A local clone attempt failed because this execution environment could not resolve github.com; this is an environment/network blocker, not a source test failure.
+
+### C-4PO Study Buddy boundary
+- [PR #193](https://github.com/phillipbarnard07-cell/DingoOS/pull/193), head `5e4093139b1e45155dc4d7f4145f0a1348eda8d8`, adds a local-only UI slice and static UI contract tests. It does not call a model/backend, persist research, verify evidence, or mutate workflow state.
+- A reconciliation comment records required next gates: run exact-SHA UI tests and JavaScript/browser checks; review the versioned API contract against SEARM, EvaluationObject, provenance and Snowflake; enforce trusted backend authorization. Study Buddy integration remains **NOT ESTABLISHED**.
+
+### Unresolved P0 gates
+- [#53 runner observability](https://github.com/phillipbarnard07-cell/DingoOS/issues/53): **BLOCKED** until execution steps/logs or a reproducible free local runner produce exact-SHA certification evidence. No paid Actions/services are authorized.
+- [#77 dispatch fencing and revocation ordering](https://github.com/phillipbarnard07-cell/DingoOS/issues/77): **HELD / PRODUCTION NO-GO** until actual execution-boundary fencing, revocation ordering, crash/replay/concurrency tests and provenance chain are implemented and verified.
+- [#78 IP publication readiness](https://github.com/phillipbarnard07-cell/DingoOS/issues/78): **HELD** until a specific asset set/target, manifest, ownership/licence/disclosure review, trusted human authorization, exact-SHA tests and independent review are evidenced.
+- Overall production release and POC completion remain **NOT ESTABLISHED**. No merge, deployment, publication, scientific validation or legal conclusion is implied by this checkpoint.
+
+**Next controlled action:** reconcile #192/#196 into one reviewed candidate, then obtain a network-enabled clean checkout to execute focused SEARM and Study Buddy tests and the free local foundation runner. Record commands, exit codes, counts/skips and evidence digest against exact SHAs before changing any status.

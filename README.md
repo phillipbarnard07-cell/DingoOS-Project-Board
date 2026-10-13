@@ -785,3 +785,10 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 ### Runner execution attempt — 2026-10-13
 - A fresh shallow clone of PR #186's branch was attempted after the runner coverage change and failed before checkout with Git exit 128: `Could not resolve host: github.com`.
 - This confirms only that this environment cannot currently fetch the repository; it does **not** establish whether tests pass or fail. #53 remains open. No synthetic/remote substitute has been represented as a real test run.
+
+
+### Fresh P0/stacked-PR reconciliation — 2026-10-13
+- Re-inspected current PR metadata for [#76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76), [#174](https://github.com/phillipbarnard07-cell/DingoOS/pull/174), [#186](https://github.com/phillipbarnard07-cell/DingoOS/pull/186), [#193](https://github.com/phillipbarnard07-cell/DingoOS/pull/193) and [#196](https://github.com/phillipbarnard07-cell/DingoOS/pull/196). #174 remains draft; current head `9138c4536b5d1f6efdf3db5cb7e08a49bd81a3f7`, base is PR #76's `feat/ddep-resource-admission-guard` line, and the PR metadata reports `mergeable=false` on the observed snapshot. It must not be merged based on static structural checks.
+- #76 itself explicitly limits its single-ResearchLedger claim to one locking domain and says it does not solve distributed fencing or external revocation/dispatch ordering. Comments were added to issues #77 and #78 preserving their P0/HOLD states and enumerating the evidence still missing.
+- #174's own test plan describes regression-test definitions and structural inspections, not executed Python tests. Classification policy remains UNASSESSED, trusted final authorization/revocation handoff remains incomplete, and publication stays disabled.
+- All relevant draft PRs remain unmerged. Exact-SHA execution remains **BLOCKED** in this environment by failed GitHub DNS resolution; no tests were run and no release status was promoted.

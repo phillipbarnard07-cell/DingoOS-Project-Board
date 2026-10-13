@@ -780,3 +780,8 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - Updated [PR #186](https://github.com/phillipbarnard07-cell/DingoOS/pull/186) so `scripts/run_foundation_ci.py` includes `tests/unit/test_study_buddy_contract.py` in its existing no-paid-CI regression suite; added an assertion in `tests/core/test_foundation_ci_runner.py` so this contract cannot silently fall out of the gate list.
 - Current PR #186 head observed after these edits: `1c62a9833b19ef0b025b7251c95757fbc89b9ff3`. Both files were re-fetched from the branch and the target/assertion were confirmed present. **Tests NOT RUN**; no CI pass or integration status is claimed.
 - This improves future local certification coverage for the backend Study Buddy response envelope. It does not integrate PR #193's UI with a backend or resolve P0 #53/#77/#78.
+
+
+### Runner execution attempt — 2026-10-13
+- A fresh shallow clone of PR #186's branch was attempted after the runner coverage change and failed before checkout with Git exit 128: `Could not resolve host: github.com`.
+- This confirms only that this environment cannot currently fetch the repository; it does **not** establish whether tests pass or fail. #53 remains open. No synthetic/remote substitute has been represented as a real test run.

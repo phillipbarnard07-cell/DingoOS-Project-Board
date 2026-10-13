@@ -774,3 +774,9 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 ### SEARM overlap consolidation follow-up — 2026-10-13
 - Added the unique invalid-status cases previously present only in overlapping PR #192 (whitespace-only, `PENDING`, `QUALIFIED`, boolean) to the existing #196 branch. New current head: [`962b19bad664dda3263ab8b69375941639a0d9d1`](https://github.com/phillipbarnard07-cell/DingoOS/commit/962b19bad664dda3263ab8b69375941639a0d9d1).
 - Refetched the updated test file from that branch and confirmed the new cases are present. Exact-SHA workflow lookup returned zero runs; **tests remain NOT RUN**. PR #192 is still open pending review; no PR was merged or closed.
+
+
+### Free foundation gate coverage improvement — 2026-10-13
+- Updated [PR #186](https://github.com/phillipbarnard07-cell/DingoOS/pull/186) so `scripts/run_foundation_ci.py` includes `tests/unit/test_study_buddy_contract.py` in its existing no-paid-CI regression suite; added an assertion in `tests/core/test_foundation_ci_runner.py` so this contract cannot silently fall out of the gate list.
+- Current PR #186 head observed after these edits: `1c62a9833b19ef0b025b7251c95757fbc89b9ff3`. Both files were re-fetched from the branch and the target/assertion were confirmed present. **Tests NOT RUN**; no CI pass or integration status is claimed.
+- This improves future local certification coverage for the backend Study Buddy response envelope. It does not integrate PR #193's UI with a backend or resolve P0 #53/#77/#78.

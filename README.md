@@ -20,7 +20,7 @@ Implemented means executable code exists. Tested means automated tests cover beh
 **Canonical repository:** [private DingoOS](https://github.com/phillipbarnard07-cell/DingoOS)  
 **Active workflow PR:** [#186 — internal workflow execution and continuity processor](https://github.com/phillipbarnard07-cell/DingoOS/pull/186)  
 **Branch:** `feat/internal-workflow-continuity-processor-2026-10-12`  
-**Latest candidate head observed:** `f0b826a5f5043bd4dba249c0fd7724212cd9e9a4`  
+**Latest candidate head observed:** `630ab79e83f2a8c5310496a47a9a98acdee83438`  
 **Base:** `integration/all-github-repositories`  
 **State:** open / draft. Do not merge, publish, or deploy on the strength of design documentation alone.
 
@@ -32,6 +32,7 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - Added `docs/architecture/DINGOOS_POC_CONSOLIDATED_SYSTEM_DESIGN_V1.md`: end-to-end vertical slice, component ownership, orthogonal state model, minimum data contracts, provenance, Study Buddy, security/IP, acceptance criteria and implementation dependency locks. Design only; implementation/verification gates remain open.
 - Added `docs/architecture/DINGOOS_POC_REQUIREMENTS_TRACEABILITY_MATRIX_V1.md`: 22 requirements linked to source paths, dependencies, proposed acceptance criteria, current evidence states and release blockers. No test pass is inferred from test source existing.
 - Added `docs/architecture/DINGOOS_CANONICAL_CONTRACT_INVENTORY_V1.md`: mapped 15 existing execution, authorization, provenance, SEARM, Snowflake-admission and gate-reference modules on the integration base; branch/runtime integration remains unverified.
+- Added `docs/architecture/DINGOOS_SELF_CORRECTING_AUDITOR_SWARMS_ANDROID_SCIENTIFIC_ASSISTANT_V1.md`: proposed audited AI swarm, independent scientific research assistant, Android client/security boundaries, correction loop, evidence contracts and POC acceptance criteria; design only.
 
 ### Exact verification facts
 

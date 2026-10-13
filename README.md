@@ -670,3 +670,13 @@ DingoOS PR #130 (open draft, unmerged) now has an additional fault-injection reg
 - Progress record: https://github.com/phillipbarnard07-cell/DingoOS/commit/d18cd102aaf19dceb3ffc4d9ae1adc9b38b9fc3a
 
 **Status:** test authored; not executed on the exact remote SHA. This covers one ambiguous-write recovery boundary only. It does not establish lifecycle-wide atomicity or production readiness. PR #130 remains draft and production remains HOLD / NO-GO. No paid CI or service requirement introduced.
+
+
+### PR-lineage reconciliation note — 2026-10-13
+
+- [PR #1](https://github.com/phillipbarnard07-cell/DingoOS/pull/1) is merged; its description says Foundation F0 was architecture/schema-first and explicitly does not claim experimental validation of speculative physics.
+- [PR #64](https://github.com/phillipbarnard07-cell/DingoOS/pull/64) and [PR #69](https://github.com/phillipbarnard07-cell/DingoOS/pull/69) are still open and the GitHub metadata currently reports `mergeable=false`. This checkpoint does not infer why; their conflict/review state requires direct reconciliation before promoting their work.
+- [PR #76](https://github.com/phillipbarnard07-cell/DingoOS/pull/76) remains open/draft. Its dispatch claim is scoped to one ResearchLedger locking domain and is explicitly not distributed fencing.
+- [PR #186](https://github.com/phillipbarnard07-cell/DingoOS/pull/186) and [PR #196](https://github.com/phillipbarnard07-cell/DingoOS/pull/196) are separate open drafts against `integration/all-github-repositories`. Neither has exact-SHA passing evidence recorded. Do not treat the integration branch as proof that the whole architecture has been merged to `main`.
+
+This is a metadata/source-description reconciliation, not a full audit of every historical PR. Older PRs must be assessed by changed paths, review decisions, exact commits and reproducible test evidence before they can be labelled verified or complete.

@@ -680,3 +680,8 @@ DingoOS PR #130 (open draft, unmerged) now has an additional fault-injection reg
 - [PR #186](https://github.com/phillipbarnard07-cell/DingoOS/pull/186) and [PR #196](https://github.com/phillipbarnard07-cell/DingoOS/pull/196) are separate open drafts against `integration/all-github-repositories`. Neither has exact-SHA passing evidence recorded. Do not treat the integration branch as proof that the whole architecture has been merged to `main`.
 
 This is a metadata/source-description reconciliation, not a full audit of every historical PR. Older PRs must be assessed by changed paths, review decisions, exact commits and reproducible test evidence before they can be labelled verified or complete.
+
+
+### Epistemic-transition integration risk — source inspection only
+
+A further contract gap was recorded against [issue #61](https://github.com/phillipbarnard07-cell/DingoOS/issues/61) and [master issue #62](https://github.com/phillipbarnard07-cell/DingoOS/issues/62): `core/design_processing.py` exposes `DesignProcessingObject.transition_epistemic(target)`, which checks enum membership and REFUTED terminality but does not itself require SEARM qualification evidence/provenance or human authorization for `VALIDATED_FOR_SPECIFIED_DOMAIN`. This is a source-level finding; no runtime exploit or test failure is claimed. Next step is call-site audit and a single governed transition route with regression tests. Epistemic promotion remains unverified/HOLD until reconciled.

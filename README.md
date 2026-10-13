@@ -694,3 +694,11 @@ This is a metadata/source-description reconciliation, not a full audit of every 
 ### Epistemic-transition integration risk — source inspection only
 
 A further contract gap was recorded against [issue #61](https://github.com/phillipbarnard07-cell/DingoOS/issues/61) and [master issue #62](https://github.com/phillipbarnard07-cell/DingoOS/issues/62): `core/design_processing.py` exposes `DesignProcessingObject.transition_epistemic(target)`, which checks enum membership and REFUTED terminality but does not itself require SEARM qualification evidence/provenance or human authorization for `VALIDATED_FOR_SPECIFIED_DOMAIN`. This is a source-level finding; no runtime exploit or test failure is claimed. Next step is call-site audit and a single governed transition route with regression tests. Epistemic promotion remains unverified/HOLD until reconciled.
+
+
+## C-4PO Study Buddy response-contract tranche — 2026-10-13
+
+- **PR #186:** https://github.com/phillipbarnard07-cell/DingoOS/pull/186 (open/draft; current branch `feat/internal-workflow-continuity-processor-2026-10-12`).
+- Added `core/study_buddy_contract.py` and `tests/unit/test_study_buddy_contract.py`; added traceability requirement DPOC-023 and documented authority/safety boundaries in the consolidated design.
+- Contract requires identity, answer, canonical epistemic status, evidence and challenge references, uncertainty, limitations, provenance, human-review boolean and safety note. It rejects undeclared fields/tool-call smuggling; VERIFIED/REFUTED require evidence references plus a persisted SEARM decision reference. The validator itself does not certify truth or authorize actions.
+- **Verification: NOT RUN** on exact candidate SHA. End-to-end UI/API integration, source retrieval, model quality evaluation, accessibility, security/privacy review and independent review remain outstanding. Production/release stays **HOLD**; no sentience or eternity guarantee is claimed.

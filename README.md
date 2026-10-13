@@ -718,7 +718,7 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 
 - Added commit [f95a6a451514d7f648f774d5dd5637218d2a3570](https://github.com/phillipbarnard07-cell/DingoOS/commit/f95a6a451514d7f648f774d5dd5637218d2a3570) on `fix/searm-explicit-evidence-review-status`.
 - Change: `SEARMResearchService.refute_claim` now preflights the SEARM outcome and rejects a non-`CONTRADICTED` result before calling the helper that persists `REFUTATION_RESULT` and `COUNTER_HYPOTHESIS`. This prevents a non-contradiction from being persisted as though it were an accepted refutation attempt.
-- The preflight and persistence currently evaluate SEARM twice; a defensive runtime check fails closed if the status changes. Follow-up should refactor to compute once and persist that exact result, then add a regression test asserting the ledger is unchanged on non-contradiction.
+- Initial implementation briefly computed the candidate twice; this was superseded by commit [`9c1c65fcc5a7d9baaa24d9fb11735bb2cb6fa2cc`](https://github.com/phillipbarnard07-cell/DingoOS/commit/9c1c65fcc5a7d9baaa24d9fb11735bb2cb6fa2cc), which persists the exact preflighted result. A regression test asserting the ledger is unchanged on non-contradiction remains outstanding.
 - **Verification: source diff fetched and inspected; automated tests NOT RUN; CI status not established.** This is a code change, not a verified release. PR #196 remains draft; P0 #77 remains a production blocker. No merge/deployment claim.
 
 

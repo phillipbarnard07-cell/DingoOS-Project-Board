@@ -20,7 +20,7 @@ Implemented means executable code exists. Tested means automated tests cover beh
 **Canonical repository:** [private DingoOS](https://github.com/phillipbarnard07-cell/DingoOS)  
 **Active workflow PR:** [#186 — internal workflow execution and continuity processor](https://github.com/phillipbarnard07-cell/DingoOS/pull/186)  
 **Branch:** `feat/internal-workflow-continuity-processor-2026-10-12`  
-**Latest candidate head observed:** `b556d3c1b69b1c6d8243e822ac6ae3c1b59187ae`  
+**Latest candidate head observed:** `6a2115045e7e6fcbf70d60115b651e8ffac276e8`  
 **Base:** `integration/all-github-repositories`  
 **State:** open / draft. Do not merge, publish, or deploy on the strength of design documentation alone.
 
@@ -30,6 +30,7 @@ Implemented means executable code exists. Tested means automated tests cover beh
 - Added a lease-recovery retry-deadline regression test and a new guard rejecting leases whose floating-point deadline cannot advance the clock. Tests are authored; execution has not been recorded.
 - Added `docs/governance/DINGOOS_REPOSITORY_AND_CONTRIBUTION_MODEL_V1.md`: intended repository boundaries, contribution flow, verification vocabulary and definition of done.
 - Added `docs/architecture/DINGOOS_POC_CONSOLIDATED_SYSTEM_DESIGN_V1.md`: end-to-end vertical slice, component ownership, orthogonal state model, minimum data contracts, provenance, Study Buddy, security/IP, acceptance criteria and implementation dependency locks. Design only; implementation/verification gates remain open.
+- Added `docs/architecture/DINGOOS_POC_REQUIREMENTS_TRACEABILITY_MATRIX_V1.md`: 22 requirements linked to source paths, dependencies, proposed acceptance criteria, current evidence states and release blockers. No test pass is inferred from test source existing.
 
 ### Exact verification facts
 

@@ -12,6 +12,55 @@ Implemented means executable code exists. Tested means automated tests cover beh
 
 **Evidence Over Assumption · Science Over Belief · Provenance Over Assertion**
 
+
+## Current POC programme checkpoint — 2026-10-13
+
+**Release posture: HOLD / POC CANDIDATE / NOT PRODUCTION-APPROVED.** This is the current checkpoint; older dated notes below are historical records and must not be read as current status without rechecking their referenced candidate SHA.
+
+**Canonical repository:** [private DingoOS](https://github.com/phillipbarnard07-cell/DingoOS)  
+**Active workflow PR:** [#186 — internal workflow execution and continuity processor](https://github.com/phillipbarnard07-cell/DingoOS/pull/186)  
+**Branch:** `feat/internal-workflow-continuity-processor-2026-10-12`  
+**Latest candidate head observed:** `8d3acb93f4185b5a26a7d010714a0f37a02db124`  
+**Base:** `integration/all-github-repositories`  
+**State:** open / draft. Do not merge, publish, or deploy on the strength of design documentation alone.
+
+### Work committed on the active candidate
+
+- Added `docs/governance/DINGOOS_PTY_LTD_PRODUCTION_POC_GOVERNANCE_V1.md`: end-to-end workflow, role/state boundaries, IP/disclosure controls, release evidence bundle and POC acceptance gates.
+- Added a lease-recovery regression test for a retry deadline that cannot advance under floating-point clock precision. Test is authored; execution has not been recorded.
+- Added `docs/governance/DINGOOS_REPOSITORY_AND_CONTRIBUTION_MODEL_V1.md`: intended repository boundaries, contribution flow, verification vocabulary and definition of done.
+
+### Exact verification facts
+
+- The GitHub status query for the previously checked candidate returned no status checks; the workflow-run query returned no runs.
+- No exact-SHA local foundation-runner result or independent review is recorded here.
+- Do not infer source failure from absent hosted execution, and do not infer PASS from authored tests.
+- P0 [issue #53 — runner observability](https://github.com/phillipbarnard07-cell/DingoOS/issues/53) remains an execution-evidence blocker.
+- P0 [issue #77 — distributed dispatch fencing/revocation ordering](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains unresolved. Consequential dispatch is HOLD/NO-GO until a real authority and fence are enforced at the side-effect boundary.
+- [Issue #78 — IP publication readiness](https://github.com/phillipbarnard07-cell/DingoOS/issues/78), [#175 — IP/legal release classification](https://github.com/phillipbarnard07-cell/DingoOS/issues/175), and [#176 — composed release preflight](https://github.com/phillipbarnard07-cell/DingoOS/issues/176) remain explicit release work items.
+
+### Repository portfolio reality
+
+The latest account inventory exposed four repositories, not the full planned portfolio:
+- [DingoOS](https://github.com/phillipbarnard07-cell/DingoOS) — private canonical source and governance.
+- [dingoos-horizon](https://github.com/phillipbarnard07-cell/dingoos-horizon) — public-safe interface.
+- [DingoOS-Project-Board](https://github.com/phillipbarnard07-cell/DingoOS-Project-Board) — public sanitized status board.
+- [V1](https://github.com/phillipbarnard07-cell/V1) — private, currently empty; not a source of truth.
+
+Foundation, EPC-Kernel, Mathematics, Knowledge, Intelligence, Evidence, Science, Engineering, Laboratory, Robotics, Research-Frontier, Industry, Security, Documentation and Private-IP are intended logical workstreams. Create separate repositories only when an actual access, release or ownership boundary justifies it; do not represent them as existing until verified.
+
+### Next executable gates
+
+1. Run `scripts/run_foundation_ci.py` from a clean local checkout pinned to the exact candidate SHA and branch; preserve command, environment, raw output, exit code and evidence report.
+2. Reconcile existing PR/issue lineage before changing canonical authorities; complete DDEP/SEARM/EvidenceObject/ProvenanceEvent/Knowledge integration without duplicate authorities.
+3. Implement and adversarially verify distributed fencing and revocation ordering before any consequential execution.
+4. Complete IP register/ownership/dependency/disclosure review and composed release preflight.
+5. Obtain independent review of the exact tested SHA; update this board from evidence, not estimates.
+
+**Cost boundary:** preserve free/local-first verification. No paid Actions, paid APIs, subscriptions or billing gates are introduced by this checkpoint.
+
+---
+
 ## Current engineering checkpoint — 2026-10-09
 
 **Canonical integration:** DingoOS PR #69, branch `integration/all-github-repositories`.

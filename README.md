@@ -769,3 +769,8 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - Overall production release and POC completion remain **NOT ESTABLISHED**. No merge, deployment, publication, scientific validation or legal conclusion is implied by this checkpoint.
 
 **Next controlled action:** reconcile #192/#196 into one reviewed candidate, then obtain a network-enabled clean checkout to execute focused SEARM and Study Buddy tests and the free local foundation runner. Record commands, exit codes, counts/skips and evidence digest against exact SHAs before changing any status.
+
+
+### SEARM overlap consolidation follow-up — 2026-10-13
+- Added the unique invalid-status cases previously present only in overlapping PR #192 (whitespace-only, `PENDING`, `QUALIFIED`, boolean) to the existing #196 branch. New current head: [`962b19bad664dda3263ab8b69375941639a0d9d1`](https://github.com/phillipbarnard07-cell/DingoOS/commit/962b19bad664dda3263ab8b69375941639a0d9d1).
+- Refetched the updated test file from that branch and confirmed the new cases are present. Exact-SHA workflow lookup returned zero runs; **tests remain NOT RUN**. PR #192 is still open pending review; no PR was merged or closed.

@@ -727,3 +727,10 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - Commit [9c1c65fcc5a7d9baaa24d9fb11735bb2cb6fa2cc](https://github.com/phillipbarnard07-cell/DingoOS/commit/9c1c65fcc5a7d9baaa24d9fb11735bb2cb6fa2cc) refactors the SEARM persistence path into `_persist_refutation_result(...)`.
 - `refute_claim` now preflights the result, rejects non-`CONTRADICTED` outcomes before ledger writes, and persists that exact computed `RefutationResult` once. This removes the interim double-computation noted above and avoids divergence between a preview and persisted result.
 - Verified by fetching and inspecting the exact GitHub commit diff and re-fetching the branch source. Workflow-run query for this SHA returned zero runs; tests remain **NOT RUN**. No test pass, merge, or deployment is claimed.
+
+
+### Regression test added — 2026-10-13
+
+- Commit [0ead653430abff39aff5f3cf286994f52d450592](https://github.com/phillipbarnard07-cell/DingoOS/commit/0ead653430abff39aff5f3cf286994f52d450592) adds `test_non_contradiction_is_rejected_before_refutation_records_are_persisted` to `tests/unit/test_searm_review_status.py`.
+- The test substitutes a non-contradictory SEARM result and asserts rejection occurs before `research.persist_record` or `epistemic.refute_with_provenance` is called. This exercises the fail-before-persistence branch with controlled test doubles.
+- Test source fetched and diff inspected. Exact-SHA workflow-run query returned zero runs; test remains **NOT RUN**. A real ledger integration test and independent review remain required.

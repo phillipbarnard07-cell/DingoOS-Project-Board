@@ -712,3 +712,11 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - [Issue #188](https://github.com/phillipbarnard07-cell/DingoOS/issues/188) tracks the fail-open defect. [Issue #77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remains **P0 / production HOLD** for distributed fencing and revocation ordering.
 - [PR #186](https://github.com/phillipbarnard07-cell/DingoOS/pull/186) remains the broader Study Buddy/workflow candidate. Focused Study Buddy tests were reported there as 22 passed on exact fetched file contents; this is not a full-suite or end-to-end verification.
 - No merge or deployment is authorized by this checkpoint. Keep PR #196 draft until focused and integration tests run against its exact head, review completes, and required provenance/security/release gates are evidenced.
+
+
+## Engineering delta — 2026-10-13 (PR #196 follow-up)
+
+- Added commit [f95a6a451514d7f648f774d5dd5637218d2a3570](https://github.com/phillipbarnard07-cell/DingoOS/commit/f95a6a451514d7f648f774d5dd5637218d2a3570) on `fix/searm-explicit-evidence-review-status`.
+- Change: `SEARMResearchService.refute_claim` now preflights the SEARM outcome and rejects a non-`CONTRADICTED` result before calling the helper that persists `REFUTATION_RESULT` and `COUNTER_HYPOTHESIS`. This prevents a non-contradiction from being persisted as though it were an accepted refutation attempt.
+- The preflight and persistence currently evaluate SEARM twice; a defensive runtime check fails closed if the status changes. Follow-up should refactor to compute once and persist that exact result, then add a regression test asserting the ledger is unchanged on non-contradiction.
+- **Verification: source diff fetched and inspected; automated tests NOT RUN; CI status not established.** This is a code change, not a verified release. PR #196 remains draft; P0 #77 remains a production blocker. No merge/deployment claim.

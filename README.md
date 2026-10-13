@@ -20,14 +20,14 @@ Implemented means executable code exists. Tested means automated tests cover beh
 **Canonical repository:** [private DingoOS](https://github.com/phillipbarnard07-cell/DingoOS)  
 **Active workflow PR:** [#186 — internal workflow execution and continuity processor](https://github.com/phillipbarnard07-cell/DingoOS/pull/186)  
 **Branch:** `feat/internal-workflow-continuity-processor-2026-10-12`  
-**Latest candidate head observed:** `8d3acb93f4185b5a26a7d010714a0f37a02db124`  
+**Latest candidate head observed:** `92004d38ffc0e779075e04827529f5623c7d2c83`  
 **Base:** `integration/all-github-repositories`  
 **State:** open / draft. Do not merge, publish, or deploy on the strength of design documentation alone.
 
 ### Work committed on the active candidate
 
 - Added `docs/governance/DINGOOS_PTY_LTD_PRODUCTION_POC_GOVERNANCE_V1.md`: end-to-end workflow, role/state boundaries, IP/disclosure controls, release evidence bundle and POC acceptance gates.
-- Added a lease-recovery regression test for a retry deadline that cannot advance under floating-point clock precision. Test is authored; execution has not been recorded.
+- Added a lease-recovery retry-deadline regression test and a new guard rejecting leases whose floating-point deadline cannot advance the clock. Tests are authored; execution has not been recorded.
 - Added `docs/governance/DINGOOS_REPOSITORY_AND_CONTRIBUTION_MODEL_V1.md`: intended repository boundaries, contribution flow, verification vocabulary and definition of done.
 
 ### Exact verification facts

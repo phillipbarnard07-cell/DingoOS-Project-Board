@@ -742,3 +742,9 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - This complements the helper-level invalid-status cases and the non-contradiction preflight regression. Tests are authored; they have **NOT RUN** on this exact SHA. No pass is claimed.
 - Live reconciliation: PR #196 remains draft/open on `integration/all-github-repositories`. Exact-SHA combined status query returned no checks and the workflow-run query returned no runs.
 - P0 blockers remain open: [#53 runner observability](https://github.com/phillipbarnard07-cell/DingoOS/issues/53), [#77 distributed dispatch fencing/revocation ordering](https://github.com/phillipbarnard07-cell/DingoOS/issues/77), and [#78 IP publication/release evidence](https://github.com/phillipbarnard07-cell/DingoOS/issues/78). Production remains **HOLD / NO-GO**; no paid CI requirement introduced.
+
+### SEARM test-format follow-up — 2026-10-13
+
+- Formatting-only commit [7536c2f31b037574bae1c661fc279d2a7a96c782](https://github.com/phillipbarnard07-cell/DingoOS/commit/7536c2f31b037574bae1c661fc279d2a7a96c782) is now the latest PR #196 head. The two new regression paths remain in `tests/unit/test_searm_review_status.py`; line wrapping and function spacing were normalized.
+- Current PR metadata confirms draft/open, base `integration/all-github-repositories`. Source file was re-fetched at the current branch ref. Combined status checks and workflow-run query for the exact SHA returned none; tests remain **NOT RUN**.
+- No merge/deployment, scientific verification, or production-readiness claim. Release remains HOLD pending exact-SHA execution, integration/recovery tests, independent review, and P0 resolution.

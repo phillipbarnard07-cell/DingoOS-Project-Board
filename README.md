@@ -1,6 +1,15 @@
 # DingoOS Project Board
 
 
+## Verification checkpoint — canonical state hash (2026-10-13)
+
+- **PR #63:** https://github.com/phillipbarnard07-cell/DingoOS/pull/63 — draft, head `d7ac8b96170fad3426f7ca62f8900c1c5a3c7ed8`.
+- Added three regression tests for independent SHA-256 over canonical bytes, state-mutation sensitivity, and dictionary insertion-order invariance.
+- The user-supplied verification output is not attributable to this inspected branch: its state API differs, and its reported digest is SHA-256(empty bytes) despite a displayed non-empty state. The inspected serializer source hashes canonical JSON bytes; this is a revision/source mismatch to reconcile, not a confirmed defect in that source.
+- Tests are **NOT RUN locally**. Exact-SHA status checks are absent. Workflow runs exist but fail; job steps are empty and log retrieval returned `BlobNotFound`, so failure causes remain unverified. P0 runner observability issue #53 remains open. Global release status remains **HOLD**.
+
+
+
 ## Engineering correction checkpoint — 2026-10-13 (SEARM evidence review status)
 
 **New focused candidate:** [PR #196 — require explicit reviewed evidence for SEARM refutation](https://github.com/phillipbarnard07-cell/DingoOS/pull/196), draft branch `fix/searm-explicit-evidence-review-status`, candidate `61b7dcd32bc1b345d1ae060230ea5338587c0d2f`.

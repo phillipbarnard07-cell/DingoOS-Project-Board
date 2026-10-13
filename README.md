@@ -1,5 +1,15 @@
 # DingoOS Project Board
 
+
+## Engineering correction checkpoint — 2026-10-13 (SEARM evidence review status)
+
+**New focused candidate:** [PR #196 — require explicit reviewed evidence for SEARM refutation](https://github.com/phillipbarnard07-cell/DingoOS/pull/196), draft branch `fix/searm-explicit-evidence-review-status`, candidate `61b7dcd32bc1b345d1ae060230ea5338587c0d2f`.
+
+Source inspection found that `core/searm_service.py` defaulted a missing evidence `review_status` to `REVIEWED` while recording a refutation. The candidate now requires an explicit `REVIEWED` value and adds focused regression cases for missing, null, empty, unreviewed, unknown, malformed-case and non-string statuses. This is a source-level correction with tests authored, **not yet executed**.
+
+Exact-SHA GitHub status query: no statuses returned. Exact-SHA workflow query: no runs returned. Therefore the tests remain **NOT RUN**, not PASS. PR #196 remains draft; mergeability is currently reported true, but merge is not authorized by that metadata. Existing [PR #186](https://github.com/phillipbarnard07-cell/DingoOS/pull/186) remains the broader local workflow candidate. [Issue #188](https://github.com/phillipbarnard07-cell/DingoOS/issues/188) tracks the defect. P0 runner observability [#53](https://github.com/phillipbarnard07-cell/DingoOS/issues/53) and distributed fencing [#77](https://github.com/phillipbarnard07-cell/DingoOS/issues/77) remain release blockers.
+
+
 Public, sanitized engineering control centre for DingoOS Pty Ltd.
 
 **Board:** https://phillipbarnard07-cell.github.io/DingoOS-Project-Board/

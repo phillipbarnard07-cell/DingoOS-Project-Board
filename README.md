@@ -1,4 +1,371 @@
-# DingoOS Project Board
+I’ve updated the board’s reporting basis to 19 October 2026, preserving the existing DingoOS project, architecture, workstreams and historical figures while incorporating the latest assessment-protocol and release-integrity work.
+
+The most important correction is that the board must distinguish the previously reported 46% weighted estimate from currently measured and verified completion. The new assessment-protocol work is recorded against PR #220 and its exact candidate SHA, but it does not increase the verified score until runtime tests and integration evidence exist.
+
+The update also makes DDEP’s 0/74 certified stages explicit and adds a release-manifest gate that rejects unverified or demonstrably inconsistent checksums.
+
+Worked for 41s
+
+# DingoOS Pty Ltd — Engineering Control Board
+## WHAT IS BUILT · WHAT IS PROVEN · WHAT IS NEXT
+
+**Snapshot:** 19 October 2026
+**Projection:** Public-safe, sanitized engineering view
+**Operating principle:** Preserve existing IP and repository history · Implement · Test · Verify · Record · Improve
+**Evidence standard:** Evidence Over Assumption · Science Over Belief · Provenance Over Assertion · No Unnecessary Harm
+
+---
+
+## 00 · EXECUTIVE STATUS — CURRENT EVIDENCE BASIS
+
+### Overall completion
+
+**Previously reported weighted estimate: 46%.** This is a historical planning estimate, not a freshly measured or independently verified completion score.
+
+The repository-wide automated census and execution of the latest acceptance suite remain outstanding. Therefore, no updated overall completion percentage is asserted.
+
+| Control area | Previously reported estimate | Current evidence position |
+|---|---:|---|
+| Executable implementation | 50% | Historical estimate; census required |
+| Tests / verification | 38% | Historical estimate; latest runtime execution not established |
+| Runtime integration | 40% | Historical estimate; canonical end-to-end acceptance pending |
+| Contracts / schemas | 55% | Historical estimate; repository-wide reassessment pending |
+| Security / supply chain | 35% | Historical estimate; release and supply-chain gates incomplete |
+| Governance / safety / power | 45% | Historical estimate; end-to-end authorization verification pending |
+| Deployment / recovery | 30% | Historical estimate; full recovery acceptance pending |
+| Architecture / documentation | 85% | Historical estimate; current documents require evidence-linked reconciliation |
+
+**Interpretation:** The values above are retained for continuity with the earlier board. They must not be represented as current measured results until their numerators, denominators, source revision and evidence references are regenerated.
+
+### Current engineering decision
+
+**Release / merge promotion: HOLD pending required evidence.**
+
+- Preserve the existing DingoOS repository, branches, pull requests, issues and IP history.
+- Continue the existing integration and Study Buddy work; do not restart the project.
+- Do not treat source code, a passing isolated test, a hash, a design document or an estimated percentage as proof of full-system acceptance.
+- Do not claim tests ran unless their actual output and exit status are available.
+- No production-ready, deployed or POC-accepted status is established by this board update.
+
+---
+
+## 01 · HARD NUMBERS — HISTORICAL BASELINE
+
+The following values were reported in the 6 October 2026 board snapshot. They are retained as historical minimums and have **not been re-audited in this update**.
+
+| Measure | Previously reported value | Current qualification |
+|---|---:|---|
+| Core files | 45 | Historical census; rerun required |
+| Core size | 287,378 bytes | Historical measurement; rerun required |
+| PR #45 changed files | 20 | Historical PR measurement |
+| PR #45 additions | 5,449 lines | Historical PR measurement |
+| PR #45 implementation | 1,023 LOC | Historical PR measurement |
+| PR #45 tests | 467 LOC | Historical PR measurement |
+
+### Required automated census
+
+Generate a revision-bound report containing:
+
+1. Exact repository, branch and commit SHA.
+2. Tracked files, relevant untracked files and excluded/generated artifacts.
+3. Python source files, test files, LOC and byte counts.
+4. Test functions, parametrized cases and discovered test totals.
+5. Contracts, schemas, DDEP stage definitions and integration entry points.
+6. Security-sensitive paths, secret/IP scan outcomes and exclusions.
+7. Pull-request changes relative to the declared base.
+8. Test execution records, coverage reports and machine-readable gate outcomes.
+
+Each metric must identify its counting method, scope, source revision and report artifact. The board must not silently combine measurements from different commits.
+
+---
+
+## 02 · WEIGHTED COMPLETION — HISTORICAL ESTIMATES
+
+The existing weighting model remains unchanged:
+
+| Engineering dimension | Weight | Historical estimate | Evidence needed to update |
+|---|---:|---:|---|
+| Executable implementation | 30% | 50% | Census and executable-path evidence |
+| Tests / verification | 15% | 38% | Actual test results and coverage |
+| Runtime integration | 15% | 40% | Canonical end-to-end execution |
+| Contracts / schemas | 10% | 55% | Inventory, validation and compatibility tests |
+| Security / supply chain | 10% | 35% | Security gates and release provenance |
+| Governance / safety / power | 10% | 45% | Authorization, non-harm and regression evidence |
+| Deployment / recovery | 5% | 30% | Restart, replay, rollback and recovery tests |
+| Architecture / documentation | 5% | 85% | Reconciliation against executable behavior |
+
+These historical values yield a weighted estimate of 46%. That arithmetic does not independently verify the underlying estimates.
+
+### Scoring rules
+
+- **Designed:** architecture or specification exists.
+- **Implemented:** executable code exists at the assessed revision.
+- **Tested:** a relevant automated test has actually executed.
+- **Integrated:** the component participates in the canonical runtime path.
+- **Verified:** recorded evidence demonstrates the defined behavior.
+- **Certified:** all defined stage-specific acceptance criteria have passed and the result is reproducible.
+- **Blocked / Not run / Inconclusive:** evidence is missing, execution is unavailable or the result cannot support a conclusion.
+
+A capability must not advance merely because its documentation, test code or interface exists. Each dimension is scored from explicit criteria and evidence; missing evidence is not silently converted into partial success.
+
+---
+
+## 03 · ACTIVE CHANGE AND INTEGRATION TRACKING
+
+### A. Study Buddy integration
+
+**Integration objective:** Complete the existing single-person C-4PO Study Buddy proof of concept using the existing Horizon, backend, ledger and provenance path.
+
+The acceptance journey remains:
+
+`Objective / Question → Assumptions and Constraints → Evidence → Validation and Persistence → Proposal → C-4PO Challenge → SEARM Qualification → EvaluationObject → Provenance → Save / Reopen / Correction`
+
+Required evidence includes:
+
+- Persistent source and workflow records.
+- Restart recovery and correction/supersession behavior.
+- Tamper rejection and provenance consistency.
+- Deterministic C-4PO challenge and EvaluationObject handling.
+- Fail-closed behavior when evidence or a required provider is unavailable.
+- Exact candidate SHA, test output and reproducible acceptance report.
+
+**Status:** Existing integration work remains in progress. Full POC acceptance has not been established by the evidence available for this snapshot.
+
+### B. Assessment Protocol — PR #220
+
+**Pull request:** [#220 — Implement exhaustive assessment and evidence-gated protocol](https://github.com/phillipbarnard07-cell/DingoOS/pull/220)
+
+- Branch: `feat/exhaustive-assessment-protocol`
+- Base: `integration/study-buddy-reconciliation-2026-10-17`
+- Candidate commit: `c4e12e5dfdd076fb52e3087f61530c52a47620f3`
+- PR status at the latest inspected record: **Open · Draft · Not merged**
+- Changed files: 2
+- Committed implementation and test suite: present in the candidate branch
+- Runtime unit tests, full suite and coverage: **NOT RUN / NOT VERIFIED in this environment**
+
+The module implements a typed requirement-status vocabulary, exact supplied-registry coverage checks, evidence and applicability rules, a provenance-verifier callback, and a persistent SHA-256 hash-chained JSONL audit log.
+
+Required next actions:
+
+1. Obtain a usable checkout of the exact candidate SHA.
+2. Run `tests/test_assessment_protocol.py`.
+3. Fix demonstrated failures and rerun affected tests.
+4. Run the full test suite and coverage report only after the targeted tests pass.
+5. Test restart recovery, tamper rejection and integration with the canonical provenance path.
+6. Bind reports and audit artifacts to the tested commit.
+7. Keep the PR in draft / HOLD until the relevant acceptance gates pass.
+
+A hash chain can detect changes relative to a trusted chain head. It does not, by itself, prevent an attacker from rewriting the entire log and recomputing every digest. Protected storage or an independently anchored digest is required for stronger tamper evidence.
+
+### C. Evidence and execution policy
+
+For every test or gate, record:
+
+- Candidate commit SHA and working-tree state.
+- Exact command and relevant environment/tool versions.
+- Start/end result and the actual process exit code.
+- Raw log and structured report paths.
+- Expected versus observed outcome.
+- Failure classification and linked corrective change.
+- Rerun result after the fix.
+
+Do not report a successful run based only on the final command in a shell pipeline; preserve the test process's exit status explicitly.
+
+---
+
+## 04 · WORKSTREAMS — STATUS AND NEXT ACCEPTANCE
+
+The percentages in this section are the previous board's estimates, not refreshed measurements.
+
+| Workstream | Historical estimate | Next objective acceptance |
+|---|---:|---|
+| Foundation Kernel | 45% | Canonical object/event/provenance/authorization contracts and replay tests |
+| DDEP 74-stage runtime | 55% | Enumerate canonical stages and certify every stage against its contract |
+| URO / DPO / EIR / GEP | 45% | Typed object lifecycle, identity and state-transition tests |
+| C-3PO | 40% | Proposal-to-evaluation boundary and reproducible generation records |
+| C-4PO | 50% | Independent challenge context, counter-evidence and evaluation records |
+| SEARM | 50% | Refutation, replication and evidence-qualified epistemic transitions |
+| Evidence / Measurement | 40% | Measurement lineage, uncertainty and evidence qualification |
+| Snowflake Fabric | 50% | Integrity A + Epistemic B + Governance C publication gate |
+| Sigma Compiler | 30% | Typed policy compilation into executable constraints; prevent self-authorization |
+| C-5PO | 20% | Governance regression, continuity and controlled evolution |
+| Non-harm / Power | 25% | Capability-versus-authority controls and consequential-action fencing |
+| Security / IP / DLP | 30% | Supply-chain evidence, information-flow labels and safe public projection |
+| Horizon | 40% | Governed public projection with private-IP and secret exclusion tests |
+| Distributed / HAL | 30% | Node identity, durable checkpoints and failure recovery |
+| Math / Science / Engineering | 25% | Research-to-test pathway with validated premises and reproducible experiments |
+| CI/CD / Reproducibility | 40% | Cost-free local verification, revision-bound manifests and release gates |
+| Visual Control Surface | 10% | Automated board and census generated from evidence |
+
+### Priority order
+
+1. Automated repository census.
+2. Exact-SHA assessment-protocol regression.
+3. Foundation contracts and replay tests.
+4. DDEP stage definitions and certification harness.
+5. Canonical Study Buddy integration and acceptance.
+6. C-4PO / SEARM independent evaluation loop.
+7. Snowflake publication gate.
+8. Sigma and C-5PO authority/governance regressions.
+9. Security, IP/DLP and release-manifest validation.
+10. Distributed recovery and public board automation.
+
+Priorities can be adjusted when measured dependencies or failure evidence justify it. Changes must retain traceability to the existing work.
+
+---
+
+## 05 · DDEP — 74-STAGE CERTIFICATION MAP
+
+**Certified stages: 0 / 74 · 0% measured certification**
+
+Workstream progress estimates do not constitute stage certification. A stage is certified only when its definition, inputs, outputs, invariants, failure behavior and evidence have been checked.
+
+| Stage range | Scope label | Stage count | Certified | Status |
+|---|---|---:|---:|---|
+| S01–S05 | Foundation | 5 | 0 | Definitions and evidence pending |
+| S06–S15 | Ingest / qualify | 10 | 0 | Definitions and evidence pending |
+| S16–S25 | Model / design | 10 | 0 | Definitions and evidence pending |
+| S26–S35 | Mathematics / simulation | 10 | 0 | Definitions and evidence pending |
+| S36–S45 | Resource / execution | 10 | 0 | Definitions and evidence pending |
+| S46–S55 | Observe / evidence | 10 | 0 | Definitions and evidence pending |
+| S56–S65 | Verify / SEARM | 10 | 0 | Definitions and evidence pending |
+| S66–S74 | Provenance / publish | 9 | 0 | Definitions and evidence pending |
+| **Total** | **DDEP** | **74** | **0** | **No stage certification claimed** |
+
+### Mandatory per-stage certification record
+
+Each stage must identify:
+
+1. Canonical stage ID and version.
+2. Purpose, preconditions and permitted authority.
+3. Typed inputs and outputs.
+4. Determinism and invariant requirements.
+5. Resource qualification and failure semantics.
+6. Retry, idempotency and checkpoint behavior.
+7. Recovery and replay behavior where applicable.
+8. Security, privacy and IP classification.
+9. Automated positive, negative and adversarial tests.
+10. Evidence references, provenance digest and reviewer decision.
+
+Stage certification must be recorded individually. A workstream estimate must never be copied into a stage's certification percentage.
+
+---
+
+## 06 · SYSTEM PATH — INTEGRATION IS NOT SCIENTIFIC VALIDATION
+
+| System block | Previous integration estimate | Required proof |
+|---|---:|---|
+| Alpha | 50% | Public input boundary and safe projection tests |
+| Beta | 55% | Protected computation and IP isolation |
+| Gamma | 35% | Research context, assumptions and competing models |
+| Sigma | 30% | Governance policy compiled into executable constraints |
+| DDEP | 55% | Canonical stage execution and stage-by-stage certification |
+| Observation | 40% | Measurement method, uncertainty and lineage |
+| Evidence | 40% | Evidence qualification and reproducible provenance |
+| C-4PO | 50% | Independent challenge and explicit limitations |
+| SEARM | 50% | Refutation, replication and epistemic transition controls |
+| Snowflake | 50% | Integrity, epistemic and governance publication gates |
+| C-5PO | 20% | Continuity, authority and governance regression |
+| Evolution | 20% | Controlled, reversible and reviewed change |
+
+These values are historical estimates only. No block is certified merely because another block returns PASS. Model agreement is not proof; simulation is not experiment; a mathematical proof does not validate an untested experimental premise.
+
+---
+
+## 07 · EPISTEMIC, GOVERNANCE AND SAFETY CONTROLS
+
+**Control existence does not equal full production certification.**
+
+### Epistemic state vocabulary
+
+The board retains the following domain-scoped states:
+
+- `SOURCE_ONLY`
+- `HYPOTHESISED`
+- `TESTED`
+- `MEASURED`
+- `SUPPORTED`
+- `CONTRADICTED`
+- `REFUTED`
+- `VALIDATED`
+
+Each transition must have explicit entry criteria, evidence, provenance and limitations. `VALIDATED` is domain- and scope-specific; it is not a universal truth claim.
+
+### Authority and safety controls
+
+| Control | Current board position | Evidence still required |
+|---|---|---|
+| Capability ≠ authority | Defined | End-to-end enforcement tests |
+| No self-authorization | Defined | Adversarial authorization regressions |
+| Independent challenge | Partial | Independent context and conflict-of-interest controls |
+| Human authorization | Partial | Consequential-action boundary tests |
+| Reversibility | Partial | Rollback, revocation and recovery evidence |
+| Audit history | Partial | Restart, tamper and protected-head verification |
+| Power regression | Early | Automated tests against privilege escalation |
+| DLP / IP boundary | Partial | Secret scanning and public-projection tests |
+
+C-5PO remains a governance and continuity component, not a sovereign truth authority. C-4PO challenges claims but does not unilaterally establish truth. SEARM controls epistemic qualification according to defined evidence rules. Human authorization remains the ceiling for consequential actions.
+
+---
+
+## 08 · RELEASE INTEGRITY — INVENTORY, CHECKSUMS AND PROVENANCE
+
+The proposed `dingoos_release_complete.zip` file tree and SHA-256 manifest are now explicitly part of the release-verification scope. The supplied digest list is **not accepted as a verified release manifest**.
+
+### Current release-manifest status
+
+- Proposed release inventory: **SPECIFIED**
+- Exact archive and staged files available for independent verification: **NOT ESTABLISHED**
+- Supplied per-file checksums independently recomputed: **NOT VERIFIED**
+- Archive contents compared with the approved inventory: **NOT VERIFIED**
+- Trusted release-manifest digest or signature: **NOT ESTABLISHED**
+- Release authorization: **HOLD**
+
+The proposed ZIP digest begins with `e3b0c442…b855`, which is the SHA-256 digest of an empty file. Unless the ZIP itself is empty, this cannot be its correct digest. Other patterned values also require recomputation from actual file bytes; visual plausibility is not validation.
+
+### Required release sequence
+
+1. Bind the release to an exact repository commit and clean/recorded working-tree state.
+2. Generate a repository census and approved allowlist of release files.
+3. Exclude secrets, credentials, private infrastructure details and protected IP from public artifacts.
+4. Run the required tests and security gates, recording actual exit codes and artifacts.
+5. Build the ZIP from the approved staging tree.
+6. Compute SHA-256 for every staged file and the final archive.
+7. Independently extract the archive and compare its contents against the approved inventory.
+8. Verify every manifest entry against the actual bytes.
+9. Protect or sign the final manifest digest and bind it to the commit, test reports and release decision.
+10. Require explicit human authorization before release promotion.
+
+A checksum verifies byte identity against a trusted digest. It does not establish scientific truth, safe behavior, test success or release authorization. A hash chain also needs a protected or externally anchored head if it is to provide meaningful evidence against wholesale rewriting.
+
+### Packaging command controls
+
+Before using the packaging script, inspect its actual interface and output path. Generate the manifest from the actual staging directory; do not manually copy illustrative hashes. Compute the archive checksum after the ZIP is finalized, and recompute it if the archive changes.
+
+---
+
+## 09 · DEFINITION OF DONE — EIGHT GATES
+
+No architecture item silently counts as complete.
+
+1. **TYPED** — authoritative schema exists and validates.
+2. **IMPLEMENTED** — executable code exists at the assessed revision.
+3. **TESTED** — automated behavior tests actually execute and results are recorded.
+4. **INTEGRATED** — connected to the canonical runtime path.
+5. **PROVENANCE** — source, evidence and outcomes are bound to verifiable records.
+6. **SECURITY** — required security, IP and supply-chain gates pass.
+7. **GOVERNANCE** — authority, non-harm and human-authorization controls are verified.
+8. **RECOVERY** — restart, replay, correction and recovery behavior is tested where applicable.
+
+The evidence record must state each gate separately. A single PASS must not conceal unrun or blocked gates. A failed, missing or inconclusive required gate prevents overall acceptance.
+
+---
+
+## 10 · NEXT EXECUTION QUEUE
+
+### 01 — Automated census
+
+**# DingoOS Project Board
 
 
 ## Verification checkpoint — canonical state hash (2026-10-13)

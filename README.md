@@ -1181,7 +1181,7 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 
 ### New completion workflow
 
-The candidate branch now contains a manual-only, free/local-first workflow at [`.github/workflows/study-buddy-poc-completion.yml`](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/horizon-developer-terminal-squashed-2026-10-21/.github/workflows/study-buddy-poc-completion.yml). It requires an explicitly acknowledged self-hosted runner labelled `dingoos-poc`, checks out an exact SHA, records individual gate outcomes, hashes logs into an evidence manifest, uploads the evidence bundle, and fails closed if a required gate is BLOCKED or FAIL. It does not silently fall back to paid hosted execution. Workflow source commit: `016bdbb3b08249b6ae39872df4253e02f5d30c04`.
+The candidate branch now contains a manual-only, free/local-first workflow at [`.github/workflows/study-buddy-poc-completion.yml`](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/horizon-developer-terminal-squashed-2026-10-21/.github/workflows/study-buddy-poc-completion.yml). It requires an explicitly acknowledged self-hosted runner labelled `dingoos-poc`, checks out an exact SHA, records individual gate outcomes, hashes logs into an evidence manifest, uploads the evidence bundle, and fails closed if a required gate is BLOCKED or FAIL. It does not silently fall back to paid hosted execution. Latest workflow hardening commit: `47aca59e3e572854bfc525c47574ff0fc9e2bca6` (mandatory gate coverage and log-digest verification).
 
 ### Exit criteria
 

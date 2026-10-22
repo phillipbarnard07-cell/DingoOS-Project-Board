@@ -1159,3 +1159,39 @@ A further contract gap was recorded against [issue #61](https://github.com/phill
 - #76 itself explicitly limits its single-ResearchLedger claim to one locking domain and says it does not solve distributed fencing or external revocation/dispatch ordering. Comments were added to issues #77 and #78 preserving their P0/HOLD states and enumerating the evidence still missing.
 - #174's own test plan describes regression-test definitions and structural inspections, not executed Python tests. Classification policy remains UNASSESSED, trusted final authorization/revocation handoff remains incomplete, and publication stays disabled.
 - All relevant draft PRs remain unmerged. Exact-SHA execution remains **BLOCKED** in this environment by failed GitHub DNS resolution; no tests were run and no release status was promoted.
+
+---
+
+## Study Buddy POC completion programme — 22 October 2026
+
+**Objective:** complete the existing DingoOS Study Buddy POC through a single reconciled candidate, executable local verification, real save/reopen and restart recovery, correction history, tamper rejection, and independent replay. Preserve existing repositories, architecture, IP, branch/PR history and human authorization boundaries.
+
+**Control issue:** [P0 — Study Buddy POC completion programme #11](https://github.com/phillipbarnard07-cell/DingoOS-Project-Board/issues/11)  
+**Canonical delivery roadmap:** [DingoOS #228](https://github.com/phillipbarnard07-cell/DingoOS/issues/228)  
+**Runner observability blocker:** [DingoOS #53](https://github.com/phillipbarnard07-cell/DingoOS/issues/53)  
+**Candidate PR:** [DingoOS PR #237 — draft, unmerged](https://github.com/phillipbarnard07-cell/DingoOS/pull/237)
+
+### Current objective state
+
+- **POC:** NOT ACCEPTED / HOLD.
+- **Runtime/full-suite execution:** NOT VERIFIED; no inspectable workflow run is currently evidence of passing tests.
+- **Dependency reproducibility:** BLOCKED until a genuine npm-generated, reviewed `package-lock.json` is committed.
+- **Restart/reopen, correction lineage, C-4PO/SEARM end-to-end qualification, tamper rejection and clean-checkout replay:** NOT VERIFIED.
+- **Release, merge promotion and deployment:** not authorized.
+
+### New completion workflow
+
+The candidate branch now contains a manual-only, free/local-first workflow at [`.github/workflows/study-buddy-poc-completion.yml`](https://github.com/phillipbarnard07-cell/DingoOS/blob/feat/horizon-developer-terminal-squashed-2026-10-21/.github/workflows/study-buddy-poc-completion.yml). It requires an explicitly acknowledged self-hosted runner labelled `dingoos-poc`, checks out an exact SHA, records individual gate outcomes, hashes logs into an evidence manifest, uploads the evidence bundle, and fails closed if a required gate is BLOCKED or FAIL. It does not silently fall back to paid hosted execution. Workflow source commit: `016bdbb3b08249b6ae39872df4253e02f5d30c04`.
+
+### Exit criteria
+
+1. Reconcile one exact candidate SHA without rewriting history.
+2. Commit and review the real npm lockfile.
+3. Execute Node, Python, converter, acceptance and preflight gates with raw output and exit codes.
+4. Demonstrate the real local Study Buddy user journey, persistence and restart recovery.
+5. Demonstrate correction/supersession and fail-closed tamper rejection.
+6. Verify provenance and C-4PO/SEARM state boundaries without promoting unsupported claims.
+7. Replay from a clean checkout, independently review evidence, and obtain an explicit human POC acceptance decision.
+
+**Evidence rule:** IMPLEMENTED is not EXECUTED; EXECUTED is not VERIFIED unless output and exit status are inspectable; no required evidence means NOT_RUN/BLOCKED, never PASS. Production readiness is a separate decision.
+

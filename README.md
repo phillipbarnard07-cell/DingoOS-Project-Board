@@ -1195,3 +1195,4 @@ The candidate branch now contains a manual-only, free/local-first workflow at [`
 
 **Evidence rule:** IMPLEMENTED is not EXECUTED; EXECUTED is not VERIFIED unless output and exit status are inspectable; no required evidence means NOT_RUN/BLOCKED, never PASS. Production readiness is a separate decision.
 
+**Dispatch availability caveat:** the workflow file is currently on draft PR #237, not the default branch, so GitHub's manual-dispatch UI may not expose it until the workflow exists on the default branch. Do not merge just to enable dispatch. The local harness is the immediate execution path and preserves the no-merge-until-evidence rule.

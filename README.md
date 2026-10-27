@@ -1,3 +1,65 @@
+# CURRENT SNAPSHOT — 27 OCTOBER 2026
+
+> This section supersedes older status snapshots for current state. Historical estimates below are retained for continuity and are **not current measured completion scores**.
+
+## Repository census (exact candidate inspected)
+
+- Canonical repository: [DingoOS](https://github.com/phillipbarnard07-cell/DingoOS)
+- Study Buddy candidate PR: [#237](https://github.com/phillipbarnard07-cell/DingoOS/pull/237), draft and unmerged.
+- Inspected PR head: `c4a0c20e58407e34c1e3395f4e6b3241326da66f`.
+- Tracked files: **953**; directories: **118**.
+- Sum of tracked file bytes at that revision: **5,670,464 bytes (5.41 MiB)**. GitHub repository metadata reports **7,245 KiB (~7.1 MiB)**; this includes a different repository-size measure and must not be conflated with the tracked-file sum.
+- File-type inventory: **524 Python files**, **288 files under tests/**, **256 under docs/**, **109 paths under core/**, **66 under engineering/**, **52 under schemas/**, **28 under scripts/**, **10 JavaScript files**, **3 HTML files**, **3 shell scripts**, and **21 YAML files** across the tree. These categories overlap by purpose only where noted; top-level counts are paths, not counts of verified capabilities.
+- **Exact lines of code (LOC): NOT MEASURED.** The Git tree gives file sizes but not line counts; a full revision-pinned LOC census has not yet been run. The historical 5,449 additions on PR #45 are an old PR diff, not the current repository LOC.
+
+## Current completion interpretation
+
+- **Provisional source-implementation maturity: ~50% (low-confidence planning estimate only).** This is a manual, source-presence assessment, not a measured LOC ratio and not an acceptance score.
+- **Study Buddy end-to-end POC acceptance: 0% accepted / HOLD.** Required real runtime, restart/reopen, correction/supersession, tamper rejection, exact-SHA evidence and independent review have not all been demonstrated.
+- **DDEP certified stages: 0/74.** Stage count in a design/runtime contract is not certification.
+- **Tests:** 288 paths exist under `tests/`; this is not the number of passing tests. The full current-candidate suite has NOT RUN with inspectable logs and exit codes.
+- **No merge, release, publication, production-readiness or consequential dispatch is authorized by this snapshot.**
+
+### Module-level implementation maturity (manual estimate; not verified completion)
+
+Percentages below estimate how much of the intended source-level capability appears to exist, based on repository structure and current PR descriptions. They are deliberately separate from integration and runtime verification. Re-measure them with a revision-bound inventory before treating them as KPI values.
+
+| Module / workstream | Provisional code maturity | Integration / evidence status |
+|---|---:|---|
+| Core primitives, state and contracts | 60% | Partial; full canonical-path verification pending |
+| Schemas and typed records | 70% | Many schema files exist; authoritative service alignment remains to verify |
+| Research API, ledger and persistence | 55% | Source exists; live journey and process-restart recovery NOT VERIFIED |
+| Horizon / Study Buddy interface | 65% | Interface and terminal source exist; browser/API end-to-end run NOT VERIFIED |
+| C-2PO objectives / intake | 50% | Partial; end-to-end traceability pending |
+| C-3PO proposal / orchestration | 40% | Partial; provider/resource qualification must remain fail-closed |
+| C-4PO challenge / refutation | 50% | Refutation hardening is in draft PR #241; tests NOT RUN on full candidate |
+| SEARM qualification / replication | 40% | Canonical qualified-result path not end-to-end verified |
+| Evidence, provenance and append-only ledger | 50% | Primitives exist; canonical provenance wiring and tamper/recovery acceptance pending |
+| DDEP execution / workflow processor | 40% | Distributed fencing/revocation and recovery gaps remain; 0/74 stages certified |
+| EPC / mathematics kernel | 45% | Components exist; integrated transition/evidence path not verified |
+| Knowledge Snowflake / admission | 35% | Gate exists; canonical admission integration not verified |
+| Security, authorization and local boundaries | 55% | Controls exist; comprehensive runtime/adversarial verification pending |
+| Tests and acceptance harness | 45% authored-source maturity | Full current-candidate test execution NOT RUN; no acceptance inferred |
+| Build, dependency reproducibility and operations | 30% | Genuine npm lockfile and reproducible end-to-end runner evidence remain blockers |
+| Documentation / architecture / traceability | 75% | Broad documentation exists; status must continue to be reconciled against live evidence |
+
+**Scoring warning:** these estimates do not average into a trustworthy overall percentage because modules overlap and have different criticality. The single overall 50% is a rough planning signal only; the formal weighted score remains **UNMEASURED** until a reproducible census and evidence-backed workstream reassessment are recorded.
+
+## Workflow containment update
+
+Four noisy validation workflow definitions were moved out of `.github/workflows/` on the PR #237 branch into `.github/paused-workflows/`, preserving their definitions and test logic. The previous code-level `if: false` pause did not stop GitHub creating push-triggered failed runs. Those runs exposed zero jobs, so their cause remains unconfirmed and they do not constitute test execution. Verify that new runs have stopped before re-enabling any workflow.
+
+## Next measurable gates
+
+1. Generate a LOC/file/function/test census pinned to the exact candidate SHA; separate source, tests, docs, schemas, workflow YAML and generated files.
+2. Obtain a genuine reviewed `package-lock.json` or `npm-shrinkwrap.json`; do not fabricate one.
+3. Execute the dependency-free gates and then the full Node/Python/API acceptance suite on an authorized local runner; retain raw output and exit codes.
+4. Demonstrate persistence across real process restart, correction/supersession lineage and tamper rejection.
+5. Reconcile canonical C-4PO/SEARM/Evidence/Provenance/Knowledge transitions; keep missing prerequisites at BLOCKED/NOT_RUN/HOLD.
+6. Independently review evidence and only then reconsider POC acceptance.
+
+---
+
 I’ve updated the board’s reporting basis to 19 October 2026, preserving the existing DingoOS project, architecture, workstreams and historical figures while incorporating the latest assessment-protocol and release-integrity work.
 
 The most important correction is that the board must distinguish the previously reported 46% weighted estimate from currently measured and verified completion. The new assessment-protocol work is recorded against PR #220 and its exact candidate SHA, but it does not increase the verified score until runtime tests and integration evidence exist.
